@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fa">
+@include('layouts.admin.blocks.head')
+
+<body dir="rtl">
+
+
+	<div class="dashboard-main-wrapper" id="a333">
+		@include('layouts.admin.blocks.menu')
+		@include('layouts.admin.blocks.sidebar')
+		<div class="dashboard-wrapper">
+			@yield('content')
+		</div>
+	</div>
+	@include('layouts.admin.blocks.script')
+    @include('layouts.admin.blocks.message')
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+@include('layouts.admin.blocks.head')
+<body>
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+	
+<!-- Sidebar START -->
+@include('layouts.admin.blocks.sidebar')
+<!-- Sidebar END -->
+
+<!-- Page content START -->
+<div class="page-content">
+
+	<!-- Top bar START -->
+	@include('layouts.admin.blocks.menu')
+	<!-- Top bar END -->
+
+	<!-- Page main content START -->
+	@include('layouts.admin.blocks.content')
+	<!-- Page main content END -->
+</div>
+<!-- Page content END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+@include('layouts.admin.blocks.script')
+</body>
+
+</html>
