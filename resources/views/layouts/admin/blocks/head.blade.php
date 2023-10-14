@@ -67,6 +67,7 @@
 	</script>
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="assets/admin/images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style-rtl.css')}}">
 
 	<!-- Plugins CSS -->
 	<link rel="stylesheet" href="{{asset('assets/admin/libs/css/style.css')}}">
@@ -77,7 +78,6 @@
 	<!-- toast -->
     <link rel="stylesheet" href="{{asset('assets/admin/toastr/toaster.css')}}">
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style-rtl.css')}}">
 
 </head>
 @yield('css')

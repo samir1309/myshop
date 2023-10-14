@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Redirects;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +20,12 @@ use Illuminate\Support\Facades\Route;
 //     Route::get('/', 'ContentController@getAdmin');
     
 //     });
-Route::get("/admin", function(){
-    return View::make("admin.index");
- });
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+include('admin.php');

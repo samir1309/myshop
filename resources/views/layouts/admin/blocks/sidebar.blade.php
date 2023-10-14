@@ -1,3 +1,4 @@
+<!-- Sidebar START -->
 <nav class="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
 
 	<!-- Navbar brand for xl START -->
@@ -101,3 +102,4 @@
 		</div>
 	</div>
 </nav>
+<!-- Sidebar END -->
