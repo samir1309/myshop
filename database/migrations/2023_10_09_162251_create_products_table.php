@@ -33,7 +33,9 @@ class CreateProductsTable extends Migration
             $table->text('lead')->nullable();
             $table->string('title_seo')->nullable();
             $table->text('description_seo')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

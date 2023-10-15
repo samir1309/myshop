@@ -20,14 +20,26 @@
 				
 				<!-- Title -->
 				<li class="nav-item ms-2 my-2">صفحات</li>
-
-				<!-- menu item 2 -->
-				<li class="nav-item">
+					<!-- menu item 2 -->
+					<li class="nav-item">
 					<a class="nav-link" data-bs-toggle="collapse" href="#collapsepage" role="button" aria-expanded="false" aria-controls="collapsepage">
-						<i class="bi bi-basket fa-fw me-2"></i>دوره ها
+						<i class="bi bi-basket fa-fw me-2"></i>محصولات 
 					</a>
 					<!-- Submenu -->
 					<ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navbar-sidebar">
+						<li class="nav-item"> <a class="nav-link" href="admin-course-list.html">لیست</a></li>
+						<li class="nav-item"> <a class="nav-link" href="{{ URL::action('Admin\CategoryController@getCategory') }}">دسته بندی</a></li>
+						<li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">جزئیات</a></li>
+					</ul>
+				</li>
+
+				<!-- menu item 2 -->
+				<li class="nav-item">
+					<a class="nav-link" data-bs-toggle="collapse" href="#collapsepages" role="button" aria-expanded="false" aria-controls="collapsepages">
+						<i class="bi bi-basket fa-fw me-2"></i>دوره ها
+					</a>
+					<!-- Submenu -->
+					<ul class="nav collapse flex-column" id="collapsepages" data-bs-parent="#navbar-sidebar">
 						<li class="nav-item"> <a class="nav-link" href="admin-course-list.html">لیست</a></li>
 						<li class="nav-item"> <a class="nav-link" href="admin-course-category.html">دسته بندی</a></li>
 						<li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">جزئیات</a></li>

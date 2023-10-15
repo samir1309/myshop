@@ -12,8 +12,22 @@
 <!-- Template Functions -->
 <script src="{{asset('assets/admin/js/functions.js')}}"></script>
 
-
+<!-- =============== ckeditor SCRIPTS ===============-->
+<script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
 <script src="{{asset('assets/admin/toastr/toastr.js')}}"></script>
 
 @yield('js')
 
+
+<script>
+    var cks = document.getElementsByClassName('ckeditor');
+    Array.from(cks).forEach((el) => {
+        console.log(el)
+        CKEDITOR.replace(el, {
+            language: 'fa',
+            content: 'fa',
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    });
+</script>

@@ -19,7 +19,9 @@ class CreateOrderHistoriesTable extends Migration
             $table->integer('order_status_id')->nullable(); 
             $table->integer('order_id')->nullable(); 
             $table->text('description')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

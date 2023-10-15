@@ -22,7 +22,9 @@ class CreateShipmentMethodsTable extends Migration
             $table->integer('without_price')->default(0); 
             $table->text('description')->nullable();
             $table->integer('sort')->default(1); 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

@@ -21,7 +21,9 @@ class CreateProductSpecificationTable extends Migration
             $table->text('description')->nullable();
             $table->integer('sort')->default(0); 
             $table->string('image')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

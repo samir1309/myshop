@@ -19,7 +19,9 @@ class CreateBasketItemsTable extends Migration
             $table->integer('basket_id')->nullable();
             $table->integer('product_variable_id')->nullable(); 
             $table->integer('quantity')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

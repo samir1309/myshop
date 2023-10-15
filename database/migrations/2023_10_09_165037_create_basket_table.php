@@ -21,7 +21,9 @@ class CreateBasketTable extends Migration
             $table->integer('address_id')->nullable();
             $table->integer('shippingmethod_id')->nullable(); 
             $table->text('description')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

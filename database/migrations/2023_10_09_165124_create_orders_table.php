@@ -23,7 +23,9 @@ class CreateOrdersTable extends Migration
             $table->text('location')->nullable();
             $table->integer('basket_id')->nullable();
             $table->text('buyer_name')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

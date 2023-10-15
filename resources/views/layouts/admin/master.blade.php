@@ -21,7 +21,7 @@
 	<!-- Top bar END -->
 
 	<!-- Page main content START -->
-	@include('layouts.admin.blocks.content')
+	@yield('content')
 	<!-- Page main content END -->
 </div>
 <!-- Page content END -->

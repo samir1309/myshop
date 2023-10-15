@@ -24,6 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        require_once app_path('Library/jdate.php');
+        require_once app_path('Library/UploadImg.php');
+        require_once app_path('Library/Resizer.php');
+//        require_once app_path('Library/Watermark.php');
+        require_once app_path('Library/MakeTree.php');
+        // require_once app_path('Library/composer.php');
         Schema::defaultStringLength(191);
+        
     }
 }

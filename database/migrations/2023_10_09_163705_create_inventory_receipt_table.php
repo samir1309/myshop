@@ -22,8 +22,9 @@ class CreateInventoryReceiptTable extends Migration
             $table->boolean('status')->default(0); 
             $table->text('description')->nullable();
             $table->string('type')->nullable();
-            
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

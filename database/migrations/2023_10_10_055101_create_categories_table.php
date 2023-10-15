@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('title')->nullable();
             $table->string('title_en')->nullable();
             $table->string('url')->nullable();
-            $table->integer('parent_id')->default(0); 
+            $table->integer('parent_id')->nullable(); 
             $table->integer('sort')->default(1); 
             $table->integer('sortlist')->default(1); 
             $table->string('cover')->nullable();
@@ -27,7 +27,10 @@ class CreateCategoriesTable extends Migration
             $table->text('keywords')->nullable();
             $table->string('title_seo')->nullable();
             $table->text('description_seo')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
+
         });
     }
 

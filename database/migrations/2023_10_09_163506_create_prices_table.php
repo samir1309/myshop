@@ -20,7 +20,9 @@ class CreatePricesTable extends Migration
             $table->string('old_price')->nullable();
             $table->string('priceable_type')->nullable();
             $table->integer('priceable_id')->nullable(); 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

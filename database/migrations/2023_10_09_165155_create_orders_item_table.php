@@ -22,7 +22,9 @@ class CreateOrdersItemTable extends Migration
             $table->integer('quantity')->default(0);
             $table->integer('product_variable_id')->nullable(); 
             $table->integer('item_status')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 

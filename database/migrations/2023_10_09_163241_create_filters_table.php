@@ -18,7 +18,9 @@ class CreateFiltersTable extends Migration
             $table->text('title')->nullable();
             $table->integer('sort')->default(0); 
             $table->integer('parent_id')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->softDeletes();
         });
     }
 
