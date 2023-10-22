@@ -21,6 +21,19 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
   Route::get('category/find/{id}/', 'CategoryController@find');
 
 
+     //Products
+     Route::get('products', 'ProductController@getProduct');
+     Route::get('products/add', 'ProductController@getAddProduct');
+     Route::post('products/add', 'ProductController@postAddProduct');
+     Route::get('products/delete/{id}', 'ProductController@getDeleteProduct');
+     Route::post('products/delete', 'ProductController@postDeleteProduct');
+     Route::get('products/edit/{id}', 'ProductController@getEditProduct');
+     Route::post('products/edit/{id}', 'ProductController@postEditProduct');
+     Route::post('products/sort', 'ProductController@postSort');
+     Route::get('/products/export', 'ProductController@export');
+
+     
+
     Route::get('/', 'ContentController@getAdmin')->name('admin.index');
 
     
