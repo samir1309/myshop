@@ -70,6 +70,7 @@ class ProductController extends Controller
             $input['price']=@$request['old_price'];
             $input['old_price']=0;
         }
+        
         $product = Products::create($input);
         // $product->update($input);
 

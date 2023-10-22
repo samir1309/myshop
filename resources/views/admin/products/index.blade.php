@@ -60,7 +60,6 @@
 						<thead>
 							<tr>
 								<th scope="col" class="border-0 rounded-start">عنوان</th>
-								<th scope="col" class="border-0">کاور</th>
 								<th scope="col" class="border-0">دسته</th>
 								<th scope="col" class="border-0">وضعیت</th>
 								<th scope="col" class="border-0 rounded-end">عملیات</th>
@@ -69,7 +68,7 @@
 
 						<!-- Table body START -->
 						<tbody>
-						@foreach($category as $key=> $cat)
+						@foreach($products as $key=> $cat)
 							<!-- Table row -->
 							<tr>
 								<!-- Table data -->
@@ -87,17 +86,6 @@
 									</div>
 								</td>
 
-								<!-- Table data -->
-								<td>
-									<div class="d-flex align-items-center">
-										<!-- Avatar -->
-										<div class="avatar avatar-xs flex-shrink-0">
-												<img src="{{@$cat_cover['cat_image']}}"
-                                                                     class="mx-auto w-100 swiper-lazy">
-										</div>
-										
-									</div>
-								</td>
 
 								<!-- Table data -->
 								<td>
@@ -117,9 +105,9 @@
 
 								<!-- Table data -->
 								<td>
-								<a href="{{URL::action('Admin\CategoryController@getEditCategory',@$cat['id'])}}" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
+								<a href="" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
 									
-									<a href="{{URL::action('Admin\CategoryController@getDeleteCategory',@$cat['id'])}}"
+									<a href=""
                                                                    type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"
                                                                    class="btn btn-space btn-danger"
                                                                    data-toggle="tooltip" title="حذف">
