@@ -10,12 +10,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Categories extends Model
 {
     use SoftDeletes;
+    use HasFactory;
+
+
     protected $table = 'categories';
 
     protected $fillable = [
         'title', 'title_en', 'description', 'description_seo','cover',
         'url', 'title_seo', 'keyword' ,'parent_id','status','sort','sortlist'
     ];
+
+
+    public function scopeActive($query){
+        $records = $query->whereStatus('1');
+        return $records;
+   }
+
+  public function getCatImageAttribute(){
+        return file_exists('assets/uploads/content/cat/'.@$this->attributes['cover']) ? asset('assets/uploads/content/cat/'.@$this->attributes['cover']) :asset('assets/site/images/notfound.png');
+
+    }
 
     public function parent()
     {
@@ -34,10 +48,6 @@ class Categories extends Model
     {
         return $this->belongsTo(\App\Models\Category::class, 'parent_id', 'id');
     }
-    public function getCatImageAttribute(){
-        return file_exists('assets/uploads/content/cat/'.@$this->attributes['cover']) ? asset('assets/uploads/content/cat/'.@$this->attributes['cover']) :asset('assets/site/images/notfound.png');
 
-    }
-    use HasFactory;
 
 }

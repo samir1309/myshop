@@ -123,24 +123,8 @@
 				<!-- Course table END -->
 			</div>
 			<!-- Card body END -->
-
-			<!-- Card footer START -->
-			<div class="card-footer bg-transparent pt-0">
-				<!-- Pagination START -->
-				<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-					<!-- Content -->
-					<p class="mb-0 text-center text-sm-start">نمایش 1 تا 8 از 20</p>
-					<!-- Pagination -->
-					<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-						<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-							<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-right"></i></a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-							<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-							<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
-						</ul>
-					</nav>
-				</div>
+			<p dir="RTL"><strong>داستان میشه<a href="/s/fpnac/305" target="_blank">، اینجا میتونید مجانی بخونید و سفارش بدید&nbsp;</a></strong></p>
+		
 				<!-- Pagination END -->
 			</div>
 			<!-- Card footer END -->

@@ -18,9 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password','mobile_confirm','mobile','confirm_code',
+        'email_confirm','admin', 'family','temp_password','remember_token'
     ];
 
     /**
@@ -41,4 +40,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function setMobileAttribute($value)
+    {
+       $this->attributes['mobile'] = Helper::persian2LatinDigit($value);
+    }
+    public function setPasswordAttribute($value)
+    {
+       $this->attributes['password'] = bcrypt(Helper::persian2LatinDigit($value));
+    }
+    public function setTempPasswordAttribute($value)
+    {
+       $this->attributes['temp_password'] = bcrypt(Helper::persian2LatinDigit($value));
+    }
 }

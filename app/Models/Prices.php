@@ -16,6 +16,9 @@ class Prices extends Model
         'priceable_id' , 'priceable_type','old_price','price' 
     ];
 
+
+ 
+
     public function priceable()
     {
         return $this->morphTo();
