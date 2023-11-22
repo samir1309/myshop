@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use App\Library\Helper;
 
 class Products extends Model
 {
@@ -17,7 +18,10 @@ class Products extends Model
 
     ];
 
-
+    public function tags()
+    {
+        return $this->morphToMany('App\Models\Tag', 'taggable');
+    }
 
     public function scopeActive($query){
          $records = $query->whereStatus('1');

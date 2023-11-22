@@ -72,7 +72,7 @@
 									</div>
 								</div>
 								<!-- Check box -->
-								<div class="mb-4 d-flex justify-content-between mb-4">
+								<!-- <div class="mb-4 d-flex justify-content-between mb-4">
 									<div class="form-check">
 										<input type="checkbox" class="form-check-input" id="exampleCheck1">
 										<label class="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
@@ -82,7 +82,7 @@
 											<u>رمز خود را فراموش کرده اید؟</u>
 										</a>
 									</div>
-								</div>
+								</div> -->
 								<!-- Button -->
 								<div class="align-items-center mt-0">
 									<div class="d-grid">

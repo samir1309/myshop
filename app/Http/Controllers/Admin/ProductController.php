@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Prices;
 use App\Models\Categories;
+use App\Library\Helper;
 use app\Library\MakeTree;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Redirect;

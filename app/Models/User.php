@@ -54,4 +54,65 @@ class User extends Authenticatable
     {
        $this->attributes['temp_password'] = bcrypt(Helper::persian2LatinDigit($value));
     }
+
+
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
+    }
+
+    public function assignRole($role)
+    {
+        return $this->roles()->attach($role);
+    }
+
+    public function deleteRole($role)
+    {
+        return $this->roles()->detach($role);
+    }
+
+    public function hasPermission($access)
+    {
+        $accessCount = count(explode('.', $access));
+
+        $allPermissions=[];
+
+
+        foreach ($this->roles as $key=>$userRole) {
+      
+            if ($key==0){
+                $allPermissions = array_merge(unserialize($userRole->permission));
+
+            }else{
+                $allPermissions = array_merge(unserialize($userRole->permission),$allPermissions);
+
+            }
+
+        }
+
+            unset($allPermissions['fullAccess']);
+
+        if (@$allPermissions['fullAccess'] == 1) {
+            return true;
+        }
+        if ($accessCount == 1) {
+
+            if (in_array($access, $allPermissions)) {
+                return true;
+            }
+        }
+        if (is_array($allPermissions)) {
+            if (in_array($access, Arr::dot($allPermissions))) {
+                return true;
+                   
+            }
+    
+            return false;
+        }
+
+        return false;
+    }
+
+
 }

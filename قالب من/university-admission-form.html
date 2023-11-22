@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+	<title>Eduport - قالب HTML دوره آنلاین و آموزش</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="">
+	<meta name="description" content="Eduport - قالب HTML دوره آنلاین و آموزش">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/choices/css/choices.min.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="navbar-light navbar-sticky">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Responsive navbar toggler -->
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-animation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</button>
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+
+				<!-- Nav Search END -->
+				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+
+					<!-- Nav item 1 Demos -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه اصلی</a>
+						<ul class="dropdown-menu" aria-labelledby="demoMenu">
+							<li> <a class="dropdown-item" href="index.html">نسخه 1</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">نسخه 2</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">نسخه 3</a></li>
+							<li> <a class="dropdown-item" href="index-4.html">نسخه 4</a></li>
+							<li> <a class="dropdown-item" href="index-5.html">نسخه 5</a></li>
+							<li> <a class="dropdown-item" href="index-6.html">نسخه 6</a></li>
+							<li> <a class="dropdown-item" href="index-7.html">نسخه 7</a></li>
+							<li> <a class="dropdown-item" href="index-8.html">نسخه 8</a></li>
+							<li> <a class="dropdown-item" href="index-9.html">نسخه 9</a><li>
+							<li> <a class="dropdown-item" href="index-10.html">نسخه 10</a></li>
+							<li> <a class="dropdown-item" href="index-11.html">نسخه 11</a></li>
+						</ul>
+					</li>
+
+					<!-- Nav item 2 Pages -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحات</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">دوره ها</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="course-categories.html">دسته بندی</a></li>
+									<li> <hr class="dropdown-divider"></li>
+									<li> <a class="dropdown-item" href="course-grid.html">لیست نسخه 1</a></li>
+									<li> <a class="dropdown-item" href="course-grid-2.html">لیست نسخه 2</a></li>
+									<li> <hr class="dropdown-divider"></li>
+									<li> <a class="dropdown-item" href="course-list.html">لیست نسخه 3</a></li>
+									<li> <a class="dropdown-item" href="course-list-2.html">لیست نسخه 4</a></li>
+									<li> <hr class="dropdown-divider"></li>
+									<li> <a class="dropdown-item" href="course-detail.html">جزئیات نسخه 1</a></li>
+									<li> <a class="dropdown-item" href="course-detail-min.html">جزئیات نسخه 2</a></li>
+									<li> <a class="dropdown-item" href="course-detail-adv.html">جزئیات نسخه 3</a></li>
+									<li> <a class="dropdown-item" href="course-detail-module.html">جزئیات نسخه 4</a></li>
+									<li> <a class="dropdown-item" href="course-video-player.html">جزئیات نسخه 5</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">سایر</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about.html">درباره ما</a></li>
+									<li> <a class="dropdown-item" href="contact-us.html">تماس با ما</a></li>
+									<li> <a class="dropdown-item" href="blog-grid.html">لیست وبلاگ 1</a></li>
+									<li> <a class="dropdown-item" href="blog-masonry.html">لیست وبلاگ 2</a></li>
+									<li> <a class="dropdown-item" href="blog-detail.html">جزئیات وبلاگ</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">قیمت گذاری</a></li>
+								</ul>
+							</li>
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">بنرها</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="#">نسخه 1</a></li>
+									<li> <a class="dropdown-item" href="#">نسخه 2</a></li>
+									<li> <p class="dropdown-item mb-0">به زودی</p></li>
+								</ul>
+							</li>
+							<li> <a class="dropdown-item" href="instructor-list.html">لیست مدرس</a></li>
+							<li> <a class="dropdown-item" href="instructor-single.html">جزئیات مدرس</a></li>
+							<li> <a class="dropdown-item" href="become-instructor.html">مدرس شوید</a></li>
+							<li> <a class="dropdown-item" href="abroad-single.html">مهاجرت مدرس</a></li>
+							<li> <a class="dropdown-item" href="workshop-detail.html">خرید دوره</a></li>
+							<li> <a class="dropdown-item" href="event-detail.html">رویدادها <span class="badge bg-success ms-2 smaller">جدید</span></a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">فروشگاه</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="shop.html">لیست دوره</a></li>
+									<li> <a class="dropdown-item" href="shop-product-detail.html">جزئیات دوره</a></li>
+									<li> <a class="dropdown-item" href="cart.html">سبد خرید</a></li>
+									<li> <a class="dropdown-item" href="checkout.html">تسویه حساب</a></li>
+									<li> <a class="dropdown-item" href="empty-cart.html">سبد خرید خالی</a></li>
+									<li> <a class="dropdown-item" href="wishlist.html">مورد علاقه ها</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">پشتیبانی</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">مرکز پشتیبانی</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">جزئیات</a></li>
+									<li> <a class="dropdown-item" href="faq.html">سوالات متداول</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">احراز هویت</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-in.html">ورود</a></li>
+									<li> <a class="dropdown-item" href="sign-up.html">ثبت نام</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">فراموشی رمز عبور</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">فرم</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="request-demo.html">درخواست دوره</a></li>
+									<li> <a class="dropdown-item" href="book-class.html">رزرو آنلاین</a></li>
+									<li> <a class="dropdown-item" href="request-access.html">دسترسی رایگان</a></li>
+									<li> <a class="dropdown-item" href="university-admission-form.html">پذیرش</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown-submenu dropend">
+								<a class="dropdown-item dropdown-toggle" href="#">سایر</a>
+								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="error-404.html">صفحه 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">به زودی</a></li>
+								</ul>
+							</li>
+
+						</ul>
+					</li>
+
+					<!-- Nav item 3 Pages -->
+					<li class="nav-item dropdown"><a class="nav-link" href="contact-us.html">تماس با ما</a></li>
+
+					<!-- Nav item 4 link-->
+					<li class="nav-item"><a class="nav-link" href="docs/alerts.html">کدهای کاربردی</a></li>
+			</div>
+			<!-- Main navbar END -->
+			<div class="navbar-nav ms-2">
+				<button class="btn btn-sm btn-dark mb-0"><i class="bi bi-power me-2"></i>ورود</button>
+			</div>
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main part START -->
+<section>
+	<div class="container">
+		<div class="row g-5 justify-content-between">
+			<!-- Admission form START -->
+			<div class="col-md-8 mx-auto">
+				<!-- Title -->
+				<h2 class="mb-3 fs-4">پذیرش مدرس</h2>
+				<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و <a href="#">دانلود pdf</a> ازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. <a href="#">+123 456 789</a> یـا <a href="#">example@email.com</a>.</p>
+				<p class="mb-1">قبل از ادامه تکمیل فرم لطفا موضوعات زیر را مطالعه کنید:</p>
+				<ul class="ps-3">
+					<li>هزینه درخواست 325,000 تومان</li>
+					<li>هزینه ها غیر قابل استرداد است</li>
+					<li>فیلد مورد نیاز با <span class="text-danger">*</span> برای تکمیل فرم پذیرش الزامی است</li>
+				</ul>
+				<!-- Form START -->
+				<form class="row g-3">
+					<h5 class="mb-0">اطلاعات شخصی</h5>
+
+					<!-- First name -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">نام <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="firstName">
+							</div>
+						</div>
+					</div>
+
+					<!-- Middle name -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">نام کاربری <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="middleName">
+							</div>
+						</div>
+					</div>
+
+					<!-- Last name -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">نام خانوادگی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="lastName">
+							</div>
+						</div>
+					</div>
+
+					<!-- Gender -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">جنسیت <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<div class="d-flex">
+									<div class="form-check radio-bg-light me-4">
+										<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+										<label class="form-check-label" for="flexRadioDefault1">
+											مذکر
+										</label>
+									</div>
+									<div class="form-check radio-bg-light">
+										<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+										<label class="form-check-label" for="flexRadioDefault2">
+											مونث
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Date of birth -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">تاریخ تولد</h6>
+							</div>
+						
+							<div class="col-lg-8">
+								<div class="row g-2 g-sm-4">
+									<div class="col-4">
+										<select class="form-select js-choice z-index-9 border-0 bg-light" aria-label=".form-select-sm">
+											<option value="">روز</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+											<option>7</option>
+											<option>8</option>
+											<option>9</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>13</option>
+											<option>14</option>
+											<option>15</option>
+											<option>16</option>
+											<option>17</option>
+											<option>18</option>
+											<option>19</option>
+											<option>20</option>
+											<option>21</option>
+											<option>22</option>
+											<option>23</option>
+											<option>24</option>
+											<option>25</option>
+											<option>26</option>
+											<option>27</option>
+											<option>28</option>
+											<option>29</option>
+											<option>30</option>
+											<option>31</option>
+										</select>
+									</div>
+									<div class="col-4">
+										<select class="form-select js-choice z-index-9 border-0 bg-light" aria-label=".form-select-sm">
+											<option value="">ماه</option>
+											<option>فروردین</option>
+											<option>اردیبهشت</option>
+											<option>خرداد</option>
+											<option>تیر</option>
+											<option>مرداد</option>
+											<option>شهریور</option>
+											<option>مهر</option>
+											<option>آبان</option>
+											<option>آذر</option>
+											<option>دی</option>
+											<option>بهمن</option>
+											<option>اسفند</option>
+										</select>
+									</div>
+									<div class="col-4">
+										<select class="form-select js-choice z-index-9 border-0 bg-light" aria-label=".form-select-sm">
+											<option value="">سال</option>
+											<option>1381</option>
+											<option>1382</option>
+											<option>1383</option>
+											<option>1384</option>
+											<option>1385</option>
+											<option>1386</option>
+											<option>1387</option>
+											<option>1388</option>
+											<option>1389</option>
+											<option>1390</option>
+											<option>1395</option>
+											<option>1396</option>
+											<option>1397</option>
+											<option>1398</option>
+											<option>1399</option>
+											<option>1400</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Email -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">ایمیل <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="email" class="form-control" id="email">
+							</div>
+						</div>
+					</div>
+
+					<!-- Phone number -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">شماره تماس <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="phoneNumber">
+							</div>
+						</div>
+					</div>
+
+					<!-- Home address -->
+					<div class="col-12">
+						<div class="row g-xl-0">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">آدرس <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<textarea class="form-control" rows="3" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">کشور <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<select class="form-select js-choice z-index-9 rounded-3 border-0 bg-light" aria-label=".form-select-sm">
+									<option value="">کشور</option>
+									<option>ایران</option>
+									<option>کانادا</option>
+									<option>اروپا</option>
+									<option>استرالیا</option>
+									<option>آلمان</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- State -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">استان <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<select class="form-select js-choice z-index-9 rounded-3 border-0 bg-light" aria-label=".form-select-sm">
+									<option value="">استان</option>
+									<option>تهران</option>
+									<option>فارس</option>
+									<option>اصفهان</option>
+									<option>گلستان</option>
+									<option>بوشهر</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- Country -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">شهر <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<select class="form-select js-choice z-index-9 rounded-3 border-0 bg-light" aria-label=".form-select-sm">
+									<option value="">شهر</option>
+									<option>تهران</option>
+									<option>شهریار</option>
+									<option>کرج</option>
+									<option>پرند</option>
+									<option>بومهن</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- Zip code-->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">کدپستی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="zipCode">
+							</div>
+						</div>
+					</div>
+
+					<!-- Divider -->
+					<hr class="my-5">
+
+					<!-- Parent detail -->
+					<h5 class="mt-0">اطلاعات معرف</h5>
+					
+					<!-- Salutation -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">جنسیت <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<div class="d-flex">
+									<div class="form-check radio-bg-light me-4">
+										<input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation1" checked>
+										<label class="form-check-label" for="flexRadioSalutation1">
+											Mr.
+										</label>
+									</div>
+									<div class="form-check radio-bg-light me-4">
+										<input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation2">
+										<label class="form-check-label" for="flexRadioSalutation2">
+											Mrs.
+										</label>
+									</div>
+									<div class="form-check radio-bg-light me-4">
+										<input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation3">
+										<label class="form-check-label" for="flexRadioSalutation3">
+											Ms.
+										</label>
+									</div>
+									<div class="form-check radio-bg-light">
+										<input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation4">
+										<label class="form-check-label" for="flexRadioSalutation4">
+											Dr.
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Full name -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">نام و نام خانوادگی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="fullName">
+							</div>
+						</div>
+					</div>
+
+					<!-- Relation with applicant -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">نحوه آشنایی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="relation">
+							</div>
+						</div>
+					</div>
+
+					<!-- Email -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">ایمیل <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="email" class="form-control" id="email2">
+							</div>
+						</div>
+					</div>
+
+					<!-- Phone number -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">شماره تماس <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="phoneNumber2">
+							</div>
+						</div>
+					</div>
+
+					<!-- Home address -->
+					<div class="col-12">
+						<div class="row g-xl-0">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">آدرس <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<textarea class="form-control" rows="3" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+
+					<!-- Job title -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">شغل <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="jobTitle">
+							</div>
+						</div>
+					</div>
+
+					<!-- Office phone number -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">شماره تماس محل کار</h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+
+					<!-- Divider -->
+					<hr class="my-5">
+
+					<!-- Education -->
+					<h5 class="mt-0">میزان تحصیلات</h5>
+
+					<!-- School or college name -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">نام دانشگاه <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="collegeName">
+							</div>
+						</div>
+					</div>
+
+					<!-- Year of passing -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">سال فارغ التحصیلی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<select class="form-select js-choice z-index-9 border-0 bg-light" aria-label=".form-select-sm">
+									<option value="">سال</option>
+											<option>1381</option>
+											<option>1382</option>
+											<option>1383</option>
+											<option>1384</option>
+											<option>1385</option>
+											<option>1386</option>
+											<option>1387</option>
+											<option>1388</option>
+											<option>1389</option>
+											<option>1390</option>
+											<option>1395</option>
+											<option>1396</option>
+											<option>1397</option>
+											<option>1398</option>
+											<option>1399</option>
+											<option>1400</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- Board of university -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">رشته تحصیلی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="board">
+							</div>
+						</div>
+					</div>
+
+					<!-- Class grad -->
+					<div class="col-12">
+						<div class="row g-xl-0 align-items-center">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">مدرک تحصیلی <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<select class="form-select js-choice z-index-9" aria-label=".form-select-sm">
+									<option value="">مدرک</option>
+									<option>فوق لیسانس</option>
+									<option>لیسانس</option>
+									<option>فوق دیپلم</option>
+									<option>دیپلم</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- School or college address -->
+					<div class="col-12">
+						<div class="row g-xl-0">
+							<div class="col-lg-4">
+								<h6 class="mb-lg-0">آدرس دانشگاه <span class="text-danger">*</span></h6>
+							</div>
+							<div class="col-lg-8">
+								<textarea class="form-control" rows="3" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="col-12 text-sm-end">
+						<button class="btn btn-primary mb-0">ثبت</button>
+					</div>
+				</form>
+				<!-- Form END -->
+			</div>
+			<!-- Admission form END -->	
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main part END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-light">
+	<div class="container">
+		<!-- Row START -->
+		<div class="row g-4 justify-content-between pt-5">
+
+			<!-- Widget 1 START -->
+			<div class="col-md-5 col-lg-4">
+				<!-- logo -->
+				<a class="me-0" href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+        </a>
+
+				<p class="my-3">شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+				<!-- Newsletter -->
+				<form class="row row-cols-lg-auto g-2">
+					<div class="col-12">
+						<input type="email" class="form-control" placeholder="ایمیل">
+					</div>
+					<div class="col-12">
+						<button type="submit" class="btn btn-dark m-0">عضویت در خبرنامه</button>
+					</div>
+				</form>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-md-7 col-lg-6">
+				<div class="row g-4 g-lg-5">
+					<!-- Link block -->
+					<div class="col-6 col-sm-4">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">وبلاگ</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">درباره ما</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">تماس با ما</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">شرایط سایت</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">ثبت نام</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">نقشه سایت</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-sm-4">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">جذب مدرس</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">دانلود رایگان</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">قیمت گذاری</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">خدمات</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-sm-4">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#"><i class="fab fa-facebook-square text-facebook me-2"></i>Facebook</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-instagram-square text-instagram-gradient me-2"></i>Instagram</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-twitter-square text-twitter me-2"></i>Twitter</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-linkedin text-linkedin me-2"></i>Linkedin</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+
+		</div><!-- Row END -->
+
+		<hr> <!-- Divider -->
+
+		<!-- Bottom footer -->
+		<div class="row">
+			<div class="col-12">
+				<div class="d-md-flex justify-content-between align-items-center pt-2 pb-4 text-center">
+					<!-- copyright text -->
+					<div class="text-primary-hover"> ارائه شده در سایت <a href="https://www.rtl-theme.com/" target="_blank" class="text-reset">راست چین</a></div>
+					<!-- copyright links-->
+					<div class="nav justify-content-center mt-3 mt-md-0">
+						<ul class="list-inline mb-0">
+							<li class="list-inline-item"><a class="nav-link" href="#">شرایط استفاده</a></li>
+							<li class="list-inline-item"><a class="nav-link" href="#">قوانین سایت</a></li>
+							<li class="list-inline-item pe-0"><a class="nav-link" href="#">کوکی ها</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vendors -->
+<script src="assets/vendor/choices/js/choices.min.js"></script>
+
+<!-- Template Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+</html>

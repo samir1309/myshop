@@ -22,10 +22,8 @@ use Illuminate\Support\Facades\Auth;
 //     });
 
 
+Route::get('/', 'Site\HomeController@getIndex')->name('site.home');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 include('admin.php');

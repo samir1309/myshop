@@ -33,6 +33,35 @@
 					</ul>
 				</li>
 
+							<!-- Menu item 4 -->
+							<li class="nav-item">
+					<a class="nav-link" data-bs-toggle="collapse" href="#collapseinstructors" role="button" aria-expanded="false" aria-controls="collapseinstructors">
+						<i class="fas fa-user-tie fa-fw me-2"></i>محتوا
+					</a>
+					<!-- Submenu -->
+					<ul class="nav collapse flex-column" id="collapseinstructors" data-bs-parent="#navbar-sidebar">
+						
+									<li class="nav-item">
+                                        <a class="nav-link"
+                                           href="{{URL::action('Admin\ArticleController@getArticleCat')}}">
+                                            دسته بندی مقالات</a>
+                                    </li>	
+									<li class="nav-item">
+									<a class="nav-link"
+										href="{{URL::action('Admin\ArticleController@getArticle')}}">
+										مقالات</a>
+								</li>				
+									<li class="nav-item">
+									<a class="nav-link"
+										href="{{URL::action('Admin\SliderController@getSlider')}}">اسلایدر</a>
+								</li>					
+								<li class="nav-item">
+                                            <a class="nav-link"
+                                               href="{{URL::action('Admin\SliderController@getMobile')}}">بنر موبایل</a>
+                                        </li>
+									
+									</ul>
+				</li>
 				<!-- menu item 2 -->
 				<li class="nav-item">
 					<a class="nav-link" data-bs-toggle="collapse" href="#collapsepages" role="button" aria-expanded="false" aria-controls="collapsepages">
@@ -49,22 +78,7 @@
 				<!-- Menu item 3 -->
 				<li class="nav-item"> <a class="nav-link" href="admin-student-list.html"><i class="fas fa-user-graduate fa-fw me-2"></i>هنرجویان</a></li>
 
-				<!-- Menu item 4 -->
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="collapse" href="#collapseinstructors" role="button" aria-expanded="false" aria-controls="collapseinstructors">
-						<i class="fas fa-user-tie fa-fw me-2"></i>مدرس
-					</a>
-					<!-- Submenu -->
-					<ul class="nav collapse flex-column" id="collapseinstructors" data-bs-parent="#navbar-sidebar">
-						<li class="nav-item"> <a class="nav-link" href="admin-instructor-list.html">لیست</a></li>
-						<li class="nav-item"> <a class="nav-link" href="admin-instructor-detail.html">جزئیات</a></li>
-						<li class="nav-item"> 
-							<a class="nav-link" href="admin-instructor-request.html">درخواست ها
-								<span class="badge text-bg-success rounded-circle ms-2">2</span>
-							</a>
-						</li>
-					</ul>
-				</li>
+			
 				
 				<!-- Menu item 5 -->
 				<li class="nav-item"> <a class="nav-link" href="admin-review.html"><i class="far fa-comment-dots fa-fw me-2"></i>دیدگاه ها</a></li>
