@@ -92,6 +92,17 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
         Route::get('uploader/edit/{id}', 'ContentController@getEditUploader');
         Route::post('uploader/edit/{id}', 'ContentController@postEditUploader');
 
+          //permision-user
+          Route::get('user/group', 'UserController@getGroup');
+          Route::get('user/group-add', 'UserController@getGroupAdd');
+          Route::post('user/group-add', 'UserController@postGroupAdd');
+          Route::get('user/group-edit/{id}', 'UserController@getGroupEdit');
+          Route::post('user/group-edit/{id}', 'UserController@postGroupEdit');
+          Route::post('user/group-delete', 'UserController@postGroupDelete');
+          Route::get('user/delete/{id}', 'UserController@getGroupDelete');
+
+
+
 
 
     Route::get('/', 'ContentController@getAdmin')->name('admin.index');

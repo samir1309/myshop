@@ -16,6 +16,11 @@
 <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
 <script src="{{asset('assets/admin/toastr/toastr.js')}}"></script>
 
+<!-- jquery 3.3.1 -->
+<script src="{{asset('assets/admin/vendor/jquery/jquery-3.3.1.min.js')}}"></script>
+<script src="{{asset('assets/admin/vendor/jQueryUI/jquery-ui.min.js')}}"></script>
+
+
 @yield('js')
 
 
