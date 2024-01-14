@@ -33,6 +33,7 @@ class PermissionController extends Controller
         return View('admin.admin.permission.index')
             ->with('data', $data);
     }
+    
     public function getAddPermission() {
         return View('admin.admin.permission.add');
     }

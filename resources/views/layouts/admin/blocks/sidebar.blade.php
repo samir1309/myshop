@@ -98,12 +98,20 @@
 					<ul class="nav collapse flex-column" id="collapseauthentications" data-bs-parent="#navbar-sidebar">
 						<li class="nav-item"> <a class="nav-link"
 						href="{{URL::action('Admin\UserController@getGroup')}}"> مدیریت سطح دسترسی</li>
+				
+								<li class="nav-item">
+									<a class="nav-link"
+										href="{{URL::action('Admin\UserController@getIndex')}}">
+										مدیریت مدیران
+									</a>
+								</li>
+
 						<!-- <li class="nav-item"> <a class="nav-link" href="sign-in.html">ورود</a></li>
 						<li class="nav-item"> <a class="nav-link" href="forgot-password.html">فراموشی رمز عبور</a></li>
 						<li class="nav-item"> <a class="nav-link" href="admin-error-404.html">صفحه 404</a></li> -->
 					</ul>
 				</li>
-				<!-- Menu item 8 -->
+				<!-- Menu item 8
 				<li class="nav-item">
 					<a class="nav-link" data-bs-toggle="collapse" href="#collapseauthentication" role="button" aria-expanded="false" aria-controls="collapseauthentication">
 						<i class="bi bi-lock fa-fw me-2"></i>احراز هویت
@@ -117,8 +125,7 @@
 					</ul>
 				</li>
 
-				<!-- Menu item 9 -->
-				<li class="nav-item"> <a class="nav-link" href="docs/index.html"><i class="far fa-clipboard fa-fw me-2"></i>کدهای کاربردی</a></li>
+			 <li class="nav-item"> <a class="nav-link" href="{{URL:: action('Admin\LoginController@logout')}}"><i class="far fa-clipboard fa-fw me-2"></i>خروج از پنل </a></li> 
 
 			</ul>
 			<!-- Sidebar menu end -->

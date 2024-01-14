@@ -13,7 +13,7 @@ use App\Models\State;
 use App\Models\City;
 use App\Models\Address;
 use App\Models\UserDept;
-use App\User;
+use App\Models\User;
 use App\Http\Requests\PasswordRequest;
 use App\Library\Help;
 use Carbon\Carbon;
@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $query = User::query();
         $query->whereAdmin(1);
-        $departments = Department::all();
+       
         if ($request->has('search')) {
 
             if ($request->get('start') and $request->get('end')) {
@@ -57,17 +57,16 @@ class UserController extends Controller
             if ($request->get('email')) {
                 $query->where('email', 'LIKE', '%' . $request->get('email') . '%');
             }
-            if ($request->get('department_id')) {
-                $users=UserDept::where('department_id',$request->department_id)->pluck('user_id')->toArray();
-                $query->whereIn('id', $users);
+            // if ($request->get('department_id')) {
+            //     $users=UserDept::where('department_id',$request->department_id)->pluck('user_id')->toArray();
+            //     $query->whereIn('id', $users);
 
-            }
+            // }
         }
 
         $data = $query->paginate(15);
 
         return View('admin.user.index')
-            ->with('departments', $departments)
             ->with('data', $data);
     }
     public function getIndex2(Request $request)
@@ -127,11 +126,9 @@ class UserController extends Controller
             '1' => 'فعال',
             '0' => 'غیر فعال',
         ];
-        $departments = Department::all();
 
         return View('admin.user.add')
             ->with('status', $status)
-            ->with('departments', $departments)
             ->with('groups', $groups)
             ->with('groupsId', $groupsId);
 
@@ -149,18 +146,10 @@ class UserController extends Controller
         }
         $arr = [];
 
-        if($request->has('department_id')){
-
-            foreach($input['department_id'] as $item){
-                $arr[] = [
-                    'department_id'=>$item,
-                    'user_id'=>$user->id,
-                ];
-            }
+    
 
             UserDept::insert($arr);
-        }
-        $array = array($input);
+        
         $serialized_array = serialize($array);
 
         $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$user->id);
@@ -182,15 +171,13 @@ class UserController extends Controller
             '1' => 'فعال',
             '0' => 'غیر فعال',
         ];
-        $departments = Department::all();
-        $user_department = UserDept::orderby('id','DESC')->where('user_id',$data->id)->pluck('department_id')->toArray();
+        // $departments = Department::all();
+        // $user_department = UserDept::orderby('id','DESC')->where('user_id',$data->id)->pluck('department_id')->toArray();
 
 
         return View('admin.user.edit')
             ->with('status', $status)
             ->with('data', $data)
-            ->with('departments', $departments)
-            ->with('user_department', $user_department)
             ->with('groups', $groups)
             ->with('groupsId', $groupsId);
 
@@ -216,18 +203,18 @@ class UserController extends Controller
             }
 
 //            $user->where('id', $id)->update($input);
-            if($request->has('department_id')){
+            // if($request->has('department_id')){
 
-                $arr = [];
-                UserDept::where('user_id',$user->id)->delete();
-                foreach($input['department_id'] as $item){
-                    $arr[] = [
-                        'department_id'=>$item,
-                        'user_id'=>$user->id,
-                    ];
-                }
-                UserDept::insert($arr);
-            }
+            //     $arr = [];
+            //     UserDept::where('user_id',$user->id)->delete();
+            //     foreach($input['department_id'] as $item){
+            //         $arr[] = [
+            //             'department_id'=>$item,
+            //             'user_id'=>$user->id,
+            //         ];
+            //     }
+            //     UserDept::insert($arr);
+            // }
             $array = array($input);
             $serialized_array = serialize($array);
 

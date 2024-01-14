@@ -22,12 +22,13 @@ class ProductController extends Controller
         $query= Products::orderBy('id','DESC');
         $products = $query->paginate(100);
         $categorySort = Products::orderby('sort', 'ASC')->get();
-        $cat = Categories::get();
+        $category = Categories::get();
+      
 
         return View('admin.products.index')
             ->with('products', $products)
             ->with('categorySort', $categorySort)
-            ->with('category', $cat);
+            ->with('category', $category);
     }
 
     

@@ -10,7 +10,12 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 { 
 
+    public function logout()
+    {
+       \Illuminate\Support\Facades\Auth::logout();
+        return redirect()->to('/login');
 
+    }
    public function getLogin() {
 
         return view('auth.login');

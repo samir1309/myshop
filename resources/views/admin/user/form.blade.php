@@ -25,7 +25,7 @@
             انتخاب دپارتمان :
         </label>
         <div class="sd-checkbox bg-light p-3">
-            @foreach(@$departments as $dept)
+            <!-- @foreach(@$departments as $dept)
 
                 <label class="custom-ch">
                     {{$dept['name']}}
@@ -34,7 +34,7 @@
                     name="department_id[]" class="form-control" multiple >
                     <span class="checkmark"></span>
                 </label>
-            @endforeach
+            @endforeach -->
         </div>
     </div>
 

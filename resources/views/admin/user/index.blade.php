@@ -79,11 +79,7 @@
                                         <div class="form-group">
                                             <label class="col-lg-3 control-label">انتخاب دپارتمان مربوطه</label>
                                             <div class="col-lg-9">
-                                                <select name="department_id" id="department_id" class="form-control">
-                                                    @foreach($departments as $key=>$item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                            
                                             </div>
                                         </div>
                                         <div class="col-lg-3 p-1">

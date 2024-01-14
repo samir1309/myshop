@@ -4,9 +4,14 @@
 Route::post('/ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
 Route::get('/login', 'Admin\LoginController@getLogin');
 Route::post('/login', 'Admin\LoginController@postLogin');
+Route::get('/logout', 'Admin\LoginController@logout');
+
+Route::post('/admin/user/pass-edit/{id}', 'Admin\UserController@postPassEdit');
 
 Route::namespace('Admin')->prefix('admin')->group(function () {
-    
+  
+  Route::middleware('AdminPermission')->group(function () {
+
 
 
   //Category
@@ -100,8 +105,18 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
           Route::post('user/group-edit/{id}', 'UserController@postGroupEdit');
           Route::post('user/group-delete', 'UserController@postGroupDelete');
           Route::get('user/delete/{id}', 'UserController@getGroupDelete');
-
-
+ //user
+          Route::get('user', 'UserController@getIndex');
+          Route::get('users', 'UserController@getIndex2');
+          Route::get('user/add', 'UserController@getAdd');
+          Route::post('user/add', 'UserController@postAdd');
+          Route::get('user/edit/{id}', 'UserController@getEdit');
+          Route::post('user/edit/{id}', 'UserController@postEdit');
+          Route::get('users/edit/{id}', 'UserController@getEdit2');
+          Route::post('users/edit/{id}', 'UserController@postEdit2');
+          Route::post('user/delete', 'UserController@postDelete');
+          Route::get('/users/export', 'UserController@export');
+          Route::get('user/status/{id?}', 'UserController@Status')->name('admin.user.status');
 
 
 
@@ -111,3 +126,4 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
     
     });
 
+  });
