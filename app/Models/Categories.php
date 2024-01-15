@@ -33,20 +33,22 @@ class Categories extends Model
 
     public function parent()
     {
-        return $this->belongsTo(\App\Models\Category::class, 'parent_id', 'id')->with('parent');
+        return $this->belongsTo(\App\Models\Categories::class, 'parent_id', 'id')->with('parent');
     }
 
     public function childs()
     {
-        return $this->hasMany('App\Models\Category','parent_id')->orderBy('sort','ASC')->with('childs');
+        return $this->hasMany('App\Models\Categories','parent_id');
     }
+
+
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product','product_category','category_id');
+        return $this->belongsToMany('App\Models\Products','products_categories','categories_id');
     }
     public function category()
     {
-        return $this->belongsTo(\App\Models\Category::class, 'parent_id', 'id');
+        return $this->belongsTo(\App\Models\Categories::class, 'parent_id', 'id');
     }
 
 

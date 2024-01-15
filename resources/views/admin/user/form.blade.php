@@ -25,16 +25,7 @@
             انتخاب دپارتمان :
         </label>
         <div class="sd-checkbox bg-light p-3">
-            <!-- @foreach(@$departments as $dept)
-
-                <label class="custom-ch">
-                    {{$dept['name']}}
-                    <input type="checkbox" value="{{$dept['id']}}" @if(isset($data) and
-                                    in_array($dept['id'],$user_department)) checked="checked" @endif
-                    name="department_id[]" class="form-control" multiple >
-                    <span class="checkmark"></span>
-                </label>
-            @endforeach -->
+        
         </div>
     </div>
 

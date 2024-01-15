@@ -180,19 +180,8 @@
 			<div class="navbar-collapse w-100 collapse" id="navbarCollapse2">
 				<!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
-					<!-- Nav item 1 link -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">برنامه نویسی</a>
-						<ul class="dropdown-menu" aria-labelledby="demoMenu">
-							<li> <a class="dropdown-item" href="#">طراحی وب</a> </li>
-							<li> <a class="dropdown-item" href="#">بانک های اطلاعاتی</a> </li>
-							<li> <a class="dropdown-item" href="#">برنامه نویسی موبایل</a> </li>
-						    <li> <a class="dropdown-item" href="#">برنامه نویسی وب</a> </li>
-							<li> <a class="dropdown-item" href="#">سیستم عامل</a> </li>
-							<li> <a class="dropdown-item" href="#">مهندسی نرم افزار</a> </li>
-							<li> <a class="dropdown-item" href="#">مدیریت پروژه</a> </li>
-					</ul>
-					</li>
+				
+				@include('layouts.site.blocks.mega-cat')
 
 					<!-- Navmitem 2 link -->
 					<li class="nav-item"><a class="nav-link" href="#">حسابداری مالی</a></li>

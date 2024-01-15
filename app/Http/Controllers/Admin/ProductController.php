@@ -72,9 +72,12 @@ class ProductController extends Controller
             $input['price']=@$request['old_price'];
             $input['old_price']=0;
         }
-        
         $product = Products::create($input);
-        // $product->update($input);
+    
+        if ($request->has('category_id')) {
+            $product->assignCategory($request['category_id']);
+        }
+        $product->update($input);
 
         // if ($request['old_price'] != null || $request['price'] != null) {
         //     $price = Prices::create([

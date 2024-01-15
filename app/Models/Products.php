@@ -60,15 +60,21 @@ class Products extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Category','product_category');
+        return $this->belongsToMany('App\Models\Categories','products_categories');
+    }  
+     
+    public function assignCategory($role)
+    {
+        return $this->categories()->attach($role);
     }
+
     public function cats()
     {
-        return $this->belongsToMany('App\Models\Category','product_category')->orderBy('id','desc');
+        return $this->belongsToMany('App\Models\Categories','products_categories')->orderBy('id','desc');
     }
     public function category()
     {
-        return $this->belongsToMany('App\Models\Category','product_category')->whereDoesntHave('childs')->orderBy('id','desc');
+        return $this->belongsToMany('App\Models\Categories','products_categories')->whereDoesntHave('childs')->orderBy('id','desc');
     }
 
 
