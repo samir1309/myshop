@@ -13,7 +13,11 @@
 			</div>
 		</div>
 
-	@include('admin.category.form');
+        <form method="post" action="{{URL::action('Admin\CategoryController@postAddCategory')}}"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @include('admin.category.form')
+                </form>
 	</div>
 	<!-- Page main content END -->
     @endsection

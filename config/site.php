@@ -166,6 +166,28 @@ return [
             )
         ),
 
+        'blog' => array(
+            'title' => 'مقاله  ',
+            'access' => array(
+                'index' => 'مشاهده',
+                'add' => 'اضافه',
+                'edit' => 'ویرایش',
+                'delete' => 'حذف',
+                'sort' => 'مرتب سازی',
+            )
+        ),
+        'blog-cat' => array(
+            'title' => 'دسته بندی مقاله  ',
+            'access' => array(
+                'index' => 'مشاهده',
+                'add' => 'اضافه',
+                'edit' => 'ویرایش',
+                'delete' => 'حذف',
+                'sort' => 'مرتب سازی',
+            )
+        ),
+
+
         'inventory' => array(
             'title' => ' انبار ',
             'access' => array(

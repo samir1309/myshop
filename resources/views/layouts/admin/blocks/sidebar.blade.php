@@ -43,7 +43,7 @@
 						
 									<li class="nav-item">
                                         <a class="nav-link"
-                                           href="{{URL::action('Admin\ArticleController@getArticleCat')}}">
+                                           href="{{URL::action('Admin\BlogCategoryController@getArticleCat')}}">
                                             دسته بندی مقالات</a>
                                     </li>	
 									<li class="nav-item">
@@ -65,13 +65,12 @@
 				<!-- menu item 2 -->
 				<li class="nav-item">
 					<a class="nav-link" data-bs-toggle="collapse" href="#collapsepages" role="button" aria-expanded="false" aria-controls="collapsepages">
-						<i class="bi bi-basket fa-fw me-2"></i>دوره ها
+						<i class="bi bi-basket fa-fw me-2"></i>مقالات
 					</a>
 					<!-- Submenu -->
 					<ul class="nav collapse flex-column" id="collapsepages" data-bs-parent="#navbar-sidebar">
-						<li class="nav-item"> <a class="nav-link" href="admin-course-list.html">لیست</a></li>
-						<li class="nav-item"> <a class="nav-link" href="admin-course-category.html">دسته بندی</a></li>
-						<li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">جزئیات</a></li>
+						<li class="nav-item"> <a class="nav-link" href="{{URL::action('Admin\BlogCategoryController@getArticleCat')}}">دسته بندی مقالات</a></li>
+						<li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">مقالات</a></li>
 					</ul>
 				</li>
 

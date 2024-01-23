@@ -69,6 +69,19 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
         Route::post('article-cat/edit/{id}', 'ArticleController@postEditArticleCat');
 
 
+
+         //BlogCategories  New
+         Route::get('blog-cat', 'BlogCategoryController@getArticleCat');
+         Route::get('blog-cat/add', 'BlogCategoryController@getAddArticleCat');
+         Route::post('blog-cat/add', 'BlogCategoryController@postAddArticleCat');
+         Route::get('blog-cat/delete/{id}', 'BlogCategoryController@getDeleteArticleCat');
+         Route::post('blog-cat/delete', 'BlogCategoryController@postDeleteArticleCat');
+         Route::get('blog-cat/edit/{id}', 'BlogCategoryController@getEditArticleCat');
+         Route::post('blog-cat/edit/{id}', 'BlogCategoryController@postEditArticleCat');
+
+
+
+
         //Sliders
         Route::get('slider', 'SliderController@getSlider');
         Route::get('slider/add', 'SliderController@getAddSlider');
