@@ -43,7 +43,7 @@
 						
 									<li class="nav-item">
                                         <a class="nav-link"
-                                           href="{{URL::action('Admin\BlogCategoryController@getArticleCat')}}">
+                                           href="{{URL::action('Admin\ArticleController@getArticleCat')}}">
                                             دسته بندی مقالات</a>
                                     </li>	
 									<li class="nav-item">
@@ -70,7 +70,7 @@
 					<!-- Submenu -->
 					<ul class="nav collapse flex-column" id="collapsepages" data-bs-parent="#navbar-sidebar">
 						<li class="nav-item"> <a class="nav-link" href="{{URL::action('Admin\BlogCategoryController@getArticleCat')}}">دسته بندی مقالات</a></li>
-						<li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">مقالات</a></li>
+						<li class="nav-item"> <a class="nav-link" href="{{URL::action('Admin\BlogController@getArticle')}}">مقالات</a></li>
 					</ul>
 				</li>
 

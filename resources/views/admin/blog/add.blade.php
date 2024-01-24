@@ -9,9 +9,9 @@
 				اضافه کردن مقاله
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-				<form method="post" name="blogForm" action="{{URL::action('Admin\ArticleController@postAddArticle')}}"
+				<form method="post" name="blogForm" action="{{URL::action('Admin\BlogController@postAddArticle')}}"
 					enctype="multipart/form-data" onsubmit="return (validateForm())">
-					@include('admin.article.form')
+					@include('admin.blog.form')
 				</form>
 			</div>
 		</div>

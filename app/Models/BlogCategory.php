@@ -28,8 +28,9 @@ class BlogCategory extends Model
     {
         return asset('assets/site/images/not-found1.png');
     }
-    public function Blog()
+    public function blogs()
     {
-        return $this->hasMany('App\Models\Blog');
+        return $this->hasMany(\App\Models\Blog::class, 'category_id', 'id');
+
     }
 }

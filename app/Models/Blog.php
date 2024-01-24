@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
-    protected $table = 'blog';
+    protected $table = 'blogs';
     use HasFactory;
     use SoftDeletes;
 
@@ -29,9 +29,11 @@ class Blog extends Model
         return asset('assets/site/images/not-found1.png');
     }
    
-    public function catBlog()
-    {
-        return $this->belongsTo('App\Models\BlogCategory', 'category_id', 'id');
-    }
+  
+    public function category()
+{
+    return $this->belongsTo(\App\Models\BlogCategory::class, 'category_id', 'id');
+
+}
 }
 

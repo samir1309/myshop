@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<div class="card">
-{{--		<form method="post" action="{{url('/admin/articles/delete')}}">--}}
+{{--		<form method="post" action="{{url('/admin/blog/delete')}}">--}}
 {{--			{{ csrf_field() }}--}}
 			<div class="py-3 px-2">
 {{--				<button type="submit" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"--}}
@@ -30,7 +30,7 @@
 {{--					</svg>--}}
 {{--					حذف انتخاب شده ها--}}
 {{--				</button>--}}
-				<a href="{{url('admin/articles/add')}}" type="button" class="btn btn-space btn-primary">
+				<a href="{{url('admin/blog/add')}}" type="button" class="btn btn-space btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 						class="bi bi-plus-circle-dotted me-2" viewBox="0 0 16 16">
 						<path
@@ -151,13 +151,13 @@
                                                             {{@$article['status'] == 1 ? 'نمایش در صفحه' : 'عدم نمایش در صفحه'}}
                                                         </td>
 														<td>
-															<a href="{{URL::action('Admin\ArticleController@getEditArticle',$article->id)}}"
+															<a href="{{URL::action('Admin\BlogController@getEditArticle',$article->id)}}"
 																type="button"
 																class="btn btn-space btn-warning"
 																data-toggle="tooltip" title="ویرایش">
 																<i class="fa fa-edit"> </i>
 															</a>
-                                                            <a href="{{URL::action('Admin\ArticleController@getDeleteArticle',$article->id)}}"
+                                                            <a href="{{URL::action('Admin\BlogController@getDeleteArticle',$article->id)}}"
                                                                type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"
                                                                class="btn btn-space btn-danger"
                                                                data-toggle="tooltip" title="حذف">
@@ -253,7 +253,7 @@ ul {
 {{--                    opacity: 0.8, cursor: 'move', update: function () {--}}
 {{--                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');--}}
 {{--                        var order = $(this).sortable("serialize") + '&update=update' + '&_token=' + CSRF_TOKEN;--}}
-{{--                        $.post("{!!URL::action('Admin\ArticleController@postSort')!!} ", order, function (theResponse) {--}}
+{{--                        $.post("{!!URL::action('Admin\BlogController@postSort')!!} ", order, function (theResponse) {--}}
 {{--                            $("#response").html(theResponse);--}}
 {{--                            $("#response").slideDown('slow');--}}
 {{--                            slideout();--}}

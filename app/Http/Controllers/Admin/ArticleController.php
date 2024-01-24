@@ -137,23 +137,7 @@ if ($content['title_seo'] != $input['title_seo']){
                 return Redirect::back()->with('error' , 'توضیحات سئو تکراری است');
             }
         }
-//        if($request->get('image_get')){
-//            $path = "assets/uploads/content/art/";
-//            File::delete($path . '/big/' . $content->image);
-//            File::delete($path . '/medium/' . $content->image);
-//            File::delete($path . '/small/' . $content->image);
-//
-//            $fileName = mt_rand(100, 999).".jpg";
-//            file_put_contents("assets/uploads/content/art/medium/".$fileName, file_get_contents($input['image_get']));
-//            file_put_contents("assets/uploads/content/art/small/".$fileName, file_get_contents($input['image_get']));
-//            file_put_contents("assets/uploads/content/art/big/".$fileName, file_get_contents($input['image_get']));
-//
-//            $input['image'] = $fileName;
-//
-//        }
-//        else{
-//            $input['image'] = $content->image;
-//        }
+
         if ($request->hasFile('image')) {
             $path = "assets/uploads/content/art/";
             File::delete($path . '/big/' . $content->image);

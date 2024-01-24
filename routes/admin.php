@@ -80,6 +80,15 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
          Route::post('blog-cat/edit/{id}', 'BlogCategoryController@postEditArticleCat');
 
 
+          //blogs   new 
+        Route::get('blog','BlogController@getArticle');
+        Route::get('blog/add', 'BlogController@getAddArticle');
+        Route::post('blog/add', 'BlogController@postAddArticle');
+        Route::get('blog/delete/{id}', 'BlogController@getDeleteArticle');
+        Route::post('blog/delete', 'BlogController@postDeleteArticle');
+        Route::get('blog/edit/{id}', 'BlogController@getEditArticle');
+        Route::post('blog/edit/{id}', 'BlogController@postEditArticle');
+        Route::post('blog/sort', 'BlogController@postSort');
 
 
         //Sliders
