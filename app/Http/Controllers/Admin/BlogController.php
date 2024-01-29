@@ -62,7 +62,9 @@ class BlogController extends Controller
  
     return view('admin.blog.edit')
     ->with('article' , $input)
+    
     ->with('data' , $data);
+
 
 
 }
