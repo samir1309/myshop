@@ -28,6 +28,19 @@ class Blog extends Model
     {
         return asset('assets/site/images/not-found1.png');
     }
+
+    public function getShowImageAttribute()
+    {
+        if($this->attributes['image']){
+            return file_exists('assets/uploads/content/art/small/'.$this->attributes['image']) ? asset('assets/uploads/content/art/small/' .$this->attributes['image']) :
+            asset('assets/admin/images/notfound.jpg');
+        }
+            else {
+                return asset('assets/admin/img/notfound.png');
+           
+        }
+         
+    }
    
   
     public function category()
@@ -36,4 +49,7 @@ class Blog extends Model
 
 }
 }
+
+
+
 

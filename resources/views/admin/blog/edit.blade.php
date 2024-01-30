@@ -8,7 +8,7 @@
             ویرایش
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-                <form method="post" action="{{URL::action('Admin\BlogController@postEditArticle', $data->id )}}"
+                <form method="post" action="{{URL::action('Admin\BlogController@postEditArticle', $article->id )}}"
                     enctype="multipart/form-data">
                     @include('admin.blog.form')
                 </form>
@@ -18,30 +18,5 @@
 </div>
 
 
-    <script>
-        var app = new Vue({
-            el: '#blog68',
-            data: {
-
-
-                title_seo: '{{@$data->title_seo}}',
-                description_seo: '{{@$data->description_seo}}',
-            },
-            watch : {
-                title_seo: function (val) {
-                    if (val.length > 71) {
-                        toastr.error('تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد');
-                    }
-
-                },
-                description_seo: function (val) {
-                    if (val.length > 171) {
-                        toastr.error('تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد');
-                    }
-
-                }
-            }
-        })
-    </script>
 
 @stop

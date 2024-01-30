@@ -2,7 +2,11 @@
 
 namespace App\Http\Requests;
 
+  use  Illuminate\Http\Request ;
+
 use Illuminate\Foundation\Http\FormRequest;
+
+use App\Rules\UniqueUrlRule;
 
 class BlogRequest extends FormRequest
 {
@@ -21,44 +25,34 @@ class BlogRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
-        switch ($this->segment(3)){
-            case 'add' :
-                return[
+        $id = $request->route('id');
+   
 
-                    'image'=>'max:40',
-                    'title_seo'=>'max:71',
-                    'description_seo'=>'max:171',
+        return [
 
+                    'image'=>'max:40  ' ,
+                    'title_seo'=>'max:71 ',
+                    'description_seo'=>'max:171  ',
+                    'url' => [ new UniqueUrlRule ($id)] 
+        ];
 
-                ];
-                break;
-            case 'edit' :
-                return [
-                    'image'=>'max:40',
-                    'title_seo'=>'max:71',
-                    'description_seo'=>'max:171',
-                ];
-                break;
-            case 'delete' :
-                return [
-                    'deleteId' => 'required',
-                ];
-                break;
-        }
+    dd ("bfdbfdb");
+
+        
     }
     public function messages()
     {
-        return [
-
-            'image.max' => ' حجم عکس باید کمتر از ۴۰ کیلوبایت باشد',
-            'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
-            'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
-
-
-
-        ];
+      return [
+        'url' => 'The URL has already been taken.',
+        'image.max' => ' حجم عکس باید کمتر از ۳۰ کیلوبایت باشد',
+        'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
+        'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
+      ];
     }
+    
 
 }
+
+
