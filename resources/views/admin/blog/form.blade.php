@@ -23,7 +23,7 @@
 
 	<div class="col-lg-6 form-group">
 		<label class="col-form-label"> تصویر(حداکثر حجم ۴۰ کیلو بایت ) </label>
-		<input class="form-control" type="file" name="image">
+		<input class="form-control" type="file" name="image" accept=".jpg, .png ,.JPEG ">
 		@if(isset($article->image))
             <img src="{{asset('assets/uploads/content/art/medium/'.$article->image)}}" class="w-50">
         @endif

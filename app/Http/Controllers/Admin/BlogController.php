@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Library\UploadImg;
 use App\Library\UploadImgArt;
+use App\Library\UploadsImg;
 use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
@@ -34,17 +35,16 @@ class BlogController extends Controller
     public function postAddArticle(BlogRequest $request)
     {
         $input = $request->all();
-
+      
            if ($request->hasFile('image')) {
             $path = "assets/uploads/content/art/";
-            $uploader = new UploadImgArt();
-            $fileName = $uploader->uploadPic($request->file('image'), $path);
-            if($fileName){
+            $section = 'blog' ; 
+            $resize = true ;
+            $uploader = new UploadsImg();
+            $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
                 $input['image'] = $fileName;
-            }else{
-                return Redirect::back()->with('error' , 'عکس ارسالی صحیح نیست.');
-            }
         }
+
         $input['status'] = $request->has('status');
        Blog ::create($input);
         return Redirect::action('Admin\BlogController@getArticle')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
@@ -68,13 +68,11 @@ public function postEditArticle($id , BlogRequest $request)
         File::delete($path . '/big/' . $content->image);
         File::delete($path . '/medium/' . $content->image);
         File::delete($path . '/small/' . $content->image);
-        $uploader = new UploadImgArt();
-        $fileName = $uploader->uploadPic($request->file('image'), $path);
-        if($fileName){
+        $section = 'blog' ; 
+        $resize = true ;
+        $uploader = new UploadsImg();
+        $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
             $input['image'] = $fileName;
-        } else{
-            return Redirect::back()->with('error' , 'عکس ارسالی صحیح نیست.');
-        }
     }
     else {
         $input['image'] = $content->image;
@@ -82,13 +80,6 @@ public function postEditArticle($id , BlogRequest $request)
 
    $content->update($input);
     return Redirect::action('Admin\BlogController@getArticle')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
-
-
-
-
-
-
-
 
 }
     
