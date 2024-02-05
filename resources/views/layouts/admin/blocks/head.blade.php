@@ -6,7 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="">
 	<meta name="description" content="Eduport - قالب HTML دوره آنلاین و آموزش">
-	<!-- Dark mode -->
+
+
+	<script src="{{asset('assets/admin/css/sweetalert2.all.min.js')}}"></script>
+	<script src="{{asset('assets/admin/css/sweetalert2.min.css')}}"></script>
+
+
 	<script>
 		const storedTheme = localStorage.getItem('theme')
  

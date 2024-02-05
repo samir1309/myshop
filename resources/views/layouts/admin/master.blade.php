@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 @include('layouts.admin.blocks.head')
+@include('sweetalert::alert')
 <body>
 
 

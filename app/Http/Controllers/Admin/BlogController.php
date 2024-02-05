@@ -13,6 +13,7 @@ use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
 
+use Alert;
 
 class BlogController extends Controller
 {
@@ -20,6 +21,8 @@ class BlogController extends Controller
 
     public function getArticle()
     {
+        alert('Success', 'Post added successfully');
+ 
        $articles = Blog::orderBy('id' , 'Desc')->paginate(50);
        return view('admin.blog.index' , compact('articles'));
     }
@@ -46,8 +49,8 @@ class BlogController extends Controller
         }
 
         $input['status'] = $request->has('status');
-       Blog ::create($input);
-        return Redirect::action('Admin\BlogController@getArticle')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+       Blog ::create($input)->with('success', 'Post created successfully');;
+        return Redirect::action('Admin\BlogController@getArticle')->with('success', 'Post created successfully');;
     }
 
     public function getEditArticle($id )

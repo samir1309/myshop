@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use App\models\Categories;
+use App\Library\UploadsImg;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 
@@ -41,6 +42,17 @@ class CategoryController extends Controller
     {
         $input = $request->all();
         $input['status'] = $request->has('status');
+
+        if ($request->hasFile('cover')) {
+            $path = "assets/uploads/content/cat/";
+            $section = 'category' ; 
+            $resize = true ;
+            $uploader = new UploadsImg();
+            $fileName = $uploader->uploadPic( $request , $request->file('cover'), $path  ,  $resize ,  $section  );
+                $input['cover'] = $fileName;
+        }
+
+
             $category = Categories::create($input);
         $category->update([
             'url' => 'cat/'.$category->id,

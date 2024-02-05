@@ -42,7 +42,6 @@ class UploadsImg
                 $bigy =400;
                 return  $this->uploadImg($path,  $file ,  $resize , $smallx , $smally , $mediumx ,$mediumy , $bigx , $bigy );
             }
- 
 
         }
         return false; 

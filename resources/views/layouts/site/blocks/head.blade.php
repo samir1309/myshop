@@ -8,6 +8,11 @@
 	<meta name="author" content="">
 	<meta name="description" content="آموزشی">
 
+
+
+
+
+
 	<!-- Dark mode -->
 	<script>
 		const storedTheme = localStorage.getItem('theme')
