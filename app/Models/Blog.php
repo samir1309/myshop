@@ -32,7 +32,7 @@ class Blog extends Model
     public function getShowImageAttribute()
     {
         if($this->attributes['image']){
-            return file_exists('assets/uploads/content/art/small/'.$this->attributes['image']) ? asset('assets/uploads/content/art/small/' .$this->attributes['image']) :
+            return file_exists('assets/uploads/content/art/medium/'.$this->attributes['image']) ? asset('assets/uploads/content/art/medium/' .$this->attributes['image']) :
             asset('assets/admin/images/notfound.jpg');
         }
             else {

@@ -16,15 +16,17 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
 
   //Category
   Route::get('category', 'CategoryController@getCategory');
-  Route::get('category/add', 'CategoryController@getAddCategory');
-  Route::post('category/add', 'CategoryController@postAddCategory');
+  Route::get('category/add', 'CategoryController@getAddCategory')->name('admin.category.add');
+  Route::post('category/add', 'CategoryController@postAddCategory')->name('admin.category.add');
   Route::get('category/delete/{id}', 'CategoryController@getDeleteCategory');
   Route::post('category/delete', 'CategoryController@postDeleteCategory');
-  Route::get('category/edit/{id}', 'CategoryController@getEditCategory');
-  Route::post('category/edit/{id}', 'CategoryController@postEditCategory');
+  Route::get('category/edit/{id}', 'CategoryController@getEditCategory')->name('admin.category.edit');
+  Route::post('category/edit/{id}', 'CategoryController@postEditCategory')->name('admin.category.edit');
   Route::post('category/sort', 'CategoryController@postSort');
   Route::get('/category/search', 'CategoryController@getSearch');
   Route::get('category/find/{id}/', 'CategoryController@find');
+
+
 
 
      //Products

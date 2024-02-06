@@ -145,7 +145,7 @@
 														<td class="sorting_1">{{@$article->cat->title}}</td>
 
 														<td class="sorting_1">
-															<img src="{{asset('assets/uploads/content/art/small/'.$article->image)}}" width="70" height="70" />
+															<img src="{{ @$article -> showImage}}" width="70" height="70" />
 														</td>
                                                         <td class="sorting_1">
                                                             {{@$article['status'] == 1 ? 'نمایش در صفحه' : 'عدم نمایش در صفحه'}}

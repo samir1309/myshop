@@ -17,13 +17,13 @@ class CategoryController extends Controller
     
     public function getCategory()
     {
-        $category = Categories::orderby('id','DESC')->get()->toArray();
+        $category = Categories::orderBy('id' , 'Desc')->paginate(50);
         if (!empty($category)) {
             MakeTree::getData($category);
             $category = MakeTree::GenerateArray(array('paginate' => 100));
         }
-        return View('admin.category.index')
-            ->with('category', $category);
+        return View('admin.category.index' , compact('category'));
+       
     }
 
     
@@ -34,15 +34,14 @@ class CategoryController extends Controller
             MakeTree::getData($categories);
             $categories = MakeTree::GenerateArray(array('get'));
         }
-        return View('admin.category.add')
-            ->with('categories', $categories);
+        return View('admin.category.add' , compact('categories'));
+    
     }
 
     public function postAddCategory(CategoryRequest $request)
     {
         $input = $request->all();
         $input['status'] = $request->has('status');
-
         if ($request->hasFile('cover')) {
             $path = "assets/uploads/content/cat/";
             $section = 'category' ; 
@@ -54,9 +53,7 @@ class CategoryController extends Controller
 
 
             $category = Categories::create($input);
-        $category->update([
-            'url' => 'cat/'.$category->id,
-        ]);
+       
         return Redirect::action('Admin\CategoryController@getCategory')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
     }
 
@@ -74,7 +71,7 @@ class CategoryController extends Controller
         }
       
 
-return view('admin.category.edit')
+return view('admin.category.edit' )
 ->with('data',$data)
 ->with('categories',$category)
 ->with('parent_id',$category);
@@ -86,19 +83,18 @@ return view('admin.category.edit')
 
        $input = $request->all();
        $input['status'] = $request->has('status');
-
        $category = Categories :: FindOrFail($id);
-    
-       if ($request->hasFile('cover')) {
-        $path= "assets/uploads/content/cat/";
-        $extension=$request->file('cover')->getClientOriginalExtension();
-        File::delete($path . '/' . $category->cover);
-        $fileName=md5(microtime()).".$extension";
-        $request->file('cover')->move($path,$fileName);
-        $input['cover']=$fileName;
-    }else{
-        $input['cover'] = $category->cover;
-    }
+    if ($request->hasFile('cover')) {
+        $path = "assets/uploads/content/cat/";
+        File::delete($path . '/big/' . $category->cover);
+        File::delete($path . '/medium/' . $category->cover);
+        File::delete($path . '/small/' . $category->cover);
+        $section = 'category' ; 
+        $resize = true ;
+        $uploader = new UploadsImg();
+        $fileName = $uploader->uploadPic( $request , $request->file('cover'), $path  ,  $resize ,  $section  );
+            $input['cover'] = $fileName;
+        }
     if ($request->has('parent_id')) {
         $input['parent_id'] = $request->get('parent_id');
     } else {

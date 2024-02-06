@@ -27,7 +27,17 @@ class Categories extends Model
    }
 
   public function getCatImageAttribute(){
-        return file_exists('assets/uploads/content/cat/'.@$this->attributes['cover']) ? asset('assets/uploads/content/cat/'.@$this->attributes['cover']) :asset('assets/site/images/notfound.png');
+       
+
+        if($this->attributes['cover']){
+            return file_exists('assets/uploads/content/cat/medium/'.$this->attributes['cover']) ? asset('assets/uploads/content/cat/medium/' .$this->attributes['cover']) :
+            asset('assets/admin/images/notfound.jpg');
+        }
+            else {
+                return asset('assets/admin/img/notfound.png');
+           
+        }
+
 
     }
 

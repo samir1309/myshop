@@ -5,10 +5,13 @@ namespace App\Http\Requests;
   use  Illuminate\Http\Request ;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\ValidatesRequests;
+
 
 use App\Rules\UniqueUrlRule;
 
 class BlogRequest extends FormRequest
+
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -35,22 +38,26 @@ class BlogRequest extends FormRequest
                     'image'=>'max:40  ' ,
                     'title_seo'=>'max:71 ',
                     'description_seo'=>'max:171  ',
-                    'url' => [ new UniqueUrlRule ($id)] 
+                    'url' => [ new UniqueUrlRule ($id , 'Blog')]  ,
+                   
         ];
 
-    dd ("bfdbfdb");
+ 
 
         
     }
     public function messages()
     {
       return [
-        'url' => 'The URL has already been taken.',
         'image.max' => ' حجم عکس باید کمتر از ۳۰ کیلوبایت باشد',
         'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
         'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
+        'url' => 'آدرس وارد شده تکراری است'
       ];
     }
+
+  
+    
     
 
 }

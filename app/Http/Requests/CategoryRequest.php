@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
+use  Illuminate\Http\Request ;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\UniqueUrlRule;
 
 class CategoryRequest extends FormRequest
 {
@@ -21,32 +23,21 @@ class CategoryRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules( Request $request)
+  
     {
-        switch ($this->segment(3)){
-            case 'add' :
-                return[
+        $id = $request->route('id');
 
-                    'cover'=>'max:30',
-                    'title_seo'=>'max:71',
-                    'description_seo'=>'max:171',
+        return [
+
+            'cover'=>'max:40  ' ,
+            'title_seo'=>'max:71 ',
+            'description_seo'=>'max:171  ',
+            'url' => [ new UniqueUrlRule ( $id  , 'Categories' )] 
 
 
-                ];
-                break;
-            case 'edit' :
-                return [
-                    'cover'=>'max:30',
-                    'title_seo'=>'max:71',
-                    'description_seo'=>'max:171',
-                ];
-                break;
-            case 'delete' :
-                return [
-                    'deleteId' => 'required',
-                ];
-                break;
-        }
+        ];
+      
     }
     public function messages()
     {
@@ -55,6 +46,7 @@ class CategoryRequest extends FormRequest
             'cover.max' => ' حجم عکس باید کمتر از ۳۰ کیلوبایت باشد',
             'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
             'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
+            'url' => 'آدرس وارد شده تکراری است'
 
 
         ];

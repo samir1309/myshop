@@ -12,8 +12,8 @@ use App\Library\UploadsImg;
 use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
-
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
+use ValidatesRequests;
 
 class BlogController extends Controller
 {
@@ -21,7 +21,7 @@ class BlogController extends Controller
 
     public function getArticle()
     {
-        alert('Success', 'Post added successfully');
+     
  
        $articles = Blog::orderBy('id' , 'Desc')->paginate(50);
        return view('admin.blog.index' , compact('articles'));
@@ -30,6 +30,7 @@ class BlogController extends Controller
 
     public function getAddArticle()
     {
+       
        $blogcategory = BlogCategory :: orderBy('id' , 'Desc')->get(['id','title']);
        return view('admin.blog.add' , compact('blogcategory'));
     
@@ -38,7 +39,6 @@ class BlogController extends Controller
     public function postAddArticle(BlogRequest $request)
     {
         $input = $request->all();
-      
            if ($request->hasFile('image')) {
             $path = "assets/uploads/content/art/";
             $section = 'blog' ; 
@@ -47,10 +47,11 @@ class BlogController extends Controller
             $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
                 $input['image'] = $fileName;
         }
-
         $input['status'] = $request->has('status');
-       Blog ::create($input)->with('success', 'Post created successfully');;
-        return Redirect::action('Admin\BlogController@getArticle')->with('success', 'Post created successfully');;
+        Blog ::create($input);
+        return Redirect::action('Admin\BlogController@getArticle')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+     
+
     }
 
     public function getEditArticle($id )

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Rules;
-
+use App\Models\Categories;
+use App\Models\Blog;
 use Illuminate\Contracts\Validation\Rule;
 
 class UniqueUrlRule implements Rule
@@ -15,9 +16,11 @@ class UniqueUrlRule implements Rule
      *
      * @return void
      */
-    public function __construct($id)
+    public function __construct($id , $modal)
     {
+
         $this->id = $id;
+        $this->modal = $modal;
 
     
     }
@@ -31,11 +34,25 @@ class UniqueUrlRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $count = Blog::where('url', $value)
-        ->where('id', '!=', $this->id)
-        ->count();
+        if(  $this->modal = 'Categories'){
+            $count = Categories::where('url', $value)
+            ->where('id', '!=', $this->id)
+            ->count();
+            return $count === 0;
 
-         return $count === 0;
+        }
+
+      
+       
+        if(  $this->modal = 'Blog'){
+            $count = Blog::where('url', $value)
+            ->where('id', '!=', $this->id)
+            ->count();
+            return $count === 0;
+        }
+
+ 
+    
     
     }
 
@@ -46,6 +63,10 @@ class UniqueUrlRule implements Rule
      */
     public function message()
     {
-        return  ' url  تکراری است' ;
+      return 'آدرس تکراری است';
     }
 }
+
+
+
+

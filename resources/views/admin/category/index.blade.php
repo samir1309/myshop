@@ -72,32 +72,24 @@
 						@foreach($category as $key=> $cat)
 							<!-- Table row -->
 							<tr>
+								
 								<!-- Table data -->
 								<td>
 									<div class="d-flex align-items-center position-relative">
 										<!-- Image -->
-										<div class="w-60px">
-											<img src="assets/images/courses/4by3/08.jpg" class="rounded" alt="">
-										</div>
-										<!-- Title -->
-
 										<h6 class="table-responsive-title mb-0 ms-2">	
 											<a href="#" class="stretched-link">{{@$cat['title']}} </a>
 										</h6>
+											
+														<td class="sorting_1">
+															<img src="{{ @$cat -> catImage }}" width="70" height="70" />
+
+														</td>
+									
 									</div>
 								</td>
 
-								<!-- Table data -->
-								<td>
-									<div class="d-flex align-items-center">
-										<!-- Avatar -->
-										<div class="avatar avatar-xs flex-shrink-0">
-												<img src="{{@$cat_cover['cat_image']}}"
-                                                                     class="mx-auto w-100 swiper-lazy">
-										</div>
-										
-									</div>
-								</td>
+							
 
 								<!-- Table data -->
 								<td>
