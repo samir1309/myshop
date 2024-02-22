@@ -19,8 +19,9 @@ class CreateCategoriesTable extends Migration
             $table->string('title_en')->nullable();
             $table->string('url')->nullable();
             $table->integer('parent_id')->nullable(); 
-            $table->integer('sort')->default(1); 
+            $table->string('color')->nullable(); 
             $table->integer('sortlist')->default(1); 
+            $table->integer('sort')->default(1); 
             $table->string('cover')->nullable();
             $table->boolean('status')->default(1); 
             $table->text('description')->nullable();

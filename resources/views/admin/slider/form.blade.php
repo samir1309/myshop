@@ -5,6 +5,11 @@
 		<input id="title" name="title" type="text" class="form-control"
 			value="@if(isset($data->title)){{$data->title}}@endif">
 	</div>
+    <div class="col-lg-6 form-group">
+		<label for="image_convert" class="col-form-label">عنوان دوم </label>
+		<input id="image_convert" name="image_convert" type="text" class="form-control"
+			value="@if(isset($data->image_convert)){{$data->image_convert}}@endif">
+	</div>
     <div class="form-group col-lg-6">
         <label for="content_type" class="col-form-label">
             نوع

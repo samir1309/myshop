@@ -7,12 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="">
 	<meta name="description" content="آموزشی">
+	<title>
+			@yield('title',@$setting_header->title)
 
-
-
-
-
-
+	</title>
 	<!-- Dark mode -->
 	<script>
 		const storedTheme = localStorage.getItem('theme')

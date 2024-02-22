@@ -73,11 +73,7 @@
 						<li class="nav-item"> <a class="nav-link" href="{{URL::action('Admin\BlogController@getArticle')}}">مقالات</a></li>
 					</ul>
 				</li>
-
-				<!-- Menu item 3 -->
-				<li class="nav-item"> <a class="nav-link" href="admin-student-list.html"><i class="fas fa-user-graduate fa-fw me-2"></i>هنرجویان</a></li>
-
-			
+<!--  -->
 				
 				<!-- Menu item 5 -->
 				<li class="nav-item"> <a class="nav-link" href="admin-review.html"><i class="far fa-comment-dots fa-fw me-2"></i>دیدگاه ها</a></li>

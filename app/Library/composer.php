@@ -6,7 +6,7 @@ use App\Library\SliderBanner;
 use App\Models\Categories;
 use App\Models\Content;
 use App\Models\Products;
-use App\Models\Setting;
+// use App\Models\Setting;
 // use App\Models\Social;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +27,7 @@ $seg = \request()->segments();
 // return Brand::orderby('id', 'DESC')->whereFooter('1')->take(10)->select(['id','title'])->get();
 // });
 
-$head_sli = Content::Slider()->where('status','1')->first();
+$head_sli = Content::Slider()->where('status','1')->get();
 
 
 $category_footer = Cache::remember('index.category_footer', 20, function() {

@@ -103,6 +103,15 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
         Route::post('slider/edit/{id}', 'SliderController@postEditSlider');
         Route::post('slider/sort', 'SliderController@postSort');
 
+
+        // //Sliders
+        // Route::get('slider', 'SlidersController@index');
+        // Route::get('slider/add', 'SlidersController@create')->name('admin.slider.edit');
+        // Route::post('slider/add', 'SlidersController@store')->name('admin.slider.edit');
+        // Route::get('slider/edit/{id}', 'SlidersController@edit')->name('admin.slider.edit');
+        // Route::post('slider/edit/{id}', 'SlidersController@update')->name('admin.slider.edit');
+        // Route::post('slider/sort', 'SlidersController@postSort');
+
         //MobileSliders
         Route::get('mobile-slider', 'SliderController@getMobile');
         Route::get('mobile-slider/add', 'SliderController@getAddMobile');

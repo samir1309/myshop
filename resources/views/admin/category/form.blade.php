@@ -14,16 +14,26 @@
 							<div class="card-body row w-100 m-0">
 								
 									<!-- Input item -->
-									<div class="col-4">
-										<label class="form-label" >عنوان دسته</label>
+									<div class="col-lg-3 form-group">
+										<label class="col-form-label" >عنوان دسته</label>
 										<input type="text" id="title" name="title"  class="form-control" placeholder="عنوان دسته"
                                         value="@if(isset($data->title)){{$data->title}}@endif">
 									
 									</div>
-									<div class="col-lg-6 form-group">
+									<div class="col-lg-3 form-group">
 										<label for="url" class="col-form-label">url</label>
 										<input id="url" name="url" type="text" class="form-control"
 											value="@if(isset($data->url)){{$data->url}}@endif">
+									</div>
+									<div class="col-lg-3 form-group">
+										<label for="title_en" class="col-form-label">آیکن</label>
+										<input id="title_en" name="title_en" type="text" class="form-control"
+											value="@if(isset($data->title_en )){{$data->title_en }}@endif">
+									</div>
+									<div class="col-lg-3 form-group">
+										<label for="color" class="col-form-label">رنگ پشت باکس</label>
+										<input id="color" name="color" type="text" class="form-control"
+											value="@if(isset($data->color)){{$data->color}}@endif">
 									</div>
                                     	<!-- Choice item -->
 									<div class="col-lg-4">

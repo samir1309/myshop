@@ -16,8 +16,8 @@ class Categories extends Model
     protected $table = 'categories';
 
     protected $fillable = [
-        'title', 'title_en', 'description', 'description_seo','cover',
-        'url', 'title_seo', 'keyword' ,'parent_id','status','sort','sortlist'
+        'title','title_en', 'description', 'description_seo','cover',
+        'url', 'title_seo', 'keyword' ,'parent_id','status','color','sort','sortlist'
     ];
 
 
