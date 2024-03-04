@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Products;
-use App\Models\Prices;
-use App\Models\Categories;
+use App\Models\Product;
+use App\Models\Price;
+use App\Models\Category;
 use App\Library\Helper;
 use app\Library\MakeTree;
 use App\Http\Requests\ProductRequest;
@@ -16,9 +16,9 @@ class ProductController extends Controller
 {
     public function getProduct(Request $request)
     {
-        $query= Products::orderBy('id','DESC');
+        $query= Product::orderBy('id','DESC');
         $products = $query->paginate(100);
-        $category = Categories::get();
+        $category = Category::get();
         return View('admin.products.index')
             ->with('products', $products)
             ->with('category', $category);
@@ -27,8 +27,8 @@ class ProductController extends Controller
     
     public function getAddProduct()
     {
-        $category = Categories::select(['id','title'])->get();
-        if (!empty($category)) {
+        $category = Category::select(['id','title'])->get();
+        if (!($category)) {
             MakeTree::getData($category);
             $category = MakeTree::GenerateArray(array('get'));
         }
@@ -42,11 +42,11 @@ class ProductController extends Controller
 
         $input = $request->all();
         $input['status'] = $request->has('status');
-          $check = Products::where('title_seo', $input['title_seo'])->first();
+          $check = Product::where('title_seo', $input['title_seo'])->first();
         if ($check){
             return Redirect::back()->with('error' , 'عنوان سئو تکراری است');
         }
-        $check2 = Products::where('description_seo', $input['description_seo'])->first();
+        $check2 = Product::where('description_seo', $input['description_seo'])->first();
         if ($check2){
             return Redirect::back()->with('error' , 'توضیحات سئو تکراری است');
         }
@@ -60,7 +60,7 @@ class ProductController extends Controller
             $input['price']=@$request['old_price'];
             $input['old_price']=0;
         }
-        $product = Products::create($input);
+        $product = Product::create($input);
     
         if ($request->has('category_id')) {
             $product->assignCategory($request['category_id']);

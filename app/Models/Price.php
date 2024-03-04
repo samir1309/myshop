@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Prices extends Model
+class Price extends Model
 {
 
     protected $table = 'prices';

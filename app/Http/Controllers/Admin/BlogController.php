@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use ValidatesRequests;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -24,6 +25,7 @@ class BlogController extends Controller
      
  
        $articles = Blog::orderBy('id' , 'Desc')->paginate(50);
+    
        return view('admin.blog.index' , compact('articles'));
     }
 
@@ -44,7 +46,7 @@ class BlogController extends Controller
             $section = 'blog' ; 
             $resize = true ;
             $uploader = new UploadsImg();
-            $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
+            $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize  ,  $section  );
                 $input['image'] = $fileName;
         }
         $input['status'] = $request->has('status');
@@ -66,6 +68,7 @@ public function postEditArticle($id , BlogRequest $request)
 {
     $input = $request->all();
     $input['status'] = $request->has('status');
+
     $content = Blog::findOrFail($id);
     if ($request->hasFile('image')) {
         $path = "assets/uploads/content/art/";

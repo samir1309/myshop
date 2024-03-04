@@ -38,7 +38,7 @@ class BlogRequest extends FormRequest
                     'image'=>'max:40  ' ,
                     'title_seo'=>'max:71 ',
                     'description_seo'=>'max:171  ',
-                    'url' => [ new UniqueUrlRule ($id , 'Blog')]  ,
+                    'url' => [ 'required' ,  new UniqueUrlRule ($id , 'Blog')]  ,
                    
         ];
 

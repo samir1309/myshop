@@ -33,7 +33,7 @@ class CategoryRequest extends FormRequest
             'cover'=>'max:540  ' ,
             'title_seo'=>'max:71 ',
             'description_seo'=>'max:171  ',
-            'url' => [ new UniqueUrlRule ( $id  , 'Categories' )] 
+            'url' => [ 'required', new UniqueUrlRule ( $id  , 'Category' )] 
 
 
         ];

@@ -76,6 +76,23 @@ class User extends Authenticatable
         return $this->roles()->detach($role);
     }
 
+
+    public static function createAdmin() 
+    {
+      $admin = static::create([
+        'name' => 'admin',
+        'email' => 'info@site.com',   
+        'password' => 'kabin2023',
+        'admin' => true
+      ]);
+    
+
+      return $admin;
+    }
+
+
+
+
     public function hasPermission($access)
     {
         $accessCount = count(explode('.', $access));

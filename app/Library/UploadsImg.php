@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 class UploadsImg
 {
-    public function uploadPic( Request $request , $file, $path, $resize = true , $section)
+
+    public function uploadPic( Request $request , $file, $path, $resize  , $section)
     
     {
-     
-
         $routeName = $request -> route() ->getName();
      
 
         if ($section === 'blog') {
-            if ($routeName === 'admin.blog.add'  ||  $routeName === 'admin.blog.edit' ) {
+            
+            if ( str_contains($routeName ,'admin.blog.') ) {
                 $smallx = 70 ;
                 $smally = 50 ;
 
@@ -30,7 +30,9 @@ class UploadsImg
             }
 
         }elseif  ($section === 'category') {
-            if ($routeName === 'admin.category.add'  ||  'admin.category.edit' ) {
+         
+            // if ($routeName === 'admin.category.add'  ||  'admin.category.edit' ) {
+                if ( str_contains($routeName ,'admin.blog.') ) {
 
                 $smallx = 70 ;
                 $smally = 50 ;

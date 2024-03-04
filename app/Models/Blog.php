@@ -3,13 +3,11 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Blog extends Model
 {
-    protected $table = 'blogs';
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable = [
         'title',
@@ -48,6 +46,13 @@ class Blog extends Model
     return $this->belongsTo(\App\Models\BlogCategory::class, 'category_id', 'id');
 
 }
+
+public function setUrlAttribute($value)
+{
+  $this->attributes['url'] = Str::slug($value);
+}
+
+
 }
 
 

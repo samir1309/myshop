@@ -148,11 +148,11 @@ class UserController extends Controller
 
     
 
-            UserDept::insert($arr);
+            // UserDept::insert($arr);
         
-        $serialized_array = serialize($array);
+        // $serialized_array = serialize($array);
 
-        $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$user->id);
+        // $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$user->id);
         return Redirect::action('Admin\UserController@getIndex')->with('success', 'آیتم جدید اضافه شد.');
     }
 

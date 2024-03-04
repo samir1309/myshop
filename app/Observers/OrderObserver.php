@@ -2,21 +2,21 @@
 
 namespace App\Observers;
 
-use App\Models\Orders;
-use App\Models\Order_Histories;
+use App\Models\Order;
+use App\Models\OrderHistory;
 
 class OrderObserver
 {
     /**
      * Handle the Order "created" event.
      *
-     * @param  \App\Models\Orders  $order
+     * @param  \App\Models\Order $order
      * @return void
      */
-    public function created(Orders $order)
+    public function created(Order $order)
     {
         if ($order -> isDirty('status')){
-           $history = Order_Histories :: create ([
+           $history = OrderHistory :: create ([
              'order_id'  =>  $order->id ,
              'order_status_id' => $order ['status'] ,
            ]);
@@ -30,10 +30,10 @@ class OrderObserver
      * @param  \App\Models\Order  $order
      * @return void
      */
-    public function updated(Orders $order)
+    public function updated(Order $order)
     {
         if ($order -> isDirty('status')){
-            $history = Order_Histories :: create ([
+            $history = OrderHistory :: create ([
               'order_id'  =>  $order->id ,
               'order_status_id' => $order ['status'] ,
             ]);
@@ -44,10 +44,10 @@ class OrderObserver
     /**
      * Handle the Order "deleted" event.
      *
-     * @param  \App\Models\Orders  $order
+     * @param  \App\Models\Order $order
      * @return void
      */
-    public function deleted(Orders $order)
+    public function deleted(Order $order)
     {
         //
     }
@@ -55,10 +55,10 @@ class OrderObserver
     /**
      * Handle the Order "restored" event.
      *
-     * @param  \App\Models\Orders  $order
+     * @param  \App\Models\Order order
      * @return void
      */
-    public function restored(Orders $order)
+    public function restored(Order $order)
     {
         //
     }
@@ -69,7 +69,7 @@ class OrderObserver
      * @param  \App\Models\Order  $order
      * @return void
      */
-    public function forceDeleted(Orders $order)
+    public function forceDeleted(Order $order)
     {
         //
     }

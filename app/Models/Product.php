@@ -5,12 +5,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Library\Helper;
 
-class Products extends Model
+class Product extends Model
 {
-    use SoftDeletes;
-
-    protected $table = 'products';
-    use SoftDeletes;
+   
     protected $fillable = [
         'title', 'description', 'status', 'keyword','description_seo',
         'url', 'title_seo','sort','how_to_use','ingredients','like_count','video_link','title_en','price','old_price','stocks',
@@ -60,7 +57,7 @@ class Products extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Categories','products_categories');
+        return $this->belongsToMany('App\Models\Category','product_category');
     }  
      
     public function assignCategory($role)
@@ -70,11 +67,11 @@ class Products extends Model
 
     public function cats()
     {
-        return $this->belongsToMany('App\Models\Categories','products_categories')->orderBy('id','desc');
+        return $this->belongsToMany('App\Models\Category','product_category')->orderBy('id','desc');
     }
     public function category()
     {
-        return $this->belongsToMany('App\Models\Categories','products_categories')->whereDoesntHave('childs')->orderBy('id','desc');
+        return $this->belongsToMany('App\Models\Category','product_category')->whereDoesntHave('childs')->orderBy('id','desc');
     }
 
 

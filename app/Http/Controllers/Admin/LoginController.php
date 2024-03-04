@@ -31,7 +31,7 @@ class LoginController extends Controller
            'password' => $request->get('password'),
            'admin' => true,
        ]);
-
+     
 
        if ($login) {
            return redirect('/admin')->with('success', 'خوش آمدید');

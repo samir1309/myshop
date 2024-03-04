@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Rules;
-use App\Models\Categories;
+use App\Models\Category;
 use App\Models\Blog;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Str;
 
 class UniqueUrlRule implements Rule
 {
 
     protected $id;
+    protected $modal;
 
 
     /**
@@ -34,23 +36,21 @@ class UniqueUrlRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        if(  $this->modal = 'Categories'){
-            $count = Categories::where('url', $value)
-            ->where('id', '!=', $this->id)
-            ->count();
-            return $count === 0;
-
-        }
-
       
-       
-        if(  $this->modal = 'Blog'){
+        if ($this->modal == 'Blog') {            
             $count = Blog::where('url', $value)
             ->where('id', '!=', $this->id)
             ->count();
             return $count === 0;
         }
 
+     
+        if ($this->modal == 'Category') {            
+            $count = Category::where('url', $value)
+            ->where('id', '!=', $this->id)
+            ->count();
+            return $count === 0;
+        }
  
     
     

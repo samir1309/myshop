@@ -13,7 +13,7 @@ class CreateProductSpecificationTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_specification', function (Blueprint $table) {
+        Schema::create('product_specifications', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
             $table->integer('product_specification_type_id');
@@ -34,6 +34,6 @@ class CreateProductSpecificationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_specification');
+        Schema::dropIfExists('product_specifications');
     }
 }

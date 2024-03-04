@@ -27,7 +27,7 @@
 					</a>
 					<!-- Submenu -->
 					<ul class="nav collapse flex-column" id="collapsepage" data-bs-parent="#navbar-sidebar">
-					<li class="nav-item"> <a class="nav-link" href="{{ URL::action('Admin\CategoryController@getCategory') }}">دسته بندی</a></li>
+					<li class="nav-item"> <a class="nav-link" href="{{ route('admin.category.index') }}">دسته بندی</a></li>
 						<li class="nav-item"> <a class="nav-link" href="{{ URL::action('Admin\ProductController@getProduct') }}">محصولات</a></li>
 						<li class="nav-item"> <a class="nav-link" href="admin-course-detail.html">جزئیات</a></li>
 					</ul>

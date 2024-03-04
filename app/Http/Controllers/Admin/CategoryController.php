@@ -5,7 +5,7 @@ use app\Library\MakeTree;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
-use App\models\Categories;
+use App\models\Category;
 use App\Library\UploadsImg;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
@@ -17,8 +17,8 @@ class CategoryController extends Controller
     
     public function getCategory()
     {
-        $category = Categories::orderBy('id' , 'Desc')->paginate(50);
-        if (!empty($category)) {
+        $category = Category::orderBy('id' , 'Desc')->paginate(50);
+        if (!($category)) {
             MakeTree::getData($category);
             $category = MakeTree::GenerateArray(array('paginate' => 100));
         }
@@ -29,7 +29,7 @@ class CategoryController extends Controller
     
     public function getAddCategory()
     {
-        $categories = Categories::all()->toArray();
+        $categories = Category::all()->toArray();
         if (!empty($categories)) {
             MakeTree::getData($categories);
             $categories = MakeTree::GenerateArray(array('get'));
@@ -52,15 +52,15 @@ class CategoryController extends Controller
         }
 
 
-            $category = Categories::create($input);
+            $category = Category::create($input);
        
         return Redirect::action('Admin\CategoryController@getCategory')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
     }
 
     public function getEditCategory($id)
      {
-        $data = Categories::findOrFail($id);
-        $category = Categories:: where('id' , '<>' , $data->id )->orderby('id', 'DESC')->get()->toArray();
+        $data = Category::findOrFail($id);
+        $category = Category:: where('id' , '<>' , $data->id )->orderby('id', 'DESC')->get()->toArray();
         if (!empty($category)) {
             MakeTree::getData($category);
             $category = MakeTree::GenerateArray(array('get'));
@@ -83,7 +83,7 @@ return view('admin.category.edit' )
 
        $input = $request->all();
        $input['status'] = $request->has('status');
-       $category = Categories :: FindOrFail($id);
+       $category = Category :: FindOrFail($id);
     if ($request->hasFile('cover')) {
         $path = "assets/uploads/content/cat/";
         File::delete($path . '/big/' . $category->cover);

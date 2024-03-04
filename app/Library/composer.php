@@ -3,9 +3,9 @@
 
 use App\Library\SliderBanner;
 // use App\Models\Brand;
-use App\Models\Categories;
+use App\Models\Category;
 use App\Models\Content;
-use App\Models\Products;
+use App\Models\Product;
 // use App\Models\Setting;
 // use App\Models\Social;
 use App\User;
@@ -31,7 +31,7 @@ $head_sli = Content::Slider()->where('status','1')->get();
 
 
 $category_footer = Cache::remember('index.category_footer', 20, function() {
-return Categories::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','title'])->with('childs')->get();
+return Category::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','title'])->with('childs')->get();
 });
 
 // $social_header=Social::get();
@@ -43,9 +43,9 @@ return Categories::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','
 View::share([
     'category_footer' => $category_footer,
     'main_mobile' => SliderBanner::Mobile(),
-    // 'brands_footer' => $brands_footer,
-    // 'setting_header' => $setting_header,
-    // 'social_header' => $social_header,
+    'brands_footer' => $brands_footer,
+    'setting_header' => $setting_header,
+    'social_header' => $social_header,
     'head_sli' => $head_sli,
     'seg' => $seg,
 ]);
