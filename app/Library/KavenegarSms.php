@@ -4,8 +4,9 @@ namespace App\Library;
 
 class KavenegarSms
 {
-    private $token = "6962686E2B595051784C4C59537832547035346C39654838454F5674346E39674C73717068413858484A493D";
-    private $baseUrl = "https://api.kavenegar.com/v1";
+    private $token ="7A57772B6665707042712F58726E73446837496A5638684357425254616C467A66586C55677050475245593D";
+    private $baseUrl ="https://api.kavenegar.com/v1";
+
     public function execute(string $url){
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -23,7 +24,7 @@ class KavenegarSms
         curl_close($curl);
         return $response;
     }
-    public function sendLookup(string $template,array $tokens,string $mobile,string $type = "sm"){
+    public function sendLookup(string $template,array $tokens,string $mobile,string $type ="sms"){
         $tokens_query = http_build_query($tokens);
         $url = "verify/lookup.json?receptor=$mobile&type=$type&template=$template&$tokens_query";
         try {
@@ -35,16 +36,3 @@ class KavenegarSms
     }
 }
 
-// foreach ($ten_events as $ten_event) {
-//     $user_sms = User::find($ten_event['user_id']);
-//     $kavenegar = new KavenegarSms();
-//     $kavenegar->sendLookup(
-//         "ten-event",
-//         [
-//             "token10"=>$user_sms->name,
-//             "token"=>'FREEDELIVERY',
-//         ],
-//         $user_sms->mobile
-//     );
-
-// }

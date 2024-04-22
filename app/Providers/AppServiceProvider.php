@@ -28,11 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require_once app_path('Library/Kavenegar.php');
+        require_once app_path('Library/KavenegarSms.php');
         require_once app_path('Library/jdate.php');
         require_once app_path('Library/UploadImg.php');
         require_once app_path('Library/UploadsImg.php');
         require_once app_path('Library/Resizer.php');
+        require_once app_path('Library/Helper.php');
 //        require_once app_path('Library/Watermark.php');
         require_once app_path('Library/MakeTree.php');
 

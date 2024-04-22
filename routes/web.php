@@ -25,5 +25,5 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'Site\HomeController@getIndex')->name('site.home');
 
 
-
+include('panel.php');
 include('admin.php');

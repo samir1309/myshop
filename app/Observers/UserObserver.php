@@ -3,7 +3,6 @@
 namespace App\Observers;
 
 use App\Models\User;
-use App\Library\exitUser;
 
 class UserObserver
 {
@@ -13,17 +12,17 @@ class UserObserver
      * @param  \App\Models\User  $user
      * @return void
      */
-    public function created(User $user)
-    {
-        if ($user -> isDirty('mobile')){
-            $old = $user ->getOrginal('mobile');
-            $new = $user ->getAttribute('mobile');
+    // public function created(User $user)
+    // {
+    //     if ($user -> isDirty('mobile')){
+    //         $old = $user ->getOrginal('mobile');
+    //         $new = $user ->getAttribute('mobile');
 
-            exitUser:: getOld ($new , $old  );
+    //         exitUser:: get
 
 
-        }
-    }
+    //     }
+    // }
 
     /**
      * Handle the User "updated" event.
@@ -33,14 +32,7 @@ class UserObserver
      */
     public function updated(User $user)
     {
-        if ($user -> isDirty('mobile')){
-            $old = $user ->getOrginal('mobile');
-            $new = $user ->getAttribute('mobile');
-
-            exitUser:: getOld ($new , $old  );
-
-
-        }
+        //
     }
 
     /**
