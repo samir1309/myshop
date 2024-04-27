@@ -8,8 +8,10 @@
             ویرایش
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-                <form method="post" action="{{URL::action('Admin\BlogController@postEditArticle', $article->id )}}"
+                <form method="post" 	action="{{ route('admin.blog.edit', $article->id) }}"
                     enctype="multipart/form-data">
+
+				
                     @include('admin.blog.form')
                 </form>
 			</div>

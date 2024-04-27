@@ -153,6 +153,7 @@
                                                         </td>
 														<td>
 															<a href="{{URL::action('Admin\BlogController@getEditArticle',$article->id)}}"
+														
 																type="button"
 																class="btn btn-space btn-warning"
 																data-toggle="tooltip" title="ویرایش">

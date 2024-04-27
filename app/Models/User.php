@@ -50,6 +50,7 @@ class User extends Authenticatable
     {
        $this->attributes['mobile'] = Helper::persian2LatinDigit($value);
     }
+    
     public function setPasswordAttribute($value)
     {
        $this->attributes['password'] = bcrypt(Helper::persian2LatinDigit($value));

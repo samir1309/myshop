@@ -4,7 +4,7 @@ namespace App\Library;
 
 class KavenegarSms
 {
-    private $token ="7A57772B6665707042712F58726E73446837496A5638684357425254616C467A66586C55677050475245593D";
+    private $token ="4E65797A58324642466B6247726D2B493978584D537A7A6976456E4F596878463635364F367872746735633D";
     private $baseUrl ="https://api.kavenegar.com/v1";
 
     public function execute(string $url){

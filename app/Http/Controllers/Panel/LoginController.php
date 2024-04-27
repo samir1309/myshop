@@ -8,11 +8,15 @@ use App\Helpers\StringUtils;
 use App\Library\Helper;
 use App\Library\KavenegarSms;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Kavenegar\KavenegarApi;
 use Kavenegar\Exceptions\ApiException;
 use Kavenegar\Exceptions\HttpException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+
 
 class LoginController extends Controller
 {
@@ -28,19 +32,19 @@ class LoginController extends Controller
         return view('site.auth.signin');
     }
 
-    public function postlogins(Request $request)
+    public function postlogin(LoginRequest $request)
     {
         $correctlogin = $request->only('mobile', 'password');
 
         if (Auth::attempt($correctlogin)) {
       
-            return redirect('panel/dashboard')->with('success', 'خوش آمدید');
-       
-           
-      
+            return redirect()->route('panel.dashboard');
+            
+
+
         }
       
-        return redirect('/panel/register')->with('error', 'شما ثبت نام نکردید');
+        return redirect('/panel/login')->with('error', 'شما ثبت نام نکردید');
            
     }
 
@@ -49,25 +53,19 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboard()
-    {
-        return view('site.panel.dashboard');
-    }
+   
 
     public function create()
     {
         return view('site.auth.signup');
     }
 
-
-
-  
 public function store(RegisterRequest $request)
 {
   $user = new User;
   $user->name = $request->name;
   $user->email = $request->email;
-  $user->setMobileAttribute($request->mobile);
+  $user->mobile = $request->mobile;
 
   // generate random code
   $tokens = rand(100000,999999);
@@ -78,7 +76,8 @@ public function store(RegisterRequest $request)
   $user->save();
   $sms = new KavenegarSms;
   $sms->sendLookup('confirm',['tokens' =>$tokens],$user->mobile);
-  return redirect('panel/confirm/'.$user->mobile)->with('success', 'کد تایید ارسال شد');
+return redirect('panel/confirm/'.$user->mobile)->with('success', 'کد تایید ارسال شد');
+
 
 }
 
@@ -93,17 +92,21 @@ public function getConfirm($mobile,Request $request)
         set_time_limit(30000000000);
 
         $input = $request->all();
+        // اینجا کلا خالی رد میکنه چرا؟؟
+      
+       //$user = User::where('mobile', $request->mobile)->where('confirm_code',  Helper::persian2LatinDigit($request->get('confirm_code')))->first();
 
-        $user = User::where('confirm_code', Helper::persian2LatinDigit($request->get('confirm_code')))->first();
+     $user = User::where('confirm_code', Helper::persian2LatinDigit($request->get('confirm_code')))->first();
 
         if ($user) {
             $user->mobile_confirm = true;
             $user->save();
-            $user->assignRole([4]);
             Auth::loginUsingId($user->id);
-           return redirect('panel/dashboard');
-         
+           
+            return redirect()->route('panel.dashboard');
     }
+    return redirect()->back()->with('error', ' کد وارد شده صحیح نمی باشد');
+
 }
 
 

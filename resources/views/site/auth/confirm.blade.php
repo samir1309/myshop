@@ -43,6 +43,7 @@
 							<form class="mb-0 mt-4" method="post"  action="{{ route('panel.confirm') }}"
 								enctype="multipart/form-data">
 								{{ csrf_field() }}
+								
                               
 								<div class="col-12 col-lg-6 d-flex justify-content-center">
 							<div class="row my-5">

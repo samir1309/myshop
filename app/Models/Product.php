@@ -4,10 +4,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Library\Helper;
+use Illuminate\Support\Str;
+use App\Traits\Sluggable;
+
 
 class Product extends Model
 {
    
+    use Sluggable;
+    
     protected $fillable = [
         'title', 'description', 'status', 'keyword','description_seo',
         'url', 'title_seo','sort','how_to_use','ingredients','like_count','video_link','title_en','price','old_price','stocks',

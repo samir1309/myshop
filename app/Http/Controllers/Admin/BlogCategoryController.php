@@ -39,9 +39,10 @@ class BlogCategoryController extends Controller
     {
         $input = $request->all();
         $input['status'] = $request->has('status');
-            $category = BlogCategory::create($input);
+        $category = BlogCategory::create($input);
       
-        return Redirect::action('Admin\BlogCategoryController@getArticleCat')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+        return redirect()->route('admin.blog-cat.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
     }
 
     public function getEditArticleCat($id)
@@ -51,9 +52,9 @@ class BlogCategoryController extends Controller
      
       
 
-return view('admin.blog-cat.edit')
-->with('data',$data)
-->with('categories',$category);
+            return view('admin.blog-cat.edit')
+            ->with('data',$data)
+            ->with('categories',$category);
 
     }
 
@@ -74,7 +75,9 @@ return view('admin.blog-cat.edit')
         $input['image'] = $category->image;
     }
 $category->update($input);
-return Redirect::action('Admin\BlogCategoryController@getArticleCat');
+return redirect()->route('admin.blog-cat.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
+
 
     }
 

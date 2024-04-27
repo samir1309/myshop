@@ -6,6 +6,12 @@
 		<input id="title" name="title" type="text" class="form-control"
 			value="@if(isset($data->title)){{$data->title}}@endif">
 	</div>
+                                  <div class="col-lg-6 form-group">
+										<label for="url" class="col-form-label">url</label>
+										<input id="url" name="url" type="text" class="form-control"
+											value="@if(isset($data->url)){{$data->url}}@endif">
+									</div>
+
     <div class="col-lg-6 form-group">
         <div class="row w-100 m-0 nthsd">
             <div class="col-lg-12 p-0">

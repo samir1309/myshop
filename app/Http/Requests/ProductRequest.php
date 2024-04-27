@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
+use  Illuminate\Http\Request ;
+use App\Models\Product;
+use App\Rules\UniqueUrlRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductRequest extends FormRequest
@@ -21,43 +23,32 @@ class ProductRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
-        switch ($this->segment(3)){
-            case 'add' :
-                return[
+        $id = $request->route('id');
+   
 
+        return [
 
-                    'title_seo'=>'max:71',
-                    'description_seo'=>'max:171',
+                    'image'=>'max:40  ' ,
+                    'title_seo'=>'max:71 ',
+                    'description_seo'=>'max:171  ',
+                    'url' => [ 'required' ,  new UniqueUrlRule ($id , 'Product')]  ,
+                   
+        ];
 
+ 
 
-                ];
-                break;
-            case 'edit' :
-                return [
-
-                    'title_seo'=>'max:71',
-                    'description_seo'=>'max:171',
-                ];
-                break;
-            case 'delete' :
-                return [
-                    'deleteId' => 'required',
-                ];
-                break;
-        }
+        
     }
     public function messages()
     {
-        return [
-
-
-            'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
-            'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
-
-
-        ];
+      return [
+        'image.max' => ' حجم عکس باید کمتر از ۳۰ کیلوبایت باشد',
+        'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
+        'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
+        'url' => 'آدرس وارد شده تکراری است'
+      ];
     }
 
 }

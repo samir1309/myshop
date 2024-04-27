@@ -94,7 +94,8 @@ class SliderController extends Controller
         $serialized_array = serialize($array);
 
         $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$slider->id);
-        return Redirect::action('Admin\SliderController@getSlider');
+        return redirect()->route('admin.slider.index');
+
     }
 
     public function getEditSlider($id)
@@ -143,7 +144,7 @@ class SliderController extends Controller
         $serialized_array = serialize($array);
 
         $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$content->id);
-        return Redirect::action('Admin\SliderController@getSlider');
+        return redirect()->route('admin.slider.index');
     }
     public function getDeleteSlider($id)
     {
@@ -156,7 +157,7 @@ class SliderController extends Controller
         $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$content->id);
         Content::destroy($id);
 
-        return Redirect::action('Admin\SliderController@getSlider');
+        return redirect()->route('admin.slider.index');
 
     }
 

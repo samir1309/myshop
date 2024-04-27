@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use App\Traits\Sluggable;
 
 
 class Category extends Model
 {
     use SoftDeletes;
     use HasFactory;
+    use Sluggable;
 
 
     protected $table = 'categories';
@@ -62,10 +64,7 @@ class Category extends Model
         return $this->belongsTo(\App\Models\Category::class, 'parent_id', 'id');
     }
 
-    public function setUrlAttribute($value)
-{
-  $this->attributes['url'] = Str::slug($value);
-}
+ 
 
 
 }

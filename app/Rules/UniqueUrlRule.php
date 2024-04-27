@@ -5,6 +5,8 @@ use App\Models\Category;
 use App\Models\Blog;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Str;
+use App\Models\BlogCategory;
+use App\Models\Product;
 
 class UniqueUrlRule implements Rule
 {
@@ -47,6 +49,20 @@ class UniqueUrlRule implements Rule
      
         if ($this->modal == 'Category') {            
             $count = Category::where('url', $value)
+            ->where('id', '!=', $this->id)
+            ->count();
+            return $count === 0;
+        }
+
+        if ($this->modal == 'BlogCategory') {            
+            $count = BlogCategory::where('url', $value)
+            ->where('id', '!=', $this->id)
+            ->count();
+            return $count === 0;
+        }
+
+        if ($this->modal == 'Product') {            
+            $count = Product::where('url', $value)
             ->where('id', '!=', $this->id)
             ->count();
             return $count === 0;

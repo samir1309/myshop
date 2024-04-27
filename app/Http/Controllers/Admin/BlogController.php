@@ -35,6 +35,7 @@ class BlogController extends Controller
        
        $blogcategory = BlogCategory :: orderBy('id' , 'Desc')->get(['id','title']);
        return view('admin.blog.add' , compact('blogcategory'));
+
     
     }
 
@@ -51,7 +52,9 @@ class BlogController extends Controller
         }
         $input['status'] = $request->has('status');
         Blog ::create($input);
-        return Redirect::action('Admin\BlogController@getArticle')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
+        return redirect()->route('admin.blog.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
      
 
     }
@@ -86,7 +89,8 @@ public function postEditArticle($id , BlogRequest $request)
     }
 
    $content->update($input);
-    return Redirect::action('Admin\BlogController@getArticle')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+    return redirect()->route('admin.blog.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
 
 }
     

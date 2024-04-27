@@ -66,7 +66,9 @@ class ProductController extends Controller
             $product->assignCategory($request['category_id']);
         }
         $product->update($input);
-        return Redirect::action('Admin\ProductController@getProduct');
+        return redirect()->route('admin.products.index');
+
+
     }
 
 }

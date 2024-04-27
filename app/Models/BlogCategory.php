@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Sluggable;
 
 class BlogCategory extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     protected $fillable = [
         'title',

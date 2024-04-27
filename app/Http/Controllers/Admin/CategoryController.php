@@ -54,7 +54,8 @@ class CategoryController extends Controller
 
             $category = Category::create($input);
        
-        return Redirect::action('Admin\CategoryController@getCategory')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+        return redirect()->route('admin.category.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
     }
 
     public function getEditCategory($id)
@@ -102,7 +103,7 @@ return view('admin.category.edit' )
     }
 $category->update($input);
 
-return Redirect::action('Admin\CategoryController@getCategory');
+return redirect()->route('admin.category.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
 
     }
 }

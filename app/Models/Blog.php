@@ -4,10 +4,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Traits\Sluggable;
 
 class Blog extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     protected $fillable = [
         'title',
@@ -47,10 +49,7 @@ class Blog extends Model
 
 }
 
-public function setUrlAttribute($value)
-{
-  $this->attributes['url'] = Str::slug($value);
-}
+
 
 
 }

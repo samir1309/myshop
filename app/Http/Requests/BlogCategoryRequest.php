@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
+use  Illuminate\Http\Request ;
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Rules\UniqueUrlRule;
 class BlogCategoryRequest extends FormRequest
 {
     /**
@@ -21,15 +22,17 @@ class BlogCategoryRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
+        $id = $request->route('id');
         switch ($this->segment(3)){
             case 'add' :
                 return[
 
-                    'image'=>'max:30',
+                    'image'=>'max:40',
                     'title_seo'=>'max:71',
                     'description_seo'=>'max:171',
+                    'url' => [ 'required' ,  new UniqueUrlRule ($id , 'BlogCategory')]  ,
 
 
                 ];
@@ -39,6 +42,7 @@ class BlogCategoryRequest extends FormRequest
                     'image'=>'max:30',
                     'title_seo'=>'max:71',
                     'description_seo'=>'max:171',
+                    'url' => [ 'required' ,  new UniqueUrlRule ($id , 'BlogCategory')]  ,
                 ];
                 break;
             case 'delete' :
@@ -55,6 +59,7 @@ class BlogCategoryRequest extends FormRequest
             'image.max' => ' حجم عکس باید کمتر از ۳۰ کیلوبایت باشد',
             'title_seo.max' => ' تعداد کاراکتر عنوان سئو باید کمتر از ۷۰ باشد',
             'description_seo.max' => ' تعداد کاراکتر توضیحات سئو باید کمتر از ۱۷۰ باشد',
+            'url' => 'آدرس وارد شده تکراری است'
 
 
         ];

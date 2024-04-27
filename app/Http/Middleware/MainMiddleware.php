@@ -13,7 +13,7 @@ class MainMiddleware
     public function handle($request,Closure $next){
         if(!@$_COOKIE['cookie_id']){
             $cookie_id = uniqid('kaj');
-            @setcookie("cookie_id", $cookie_id, strtotime("2040-01-19 03:14:07"),"/","kajshop.com");
+            @setcookie("cookie_id", $cookie_id, strtotime("2040-01-19 03:14:07"),"/","assho.ir");
             // $cookie = Cookie::create([
             //     'cookie_id'=>$cookie_id,
             //     'ip'=>request()->ip()

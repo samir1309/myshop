@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'PanelPermission' => \App\Http\Middleware\PanelPermission::class,
         'main' => \App\Http\Middleware\MainMiddleware::class,
         'AdminPermission' => \App\Http\Middleware\AdminPermission::class,
+        
     ];
 }

@@ -2,12 +2,9 @@
 
 namespace App\Http\Requests;
 
-  use  Illuminate\Http\Request ;
-
+use  Illuminate\Http\Request ;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\ValidatesRequests;
-
-
 use App\Rules\UniqueUrlRule;
 
 class BlogRequest extends FormRequest
