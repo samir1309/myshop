@@ -41,6 +41,13 @@ class OrderObserver
          }
     }
 
+
+
+    public function create(Order $order)
+    {
+        $order->status = 'پیش فاکتور';
+        $order->save();
+    }
     /**
      * Handle the Order "deleted" event.
      *

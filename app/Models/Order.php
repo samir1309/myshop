@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class Order extends Model
 {
     use SoftDeletes;
- 
-
-
-    
 
     public function getDateOrderAttribute(){
         $date =  jdate('Y/m/d H:i',$this->created_at->timestamp);
@@ -27,6 +23,6 @@ class Order extends Model
               return $query->where('cookie_id', @$_COOKIE['cookie_id']);
           }
       }
-}
+    }
 
 

@@ -149,10 +149,7 @@ class UserController extends Controller
     
 
             // UserDept::insert($arr);
-        
-        // $serialized_array = serialize($array);
-
-        // $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$user->id);
+      
         return Redirect::action('Admin\UserController@getIndex')->with('success', 'آیتم جدید اضافه شد.');
     }
 
@@ -251,10 +248,13 @@ class UserController extends Controller
 
 //        event(new LogUserEvent($role->id, 'add', Auth::id()));
         if ($role->save()) {
-            return Redirect::action('Admin\UserController@getGroup')->with('success', 'آیتم جدید اضافه شد.');
+            return redirect()->route('admin.user.group.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
         }
 
     }
+
+
 
     public function getGroupEdit($id)
     {
@@ -269,7 +269,6 @@ class UserController extends Controller
         $role->name = $request->get('name');
         $role->permission = serialize($request['access'] + ['fullAccess' => 0]);
         $role->save();
-//        event(new LogUserEvent($role->id, 'edit', Auth::id()));
         if ($role->save()) {
             return Redirect::action('Admin\UserController@getGroup')->with('success', 'آیتم مورد نظر با موفقیت ویرایش شد.');
         }
@@ -280,9 +279,9 @@ class UserController extends Controller
     public function postGroupDelete(UserRequest $request)
     {
         if (Role::destroy($request->get('deleteId'))) {
-//            event(new LogUserEvent(json_encode($request->get('deleteId')), 'delete', Auth::id()));
-            return Redirect::action('Admin\UserController@getGroup')
-                ->with('success', 'کدهای مورد نظر با موفقیت حذف شدند.');
+//    
+                return redirect()->route('admin.user.group.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
+
         }
     }
 

@@ -31,9 +31,12 @@ $head_sli = Content::Slider()->where('status','1')->get();
 
 
 $category_footer = Cache::remember('index.category_footer', 20, function() {
-return Category::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','title'])->with('childs')->get();
+return Category::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','title' ,'url'])->with('childs')->get();
 });
 
+$category_footer = Cache::remember('index.category_footer', 20, function() {
+    return Category::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','title' , 'url'])->with('childs')->get();
+    });
 // $social_header=Social::get();
 
 

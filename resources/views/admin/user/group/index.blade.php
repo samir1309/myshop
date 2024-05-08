@@ -15,8 +15,9 @@
 		</div>
 	</div>
 	<div class="card">
-		<form method="post" action="{{URL::action('Admin\UserController@postGroupDelete')}}">
+		<form method="post" action=" {{ route('admin.user.group.delete')}}">
 			{{ csrf_field() }}
+			
 			<div class="py-3 px-2">
 				<button type="submit" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"
 					data-toggle="tooltip" data-original-title="Delete selected items"
@@ -30,7 +31,7 @@
 					</svg>
 					حذف انتخاب شده ها
 				</button>
-				<a href="{{URL::action('Admin\UserController@getGroupAdd')}}" type="button" class="btn btn-space btn-primary">
+				<a href="{{ route('admin.user.group.add')}} " type="button" class="btn btn-space btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 						class="bi bi-plus-circle-dotted me-2" viewBox="0 0 16 16">
 						<path
@@ -127,6 +128,11 @@
                                                                 <a href="{{URL::action('Admin\UserController@getGroupEdit',[$row->id])}}"
                                                                    data-toggle="tooltip" data-original-title="ویرایش اطلاعات"
                                                                    class="btn btn-space  btn-warning"><i class="fa fa-edit"></i> ویرایش </a>
+																   <a href="{{URL::action('Admin\UserController@getGroupEdit',[$row->id])}}"
+                                                                   type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"
+                                                                   class="btn btn-space btn-danger"
+                                                                   data-toggle="tooltip" title="حذف">
+                                                                    <i class="fa fa-trash">
 
                                                         
 

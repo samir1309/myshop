@@ -180,22 +180,21 @@
 			<div class="navbar-collapse w-100 collapse" id="navbarCollapse2">
 				<!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+				@foreach($category_footer as $key=>$main)
+				<li class="nav-item dropdown">
 				
-				@include('layouts.site.blocks.mega-cat')
+						
+						<ul class="dropdown-menu" aria-labelledby="demoMenu">
+						@foreach($main->childs as $childRow)
+							<li> <a class="dropdown-item" href="{{ route('site.product.list',['id'=>$childRow->id]) }}"> {{@$childRow->title}} </a></li>
+							@endforeach
+						</ul>
+					</li>
 
-					<!-- Navmitem 2 link -->
-					<li class="nav-item"><a class="nav-link" href="#">حسابداری مالی</a></li>
-
-					<!-- Nav item 3 link -->
-					<li class="nav-item"><a class="nav-link" href="#">مهندسی نرم افزار</a></li>
-
-					<!-- Nav item 4 link-->
-					<li class="nav-item"><a class="nav-link" href="#">فناوری و اطلاعات</a></li>
-
-					<!-- Nav item 5 link-->
-					<li class="nav-item"><a class="nav-link" href="#">نگارش آکادمیک</a></li>
-
+					<li class="nav-item"><a class="nav-link" href="{{ route('site.product.category',@$main->url ) }}">{{@$main->title}}</a></li>
+					@endforeach
 				</ul>
+			
 			</div>
 			<!-- Main navbar END -->
 			</div> 

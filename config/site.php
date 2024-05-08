@@ -29,7 +29,6 @@ return [
 
             )
         ),
-        
         'products' => array(
             'title' => 'محصولات  ',
             'access' => array(

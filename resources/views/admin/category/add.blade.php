@@ -13,7 +13,7 @@
 			</div>
 		</div>
 
-        <form method="post" action="{{URL::action('Admin\CategoryController@postAddCategory')}}"
+        <form method="post" action="{{ route('admin.category.add') }} "
                     enctype="multipart/form-data">
                     @csrf
                     @include('admin.category.form')

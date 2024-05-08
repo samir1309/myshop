@@ -109,7 +109,7 @@
 
 								<!-- Table data -->
 								<td>
-								<a href="{{URL::action('Admin\CategoryController@getEditCategory',@$cat['id'])}}" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
+								<a href=" {{ route('admin.category.edit' ,@$cat->id)}}" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
 									
 									<a href="{{URL::action('Admin\CategoryController@getDeleteCategory',@$cat['id'])}}"
                                                                    type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"

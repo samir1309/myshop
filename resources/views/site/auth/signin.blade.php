@@ -50,7 +50,7 @@
 									<label for="exampleInputEmail1" class="form-label">موبایل</label>
 									<div class="input-group input-group-lg">
 										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-										<input type="text"  name="mobile" class="form-control border-0 bg-light rounded-end ps-1" placeholder="شماره موبایل" id="exampleInputEmail1">
+										<input type="text"  name="mobile"   onchange="checkMobile(event)" class="form-control border-0 bg-light rounded-end ps-1" placeholder="شماره موبایل" id="exampleInputEmail1">
 									</div>
 								</div>
 								<!-- Password -->

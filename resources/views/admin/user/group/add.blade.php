@@ -9,7 +9,7 @@
                 سطح دسترسی جدید
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-				<form method="post" action="{{URL::action('Admin\UserController@postGroupAdd')}}"
+				<form method="post" action=" {{ route('admin.user.group.add')}}"
 					enctype="multipart/form-data">
 					@include('admin.user.group.form')
 				</form>

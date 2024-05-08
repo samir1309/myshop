@@ -68,16 +68,6 @@
 							</li>
 						</ul>
 					</div>
-					<!-- <div class="col-lg-2 col-md-4 ms-md-auto p-xxl-2 p-md-1 align-self-center">
-						<a href="tel:{{@$setting_header->contact}}" class="d-flex justify-content-end nav-call">
-							{{@$setting_header->contact}}
-							<i class="bi bi-telephone text-one ms-2"></i>
-						</a>
-						<a href="mailto:{{@$setting_header->email}}" class="d-flex justify-content-end nav-call">
-							{{@$setting_header->email}}
-							<i class="bi bi-envelope text-one ms-2"></i>
-						</a>
-					</div> -->
 				</div>
 			</div>
 		</div>

@@ -3,24 +3,36 @@
 <?php
 Route::middleware('main')->group(function () {
 
-Route::get('panel/login','Panel\LoginController@getlogin')->name('panel.login');
-Route::post('panel/login','Panel\LoginController@postlogin')->name('panel.login');
+Route::namespace('Panel')->prefix('panel')->group(function () {
+Route::controller(LoginController::class)->name('panel.')->group(function () {
+    Route::get('login', 'getlogin')->name('login');
+    Route::post('login', 'postlogin')->name('login');
+    
+    Route::get('register', 'create')->name('register');
+    Route::post('register', 'store')->name('register');
 
-Route::get('panel/register', 'Panel\LoginController@create')->name('panel.register');
-Route::post('panel/register', 'Panel\LoginController@store')->name('panel.register');
-
-Route::get('panel/confirm/{mobile}', 'Panel\LoginController@getConfirm')->name('panel.confirm');
-Route::post('panel/confirm/', 'Panel\LoginController@postConfirm')->name('panel.confirm');
+    Route::get('confirm/{mobile}', 'getConfirm')->name('confirm');
+    Route::post('confirm', 'postConfirm')->name('confirm');
+    
 
 });
+});
 
+});
 
 
   
 Route::namespace('Panel')->prefix('panel')->group(function () {
 Route::middleware('PanelPermission')->group(function (){
 
-Route::get('/dashboard', 'PanelController@dashboard')->name('panel.dashboard');
+
+Route::controller(PanelController::class)->name('panel.')->group(function () {
+    Route::get('/logout', 'logout')->name('logout');
+    Route::get('edit', 'edit')->name('edit');
+    Route::post('edit', 'posteditinfo')->name('edit');
+    Route::any('updatepassword', 'updatePassword')->name('updatepassword');
+    Route::get('dashboard', 'dashboard')->name('dashboard');
+});
 
 
 

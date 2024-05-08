@@ -8,7 +8,7 @@
                 ویرایش
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-                <form method="post" action="{{URL::action('Admin\CategoryController@postEditCategory',$data->id)}}"
+                <form method="post" action="{{ route('admin.category.edit' ,$data->id)}}"
                     enctype="multipart/form-data">
                     @csrf
                     @include('admin.category.form')

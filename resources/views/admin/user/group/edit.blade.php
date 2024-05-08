@@ -8,7 +8,7 @@
                 سطح دسترسی
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-                <form method="post" action="{{URL::action('Admin\UserController@postGroupEdit',$data->id)}}"
+                <form method="post" action="{{ route('admin.user.group.edit', $data->id) }}"
                     enctype="multipart/form-data">
                     @include('admin.user.group.form')
                 </form>

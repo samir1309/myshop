@@ -60,6 +60,7 @@ class LoginController extends Controller
         return view('site.auth.signup');
     }
 
+    
 public function store(RegisterRequest $request)
 {
   $user = new User;
@@ -83,6 +84,7 @@ return redirect('panel/confirm/'.$user->mobile)->with('success', 'کد تایی�
 
 public function getConfirm($mobile,Request $request)
     {
+     
         return view('site.auth.confirm')->with('mobile',$mobile);
 
     }
@@ -91,18 +93,23 @@ public function getConfirm($mobile,Request $request)
     {
         set_time_limit(30000000000);
 
-        $input = $request->all();
-        // اینجا کلا خالی رد میکنه چرا؟؟
+        $user = User::where('confirm_code', Helper::persian2LatinDigit($request->get('confirm_code')))->first();
+
+        $new=$user->mobile;
+     
       
        //$user = User::where('mobile', $request->mobile)->where('confirm_code',  Helper::persian2LatinDigit($request->get('confirm_code')))->first();
 
-     $user = User::where('confirm_code', Helper::persian2LatinDigit($request->get('confirm_code')))->first();
 
         if ($user) {
+         $user->mobile = $user->mobile;
+        
             $user->mobile_confirm = true;
             $user->save();
             Auth::loginUsingId($user->id);
-           
+
+         
+
             return redirect()->route('panel.dashboard');
     }
     return redirect()->back()->with('error', ' کد وارد شده صحیح نمی باشد');

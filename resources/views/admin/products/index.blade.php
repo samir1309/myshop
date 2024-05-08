@@ -105,7 +105,7 @@
 
 								<!-- Table data -->
 								<td>
-								<a href="" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
+								<a href="{{ route('admin.products.edit', $cat->id) }}" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
 									
 									<a href=""
                                                                    type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"

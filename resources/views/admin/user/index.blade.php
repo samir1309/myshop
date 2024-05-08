@@ -297,7 +297,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">پسورد</h5>
 
                 </div>
-                <form method="POST" action="{{URL::action('Admin\UserController@postPassEdit',$row2->id)}}">
+                <form method="POST" action="">
                     {{csrf_field()}}
                     <div class="modal-body">
 

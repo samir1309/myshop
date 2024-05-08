@@ -49,7 +49,7 @@
 									<label for="exampleInputname" class="form-label">نام و نام خانوادگی</label>
 									<div class="input-group input-group-lg">
 										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-										<input type="text" class="form-control border-0 bg-light rounded-end ps-1" 	id="floatingInput" placeholder="نام و نام خانوادگی" name="name">
+										<input type="text" class="form-control border-0 bg-light rounded-end ps-1" 	id="floatingInput"  oninvalid="warnRequired('نام و نام خانوادگی')" required  placeholder="نام و نام خانوادگی" name="name">
 									</div>
 								</div>
                                 		<!-- Mobile -->
@@ -57,7 +57,7 @@
 									<label for="exampleInputEmail1" class="form-label">موبایل</label>
 									<div class="input-group input-group-lg">
 										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-										<input type="text"  name="mobile" class="form-control border-0 bg-light rounded-end ps-1" placeholder="شماره موبایل" id="exampleInputEmail1">
+										<input type="text"  name="mobile"   onchange="checkMobile(event)" class="form-control border-0 bg-light rounded-end ps-1" placeholder="شماره موبایل" id="exampleInputEmail1">
 									</div>
 								</div>
 								<!-- Email -->
@@ -73,7 +73,7 @@
 									<label for="inputPassword5" class="form-label">رمز عبور *</label>
 									<div class="input-group input-group-lg">
 										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-										<input type="password"   name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="رمز ورود"  id="inputPassword5">
+										<input type="password"   name="password" class="form-control border-0 bg-light rounded-end ps-1"  oninvalid="warnRequired('رمز عبور')" required id="inputPassword5">
 									</div>
 								</div>
 
@@ -82,7 +82,7 @@
 									<label for="inputPassword6" class="form-label">تایید رمز عبور *</label>
 									<div class="input-group input-group-lg">
 										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-										<input type="password" name="re-password"  class="form-control border-0 bg-light rounded-end ps-1" placeholder="تکرار رمز ورود"  id="inputPassword6">
+										<input type="password" name="re-password"  class="form-control border-0 bg-light rounded-end ps-1"  oninvalid="warnRequired('رمز عبور')" placeholder="تکرار رمز ورود"  id="inputPassword6">
 									</div>
 								</div>
 								<!-- Check box -->
@@ -131,3 +131,5 @@
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
 @stop
+
+

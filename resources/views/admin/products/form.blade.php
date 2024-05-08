@@ -42,16 +42,30 @@
                                     	<!-- Choice item -->
 									<div class="col-lg-6">
                                     <label class="form-label">دسته</label>
-										<select class="form-select js-choice z-index-9 border-0 bg-light" name="category_id"  >
-                                        <option value="">انتخاب  محصول : </option>
-                                            @foreach($category as $row)
-                                         <option value="{{$row->id}}">
-                                                        @if(isset($data->category_id)) @if($data->category_id==$row['id']) selected @endif
-                                             @endif
-                                                {{$row['title']}}
-                                         </option>
-                                            @endforeach
+										
+
+										<select class="form-select js-choice z-index-9 border-0 bg-light" name="category_id"
+										 value="@if(isset($data->category_id)) {{$data->category_id}} @endif" aria-label="form-select-sm" >
+                                        <option value="">انتخاب دسته: </option>
+										
+										@foreach($category as $row)
+
+											<option value="{{ $row['id'] }}"
+											@foreach($category as $pc)
+												@if($pc->category_id == $row['id'])
+												selected
+												@endif
+											@endforeach
+											>
+											{{ $row['title'] }}
+											</option>
+
+											@endforeach
+                                    
 										</select>
+
+
+
 									</div>
 	
                     
@@ -93,6 +107,11 @@
                                             value="0" @if(isset($data->status) && $data->status == 0) checked="unckeked" @endif name="status" id="status">آفلاین</label>
 										</div>
 									</div>
+									  	<!-- Textarea item -->
+										  <div class="col-lg-12">
+										<label class="form-label">توضیحات کوتاه </label>
+										<textarea class="form-control ckeditor" rows="3" name="how_to_use">@if(isset($data->how_to_use)){!! $data->how_to_use !!}@endif</textarea>
+									</div>
                                      	<!-- Textarea item -->
 									<div class="col-lg-12">
 										<label class="form-label">توضیحات</label>
@@ -118,3 +137,28 @@
 			</div>
 			<!-- Right side END -->
 		</div> <!-- Row END -->		
+
+
+		<script>
+
+$(document).ready(function(){
+
+// قیمت اصلی
+formatPrice($('input[name="old_price"]'));
+
+// قیمت تخفیف
+formatPrice($('input[name="price"]'));
+
+function formatPrice(input) {
+
+  let price = input.val();
+
+  price = price.replace(/\D/g,'');
+  price = price.replace(/(\d{3})/g, '$1,');
+
+  input.val(price);
+
+}
+
+});
+		</script>

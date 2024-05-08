@@ -47,19 +47,19 @@ class UserRequest extends FormRequest
                         'deleteId' => 'required',
                     ];
                     break;
-                case 'group-add':
+                case 'group':
                     return [
                         'name' => 'required|min:2',
                         'access' => 'required',
                     ];
                     break;
-                case 'group-edit':
+                case 'group':
                     return [
                         'name' => 'required|min:2',
                         'access' => 'required',
                     ];
                     break;
-                case 'group-delete':
+                case 'group':
                     return [
                         'deleteId' => 'required',
                     ];

@@ -9,7 +9,7 @@
 				اضافه کردن دسته مقاله
 			</h3>
 			<div class="card rounded-lg border-0 p-3">
-				<form method="post" action="{{URL::action('Admin\BlogCategoryController@postAddArticleCat')}}"
+				<form method="post" action=" {{ route('admin.blog-cat.add') }}"
 					enctype="multipart/form-data">
 					@include('admin.blog-cat.form')
 				</form>

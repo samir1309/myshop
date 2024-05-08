@@ -13,7 +13,12 @@
 			</div>
 		</div>
 
-	@include('admin.products.form');
+
+    <form method="post" action="{{ route('admin.products.add') }} "
+                    enctype="multipart/form-data">
+                    @csrf
+                    @include('admin.products.form');
+                </form>
 	</div>
 	<!-- Page main content END -->
     @endsection

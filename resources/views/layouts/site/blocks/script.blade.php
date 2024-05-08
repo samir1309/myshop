@@ -11,3 +11,6 @@
 
 <!-- Template Functions -->
 <script src="{{asset('assets/site/js/functions.js')}}"></script>
+
+<script src="{{asset('assets/site/js/validate.js')}}"></script>
+<script src="{{asset('assets/site/js/sweetalert2.all.min.js')}}"></script>

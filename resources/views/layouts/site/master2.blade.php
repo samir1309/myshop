@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 @include('layouts.site.blocks.head')
+
 <body>
 @yield('content')    
 
