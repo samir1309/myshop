@@ -5,8 +5,8 @@
 		<div class="container">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="index.html">
-				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
-				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+				<img class="light-mode-item navbar-brand-item" src="{{asset('assets/site/images/logo.svg')}}" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="{{asset('assets/site/images/logo.svg')}}" alt="logo">
 			</a>
 			<!-- Logo END -->
 	
@@ -35,16 +35,7 @@
 				<!-- Nav Search END -->
 
 				<!-- Nav Main menu START -->
-				<ul class="navbar-nav navbar-nav-scroll ms-auto">
-					<!-- Nav item 1 Demos -->
-					<li class="nav-item dropdown"><a class="nav-link" href="#">بزرگسالان</a></li>
-
-					<!-- Nav item 2 Eduport Business -->
-					<li class="nav-item dropdown"><a class="nav-link" href="#">نوجوانان</a></li>
-
-					<!-- Nav item 3 My learning -->
-					<li class="nav-item"><a class="nav-link" href="#">کودکان</a></li>
-				</ul>
+			
 				<!-- Nav Main menu END -->
 			</div>
 			<!-- Main navbar END -->
@@ -58,6 +49,7 @@
 				</li>
 				<!-- Wishlist END -->
 
+				
 				<!-- Notification dropdown START -->
 				<li class="nav-item ms-2 ms-sm-3 dropdown">
 					<!-- Notification button -->
@@ -81,7 +73,7 @@
                     <a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">
                       <div class="me-3">
                         <div class="avatar avatar-md">
-                          <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+                          <img class="avatar-img rounded-circle" src="{{asset('assets/site/images/03.jpg')}}" alt="avatar">
                         </div>
                       </div>
                       <div>
@@ -107,7 +99,7 @@
 				<li class="nav-item ms-3 dropdown">
 					<!-- Avatar -->
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+						<img class="avatar-img rounded-circle" src="{{asset('assets/site/images/avatar/01.jpg')}}" alt="avatar">
 					</a>
 
 					<!-- Profile dropdown START -->

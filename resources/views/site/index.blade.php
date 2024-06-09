@@ -2,49 +2,17 @@
 @section('content')
    
 <main>
-<!-- =======================
-Main Banner START -->
-<section class="position-relative overflow-hidden pb-0 pb-sm-5">
-	<!-- SVG decoration -->
-	<figure class="ms-5 position-absolute top-0 start-0">
-		<svg width="29px" height="29px">
-			<path class="fill-orange opacity-4" d="M29.004,14.502 C29.004,22.512 22.511,29.004 14.502,29.004 C6.492,29.004 -0.001,22.512 -0.001,14.502 C-0.001,6.492 6.492,-0.001 14.502,-0.001 C22.511,-0.001 29.004,6.492 29.004,14.502 Z"></path>
-		</svg>
-	</figure>
 
-	<!-- Content START -->
-	<div class="container">
 		@include('layouts.site.blocks.content.header')
-	</div>
-	<!-- Content END -->
-</section>
+
 <!-- =======================
 Main Banner END -->
 
 <!--Category START -->
+@include('layouts.site.blocks.content.category')
 
 
-<section class="py-0 py-xl-5">
-	<div class="container">
-		<div class="row g-4">
-			<!-- Counter item -->
-			@foreach($category as $key => $cat)
-			<div class="col-sm-6 col-xl-3">
-				<div class="d-flex justify-content-center align-items-center p-4 bg-{!! @$cat ->color !!}  bg-opacity-15 rounded-3">
-					<span class="display-6 lh-1 text-{!! @$cat ->color !!}  mb-0"><i class="{!! @$cat ->title_en !!} "></i></span>
-					<div class="ms-4 h6 fw-normal mb-0">
-						<div class="d-flex">
-							<!-- <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10"	data-purecounter-delay="200">0</h5> -->
-							<span class="mb-0 h5">  {!! @$cat ->title !!}  </span>
-						</div>
-						<p class="mb-0">آموزش آنلاین</p>
-					</div>
-				</div>
-			</div>
-			@endforeach
-		</div>
-	</div>
-</section>
+
 <!-- =======================
 Counter END -->
 
