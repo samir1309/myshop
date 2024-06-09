@@ -25,14 +25,21 @@ class PanelController extends Controller
       
         return view('site.panel.dashboard')->with('user',$user);
     }
+  
 
+// تعریف تابع در کنترلر
+function logoutSuccessMessage() {
+    return view(route('panel.login'), [
+      'title' => 'خروج با موفقیت', 
+      'text' => '',
+      'type' => 'success'
+    ]);
+  }
 public function logout()
 {
       auth()->logout();
+      logoutSuccessMessage();
 
-      return redirect()->route('panel.login')
-  ->with('status', 'رمز با موفقیت تغییر یافت!')
-  ->with('alert-type', 'success');
   
 }
 
