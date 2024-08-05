@@ -73,6 +73,16 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Category','product_category')->orderBy('id','desc');
     }
+    
+  
+    function formatPrice($price) {
+        return number_format($price); 
+      }
+    public function productVideos()
+    {
+        return $this->hasMany('App\Models\ProductVideo')->orderBy('id','desc');
+    }
+    
     public function category()
     {
         return $this->belongsToMany('App\Models\Category','product_category')->whereDoesntHave('childs')->orderBy('id','desc');

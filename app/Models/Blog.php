@@ -10,7 +10,7 @@ class Blog extends Model
 {
     use HasFactory;
     use Sluggable;
-
+    protected $table = 'blogs';
     protected $fillable = [
         'title',
         'description',

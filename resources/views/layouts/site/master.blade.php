@@ -4,7 +4,7 @@
 @include('layouts.site.blocks.head')
 <body>
 @include('layouts.site.blocks.menu')
-@yield('content')    
+@yield('content')  
 @include('layouts.site.blocks.footer')
 <!-- =======================
 Footer END -->

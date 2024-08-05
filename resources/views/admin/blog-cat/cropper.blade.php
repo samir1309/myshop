@@ -2,7 +2,7 @@
 <input type="file" name="image" id="image" class="form-control" onchange="readURL(this);">
 
 <div class="image_container my-2">
-	<img id="blah" src="@if(isset($data->image)) {{asset('assets/uploads/content/art/medium/'.$data->image)}} @endif" alt="تصویر مورد نظر را آپلود کنید" />
+	<img id="blah" src="@if(isset($data->image)) {{asset('assets/uploads/content/art/'.$data->image)}} @endif" alt="تصویر مورد نظر را آپلود کنید" />
 </div>
 
 <div id="cropped_result"></div>

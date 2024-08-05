@@ -106,9 +106,9 @@
 								<!-- Table data -->
 								<td>
 								<a href="{{ route('admin.products.edit', $cat->id) }}" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">ویرایش</a>
-									
-									<a href=""
-                                                                   type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"
+								<a href="{{ route('admin.products.video.index', $cat->id) }}" class="btn btn-sm btn-success me-1 mb-1 mb-md-0">جلسات دوره </a>
+
+									<a href=""  type="button" onclick="return confirm('آیا از حذف اطلاعات مطمئن هستید؟');"
                                                                    class="btn btn-space btn-danger"
                                                                    data-toggle="tooltip" title="حذف">
                                                                     <i class="fa fa-trash">

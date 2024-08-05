@@ -10,4 +10,5 @@ use Illuminate\Support\Facades\Auth;
 
 include('site.php');
 include('panel.php');
+
 include('admin.php');

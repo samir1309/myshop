@@ -6,8 +6,8 @@ use App\Library\SliderBanner;
 use App\Models\Category;
 use App\Models\Content;
 use App\Models\Product;
-// use App\Models\Setting;
-// use App\Models\Social;
+use App\Models\Setting;
+use App\Models\Social;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -22,7 +22,7 @@ $head_sli=[];
 $seg=[];
 $seg = \request()->segments();
 
-// $setting_header = Setting::first();
+ $setting = Setting::first();
 // $brands_footer = Cache::remember('index.brands_footer', 20, function() {
 // return Brand::orderby('id', 'DESC')->whereFooter('1')->take(10)->select(['id','title'])->get();
 // });
@@ -37,7 +37,7 @@ return Category::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','ti
 $category_footer = Cache::remember('index.category_footer', 20, function() {
     return Category::orderBy('sort','ASC')->whereNull('parent_id')->select(['id','title' , 'url'])->with('childs')->get();
     });
-// $social_header=Social::get();
+$social=Social::get();
 
 
 
@@ -47,8 +47,8 @@ View::share([
     'category_footer' => $category_footer,
     'main_mobile' => SliderBanner::Mobile(),
     'brands_footer' => $brands_footer,
-    'setting_header' => $setting_header,
-    'social_header' => $social_header,
+    'setting' => $setting,
+    'social' => $social,
     'head_sli' => $head_sli,
     'seg' => $seg,
 ]);

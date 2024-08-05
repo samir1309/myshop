@@ -58,10 +58,6 @@ class ContentController extends Controller
         }
         $input['content_type'] = '4';
         $uploader = Content::create($input);
-        $array = array($input);
-        $serialized_array = serialize($array);
-
-        $log = Logs::log(url()->current(),$serialized_array,Auth::id(),$uploader->id);
         return Redirect::action('Admin\ContentController@getUploader');
     }
 

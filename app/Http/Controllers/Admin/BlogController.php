@@ -25,7 +25,6 @@ class BlogController extends Controller
      
  
        $articles = Blog::orderBy('id' , 'Desc')->paginate(50);
-    
        return view('admin.blog.index' , compact('articles'));
     }
 

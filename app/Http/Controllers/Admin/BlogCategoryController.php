@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Library\Logs;
 use app\Library\MakeTree;
+use App\Library\UploadsImg;
 use App\Http\Requests\BlogCategoryRequest;
 use app\Library\UploadImg;
 use App\Models\BlogCategory;
+use App\Library\UploadImgArt;
+
 use Classes\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +42,22 @@ class BlogCategoryController extends Controller
     {
         $input = $request->all();
         $input['status'] = $request->has('status');
+   
+
+
+        if ($request->hasFile('image')) {
+            $path = "assets/uploads/content/art/";
+            $section = 'blogcat' ; 
+            $resize = true ;
+            $uploader = new UploadsImg();
+            $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize  ,  $section  );
+                $input['image'] = $fileName;
+        }else{
+             return Redirect::back()->with('error' , 'عکس ارسالی صحیح نیست.');
+         }
+     
+
+
         $category = BlogCategory::create($input);
       
         return redirect()->route('admin.blog-cat.index')->with('success', 'کد مورد نظر با موفقیت اضافه شد');
@@ -65,13 +84,17 @@ class BlogCategoryController extends Controller
        $input['status'] = $request->has('status');
        $category = BlogCategory :: FindOrFail($id);
        if ($request->hasFile('image')) {
-        $path= "assets/uploads/content/cat/";
-        $extension=$request->file('image')->getClientOriginalExtension();
-        File::delete($path . '/' . $category->image);
-        $fileName=md5(microtime()).".$extension";
-        $request->file('image')->move($path,$fileName);
-        $input['image']=$fileName;
-    }else{
+        $path = "assets/uploads/content/art/";
+        File::delete($path . '/big/' . $category->image);
+        File::delete($path . '/medium/' . $category->image);
+        File::delete($path . '/small/' . $category->image);
+        $section = 'blogcat' ; 
+        $resize = true ;
+        $uploader = new UploadsImg();
+        $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
+            $input['image'] = $fileName;
+    }
+    else {
         $input['image'] = $category->image;
     }
 $category->update($input);

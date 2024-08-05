@@ -117,7 +117,7 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="{{route('site.about')}}">
+									<a class="nav-link" href="si">
 										درباره ما
 									</a>
 								</li>
@@ -154,7 +154,7 @@
 			<div class="row w-100 m-0 menu-form-row">
 				<div class="col-sm-1 col-xs-3 align-self-center p-1">
 					<a href="{{route('site.home')}}">
-						<img src="{{asset('assets/uploads/content/set/'.$setting_header->logo)}}" class="" width="100%" height="100%" />
+						<img src="{{asset('assets/uploads/content/set/'.$setting->logo)}}" class="" width="100%" height="100%" />
 					</a>
 				</div>
 				<div class="col-sm-9 col-xs-6 align-self-center p-1">

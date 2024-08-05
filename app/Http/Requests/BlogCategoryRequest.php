@@ -29,7 +29,7 @@ class BlogCategoryRequest extends FormRequest
             case 'add' :
                 return[
 
-                    'image'=>'max:40',
+                    'image'=>'max:60',
                     'title_seo'=>'max:71',
                     'description_seo'=>'max:171',
                     'url' => [ 'required' ,  new UniqueUrlRule ($id , 'BlogCategory')]  ,
@@ -39,7 +39,7 @@ class BlogCategoryRequest extends FormRequest
                 break;
             case 'edit' :
                 return [
-                    'image'=>'max:30',
+                    'image'=>'max:60',
                     'title_seo'=>'max:71',
                     'description_seo'=>'max:171',
                     'url' => [ 'required' ,  new UniqueUrlRule ($id , 'BlogCategory')]  ,

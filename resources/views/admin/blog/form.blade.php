@@ -6,6 +6,11 @@
 			value="@if(isset($article->title)){{$article->title}}@endif">
 	</div>
     <div class="col-lg-6 form-group">
+		<label for="show_homePageurl" class="col-form-label">رنگ باکس دسته بندی</label>
+		<input id="show_homePage" name="show_homePage" type="text" class="form-control"
+			value="@if(isset($article->show_homePage)){{$article->show_homePage}}@endif">
+	</div>
+    <div class="col-lg-6 form-group">
 		<label for="url" class="col-form-label">url</label>
 		<input id="url" name="url" type="text" class="form-control"
 			value="@if(isset($article->url)){{$article->url}}@endif">

@@ -19,7 +19,7 @@ class CreateBlogTable extends Migration
             $table->string('image')->nullable();
             $table->string('category_id')->nullable();
             $table->string('url')->nullable();
-            $table->boolean('show_homePage')->default(0); 
+            $table->string('show_homePage')->nullable();
             $table->integer('view')->default(0); 
             $table->text('description')->nullable();
             $table->text('keyword_meta')->nullable();

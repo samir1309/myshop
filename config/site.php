@@ -41,10 +41,16 @@ return [
                 'imageEdit'=>'ویرایش تصاویر',
                 'imageDelete'=>'حذف تصاویر',
                 'thumbnailDelete'=>'کاور تصاویر',
+                'video'=>'مشاهده ویدیو',
+                'videoAdd'=>'اضافه ویدیو',
+                'videoAddPost'=>'اضافه ویدیو',
+                'videoEdit'=>'ویرایش ویدیو',
+                'videoDelete'=>'حذف ویدیو',
                 'sort' => 'مرتب سازی',
                 'export' => 'خروجی اکسل',
             )
         ),
+    
         'allproducts' => array(
             'title' => 'عملیات گروهی',
             'access' => array(

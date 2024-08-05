@@ -45,7 +45,30 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
             });
 
 
-    
+
+            Route::controller(ProductController::class)
+            ->prefix('/products/video')
+            ->name('admin.products.video.')
+            ->group(function () {
+                Route::get('/{id}', 'getVideo')->name('index');
+                Route::get('/add/{product_id}', 'getAddVideo')->name('add');
+                Route::post('/add/{product_id}', 'postAddVideo')->name('add');
+                Route::get('/edit/{id}', 'getEditVideo')->name('edit');
+                Route::post('/edit/{id}', 'postEditVideo')->name('edit');
+                Route::get('/delete/{id}', 'getDeleteVideo')->name('delete');
+                Route::get('/sort/{id}', 'postSortVideo')->name('sort');
+            });
+ 
+           Route::controller(RedirectController::class)
+            ->prefix('/redirect')
+            ->name('admin.redirect.')
+            ->group(function () {
+                Route::get('/', 'getRedirect')->name('index');
+                Route::get('/add', 'getRedirectAdd')->name('add');
+                Route::post('add', 'postRedirectAdd')->name('add');
+                Route::get('/delete/{id}', 'getRedirectDelete')->name('delete');
+
+            });
             Route::controller(BlogController::class)
             ->prefix('/blog')
             ->name('admin.blog.')
@@ -56,6 +79,19 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
                 Route::get('/edit/{id}', 'getEditArticle')->name('edit');
                 Route::post('/edit/{id}', 'postEditArticle')->name('edit');
                 Route::get('/delete/{id}', 'getDeleteArticle')->name('delete');
+            });
+
+
+            Route::controller(SocialController::class)
+            ->prefix('/social')
+            ->name('admin.social.')
+            ->group(function () {
+                Route::get('/', 'get')->name('index');
+                Route::get('/add', 'getadd')->name('add');
+                Route::post('/add', 'postAdd')->name('add');
+                Route::get('/edit/{id}', 'getEdit')->name('edit');
+                Route::post('/edit/{id}', 'postEdit')->name('edit');
+                Route::get('/delete/{id}', 'getDelete')->name('delete');
             });
 
 
@@ -110,7 +146,16 @@ Route::namespace('Admin')->prefix('admin')->group(function () {
             Route::get('/delete/{id}', 'getDeleteUploader')->name('delete');
         });
 
+    
 
+        Route::controller(SettingController::class)
+        ->prefix('/setting')
+        ->name('admin.setting.')
+        ->group(function () {
+            Route::get('/edit', 'getEditSetting')->name('edits');
+            Route::post('/edit/{id}', 'postEditSetting')->name('edit');
+        });
+ 
           Route::controller(UserController::class)
         ->prefix('/user/group')
         ->name('admin.user.group.')

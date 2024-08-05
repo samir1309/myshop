@@ -1,17 +1,18 @@
-<section class="py-0 py-xl-5">
+
+<section>
 	<div class="container">
 		<div class="row g-4">
-			<!-- Counter item -->
-			@foreach($category as $key => $cat)
-			<div class="col-sm-6 col-xl-3">
-				<div class="d-flex justify-content-center align-items-center p-4 bg-{!! @$cat ->color !!}  bg-opacity-15 rounded-3">
-					<span class="display-6 lh-1 text-{!! @$cat ->color !!}  mb-0"><i class="{!! @$cat ->title_en !!} "></i></span>
-					<div class="ms-4 h6 fw-normal mb-0">
-						<div class="d-flex">
-							<!-- <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10"	data-purecounter-delay="200">0</h5> -->
-							<span class="mb-0 h5">  {!! @$cat ->title !!}  </span>
+		@foreach($category as $key => $cat)
+			<!-- Category item -->
+			<div class="col-sm-6 col-lg-4 col-xl-3">
+				<div class="card card-body shadow rounded-3">
+					<div class="d-flex align-items-center">
+						<!-- Icon -->
+						<div class="icon-lg bg-{!! @$cat ->color !!}  bg-opacity-10 rounded-circle text-{!! @$cat ->color !!} "><i class="{!! @$cat ->title_en !!}"></i></div>
+						<div class="ms-3">
+							<h5 class="mb-0 fw-normal"><a href="#" class="stretched-link"> {!! @$cat ->title !!} </a></h5>
+							<span>89 دوره</span>
 						</div>
-						<p class="mb-0">آموزش آنلاین</p>
 					</div>
 				</div>
 			</div>
@@ -20,4 +21,4 @@
 	</div>
 </section>
 <!-- =======================
-Counter END -->
+Category END -->

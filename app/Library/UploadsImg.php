@@ -28,6 +28,7 @@ class UploadsImg
                 return  $this->uploadImg($path,  $file ,  $resize , $smallx , $smally , $mediumx ,$mediumy , $bigx , $bigy );
  
             }
+            
 
         }elseif  ($section === 'category') {
          
@@ -46,6 +47,37 @@ class UploadsImg
             }
 
         }
+        elseif  ($section === 'video') {
+         
+                if ( str_contains($routeName ,'admin.products.video.') ) {
+
+                $smallx = 70 ;
+                $smally = 50 ;
+
+                $mediumx = 300 ;
+                $mediumy = 200 ;
+
+                $bigx = 600 ;
+                $bigy =400;
+                return  $this->uploadImg($path,  $file ,  $resize , $smallx , $smally , $mediumx ,$mediumy , $bigx , $bigy );
+            }
+
+        }   elseif  ($section === 'blogcat') {
+         
+            if ( str_contains($routeName ,'admin.blog-cat.') ) {
+
+            $smallx = 70 ;
+            $smally = 50 ;
+
+            $mediumx = 300 ;
+            $mediumy = 200 ;
+
+            $bigx = 600 ;
+            $bigy =400;
+            return  $this->uploadImg($path,  $file ,  $resize , $smallx , $smally , $mediumx ,$mediumy , $bigx , $bigy );
+        }
+
+    }
         return false; 
     }
 
