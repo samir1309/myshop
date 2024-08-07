@@ -33,7 +33,7 @@ class UploadsImg
         }elseif  ($section === 'category') {
          
             // if ($routeName === 'admin.category.add'  ||  'admin.category.edit' ) {
-                if ( str_contains($routeName ,'admin.blog.') ) {
+                if ( str_contains($routeName ,'admin.category.') ) {
 
                 $smallx = 70 ;
                 $smally = 50 ;
@@ -97,7 +97,7 @@ class UploadsImg
 
         $extension = $file->getClientOriginalExtension();
         $extension1 = $file->getClientOriginalName();
-        $ext = ['jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG','webp','WEBP','gif','GIF'];
+        $ext = ['jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG','webp','WEBP','gif','GIF','svg'];
         if (in_array($extension, $ext)) {
             if (!File::isDirectory($path)) {
                 File::makeDirectory($path);

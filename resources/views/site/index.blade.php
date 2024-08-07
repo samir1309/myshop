@@ -25,9 +25,12 @@ Featured course START -->
 	<div class="container">
 		<!-- Title -->
 		<div class="row mb-4">
-			<div class="col-lg-8 text-center mx-auto">
-				<h2 class="fs-3 mb-0">دوره های ویژه جشنواره</h2>
-				<p class="mb-0">برترین‌های هفته را کاوش کنید</p>
+			<div class="col-lg-8 text-right my-auto">
+			
+				<h2 class="fs-3 mb-0 ">
+				@include('layouts.site.blocks.content.headicon')
+				دوره های ویژه جشنواره &nbsp;</h2>
+			
 			</div>
 		</div>
 

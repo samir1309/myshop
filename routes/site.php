@@ -12,6 +12,13 @@ Route::get('/listcat/{id}', 'Site\HomeController@getCatBlog')->name('site.blog.c
 
 Route::get('details/{url}', 'Site\HomeController@getDetailsBlog')->name('site.blog.details');
 
+  //Shop Cart & Bank
+Route::get('/checkout', 'Site\ShopController@getBasket')->name('site.basket.index');
+Route::post('/baskett/{id}', 'Site\ShopController@addToBasket')->name('site.basket.add');
+Route::delete('/basket/{id}', 'Site\ShopController@destroy')->name('site.basket.destroy');
+
+
+
 //endblog
 Route::get('/contact', 'Site\HomeController@getAbout')->name('site.contact');
 Route::get('/', 'Site\HomeController@getIndex')->name('site.home');

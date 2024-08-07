@@ -25,6 +25,13 @@
 	font-weight: 400;
 	font-style: normal
 }
+@font-face {
+	font-family: byekan;
+	src: url('../fonts/byekan/YekanBakhRegular.eot');
+	src: url('../fonts/byekan/YekanBakhRegular.eot') format('embedded-opentype'), url('../fonts/byekan/YekanBakhRegular.woff') format('woff'), url('../fonts/byekan/YekanBakhRegular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal
+}
 :root,
 [data-bs-theme=light] {
   --bs-blue: #1d3b53;
@@ -244,14 +251,14 @@ h2, .h2, h1, .h1 {
   font-family: "vazir-bold", sans-serif;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--bs-heading-color, inherit);
+  color: #525252;
 }
 h6, .h6, h5, .h5, h4, .h4, h3, .h3{
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--bs-heading-color, inherit);
+  color: #525252;
 }
 
 h1, .h1 {
@@ -8643,7 +8650,7 @@ textarea.form-control-lg {
 }
 
 .top-100 {
-  top: 100% !important;
+  top: 126% !important;
 }
 
 .bottom-0 {
@@ -8663,7 +8670,7 @@ textarea.form-control-lg {
 }
 
 .start-50 {
-  right: 50% !important;
+  right: 96% !important;
 }
 
 .start-100 {
@@ -16464,7 +16471,7 @@ textarea.form-control-lg {
 }
 
 .fill-success {
-  fill: #0cbc87 !important;
+  fill: #ddd !important;
 }
 
 .fill-info {

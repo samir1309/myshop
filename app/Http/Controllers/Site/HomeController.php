@@ -130,14 +130,14 @@ $totalTime = ProductVideo::where('product_id', $course->id)
 
 
     }
-    public function getCatcegory($id) 
-    {
-      $category = Category::find($id);
+    // public function getCatcegory($id) 
+    // {
+    //   $category = Category::find($id);
     
-      $courses = $category->courses;
+    //   $courses = $category->courses;
     
-      return view('category', compact('category', 'courses'));
-    }
+    //   return view('category', compact('category', 'courses'));
+    // }
 
   
 }

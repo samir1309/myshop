@@ -33,17 +33,29 @@ class ProductController extends Controller
     
     public function getAddProduct()
     {
-        $productCategories = Category::select(['id','title'])->get();
-        if (!($productCategories)) {
+        $category = Category::select(['id','title'])->get();
+        return View('admin.products.add')
+            ->with('category', $category);
+    }
+    public function getEditProduct($id)
+    {
+        $data = Product::find($id);
+        $category = Category::all()->toArray();
+        if (!empty($category)) {
             MakeTree::getData($category);
             $category = MakeTree::GenerateArray(array('get'));
         }
+        $productCategories = ProductCategory::where('product_id', $id)->get();
+       
 
+        return View('admin.products.edit')
 
+           ->with('data', $data)
+            ->with('parent_id', $category)
+            ->with('category', $category)
+            ->with('productCategories', $productCategories);
 
-        return View('admin.products.add')
-            ->with('category', $productCategories)
-            ->with('parent_id', $productCategories);
+       
     }
 
     public function postAddProduct(ProductRequest $request)
@@ -82,28 +94,7 @@ class ProductController extends Controller
 
 
     }
-    public function getEditProduct($id)
-    {
-
-        $data = Product::find($id);
-
-
-        $category = Category:: where('id' , '<>' , $data->id )->orderby('id', 'DESC')->get()->toArray();
-        if (!empty($category)) {
-            MakeTree::getData($category);
-            $category = MakeTree::GenerateArray(array('get'));
-        }
-        $productCategories = ProductCategory::where('product_id', $id)->get();
-
-        return View('admin.products.edit')
-
-           ->with('data', $data)
-           
-            ->with('parent_id', $category)
-            ->with('category', $productCategories);
-
-       
-    }
+ 
     public function postEditdProduct(ProductRequest $request)
     {
 

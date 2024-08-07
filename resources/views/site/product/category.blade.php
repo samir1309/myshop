@@ -46,11 +46,17 @@
 								<div class="d-flex justify-content-between">
 									<span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>12دقیقه</span>
 									<span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>15 ویدیو</span>
+									<div class="mt-3 mt-sm-0">
+									<form method="POST" action="{{ route('site.basket.add', $course->id) }}">  
+    @csrf  
+    <button type="submit" class="btn btn-dark">سبد خرید</button>  
+</form>  
+											</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
+				
             @endforeach
 
 

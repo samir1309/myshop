@@ -1,6 +1,6 @@
 
 <head>
-	<title>سایت آموزشی</title>
+	<title>سایت </title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -73,6 +73,9 @@
 
 	<!-- Favicon -->
 
+	<script src="{{asset('assets/admin/css/sweetalert2.all.min.js')}}"></script>
+	<script src="{{asset('assets/admin/css/sweetalert2.min.css')}}"></script>
+	
     <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.rtl.min.css')}}"/>
 	<link rel="shortcut icon" href="{{asset('assets/site/images/favicon.ico')}}">
 	<!-- Plugins CSS -->
@@ -82,6 +85,11 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/site/vendor/glightbox/css/glightbox.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/site/vendor/aos/aos.css')}}">
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/site/css/style-rtl.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/site/css/style-rtl.css?v3')}}">
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	
 
 </head>

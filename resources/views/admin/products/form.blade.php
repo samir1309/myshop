@@ -50,16 +50,10 @@
 										
 										@foreach($category as $row)
 
-											<option value="{{ $row['id'] }}"
-											@foreach($category as $pc)
-												@if($pc->category_id == $row['id'])
-												selected
-												@endif
-											@endforeach
-											>
+											<option value="{{ $row['id'] }}">
+										
 											{{ $row['title'] }}
 											</option>
-
 											@endforeach
                                     
 										</select>
