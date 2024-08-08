@@ -61,7 +61,8 @@ class ShopController extends Controller
                 'quantity' => 1,  
             ]);  
 
-            return redirect()->route('site.basket.index')->with('success', 'محصول با موفقیت به سبد خرید اضافه شد.');  
+            return back()->with('success', 'محصول با موفقیت به سبد خرید اضافه شد.');  
+
         }  
 
         // اگر کاربر لاگین کرده باشد  
@@ -87,7 +88,7 @@ class ShopController extends Controller
         foreach ($basketItems as $basketItem) {  
             $totalPrice += $basketItem->product->price * $basketItem->quantity;  
         } 
-        return view('site.basket.index', compact('basket', 'basketItems' , 'totalPrice'));  
+        return back()->with('success', 'محصول با موفقیت به سبد خرید اضافه شد.');  
 
        
         
