@@ -32,4 +32,13 @@ class Basket extends Model
         return $this->belongsToMany(Product::class, 'basket_items');  
     }  
 
+    public function scopeAuthUser($query)
+    {
+        if(Auth::check()){
+            return $query->where('user_id', Auth::id());
+        }else{
+            return $query->where('cookie_id', @$_COOKIE['cookie_id']);
+        }
+    }
+    
 }
