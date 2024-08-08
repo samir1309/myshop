@@ -3,19 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 09, 2024 at 02:02 PM
+-- Generation Time: Aug 08, 2024 at 08:00 AM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `myshop`
@@ -39,6 +33,14 @@ CREATE TABLE `baskets` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `baskets`
+--
+
+INSERT INTO `baskets` (`id`, `user_id`, `cookie_id`, `address_id`, `shippingmethod_id`, `description`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 57, NULL, NULL, NULL, NULL, '2024-08-07 01:52:10', '2024-08-07 01:52:10', NULL),
+(2, 59, NULL, NULL, NULL, NULL, '2024-08-07 04:00:29', '2024-08-07 04:00:29', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +58,83 @@ CREATE TABLE `basket_items` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `basket_items`
+--
+
+INSERT INTO `basket_items` (`id`, `product_id`, `basket_id`, `product_variable_id`, `quantity`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 9, 1, NULL, 1, '2024-08-07 01:55:07', '2024-08-07 01:55:07', NULL),
+(2, 9, 1, NULL, 1, '2024-08-07 01:59:05', '2024-08-07 01:59:05', NULL),
+(3, 9, 1, NULL, 1, '2024-08-07 01:59:12', '2024-08-07 01:59:12', NULL),
+(4, 9, 1, NULL, 1, '2024-08-07 02:03:39', '2024-08-07 02:03:39', NULL),
+(5, 9, 1, NULL, 1, '2024-08-07 03:49:09', '2024-08-07 03:49:09', NULL),
+(6, 9, 1, NULL, 1, '2024-08-07 03:49:25', '2024-08-07 03:49:25', NULL),
+(7, 9, 1, NULL, 1, '2024-08-07 03:56:12', '2024-08-07 03:56:12', NULL),
+(8, 9, 1, NULL, 1, '2024-08-07 03:56:29', '2024-08-07 03:56:29', NULL),
+(9, 9, 2, NULL, 1, '2024-08-07 04:00:29', '2024-08-07 04:37:02', '2024-08-07 04:37:02'),
+(10, 9, 2, NULL, 1, '2024-08-07 04:03:37', '2024-08-07 04:40:03', '2024-08-07 04:40:03'),
+(11, 18, 2, NULL, 1, '2024-08-07 04:03:50', '2024-08-07 04:42:18', '2024-08-07 04:42:18'),
+(12, 19, 2, NULL, 1, '2024-08-07 04:03:56', '2024-08-07 04:47:11', '2024-08-07 04:47:11'),
+(13, 19, 2, NULL, 1, '2024-08-07 04:04:44', '2024-08-07 04:49:55', '2024-08-07 04:49:55'),
+(14, 19, 2, NULL, 1, '2024-08-07 04:19:37', '2024-08-07 04:51:06', '2024-08-07 04:51:06'),
+(15, 19, 2, NULL, 1, '2024-08-07 04:20:37', '2024-08-07 04:53:51', '2024-08-07 04:53:51'),
+(16, 19, 2, NULL, 1, '2024-08-07 04:21:25', '2024-08-07 04:55:08', '2024-08-07 04:55:08'),
+(17, 19, 2, NULL, 1, '2024-08-07 04:30:18', '2024-08-07 04:56:09', '2024-08-07 04:56:09'),
+(18, 19, 2, NULL, 1, '2024-08-07 04:34:12', '2024-08-07 08:55:50', '2024-08-07 08:55:50'),
+(19, 19, 2, NULL, 1, '2024-08-07 04:36:56', '2024-08-07 08:24:32', '2024-08-07 08:24:32'),
+(20, 19, 2, NULL, 1, '2024-08-07 04:39:52', '2024-08-07 08:55:53', '2024-08-07 08:55:53'),
+(21, 19, 2, NULL, 1, '2024-08-07 04:40:17', '2024-08-07 08:55:54', '2024-08-07 08:55:54'),
+(22, 19, 2, NULL, 1, '2024-08-07 04:42:05', '2024-08-07 08:34:39', '2024-08-07 08:34:39'),
+(23, 19, 2, NULL, 1, '2024-08-07 04:47:09', '2024-08-07 08:59:58', '2024-08-07 08:59:58'),
+(24, 19, 2, NULL, 1, '2024-08-07 04:47:32', '2024-08-07 09:01:55', '2024-08-07 09:01:55'),
+(25, 19, 2, NULL, 1, '2024-08-07 04:49:23', '2024-08-07 09:02:03', '2024-08-07 09:02:03'),
+(26, 19, 2, NULL, 1, '2024-08-07 04:49:52', '2024-08-07 09:03:26', '2024-08-07 09:03:26'),
+(27, 19, 2, NULL, 1, '2024-08-07 04:50:49', '2024-08-07 09:04:12', '2024-08-07 09:04:12'),
+(28, 19, 2, NULL, 1, '2024-08-07 04:52:12', '2024-08-07 10:27:00', '2024-08-07 10:27:00'),
+(29, 19, 2, NULL, 1, '2024-08-07 04:52:41', '2024-08-07 04:52:41', NULL),
+(30, 19, 2, NULL, 1, '2024-08-07 04:52:47', '2024-08-07 04:52:47', NULL),
+(31, 19, 2, NULL, 1, '2024-08-07 04:52:56', '2024-08-07 04:52:56', NULL),
+(32, 19, 2, NULL, 1, '2024-08-07 04:53:47', '2024-08-07 04:53:47', NULL),
+(33, 19, 2, NULL, 1, '2024-08-07 04:55:06', '2024-08-07 04:55:06', NULL),
+(34, 19, 2, NULL, 1, '2024-08-07 04:56:07', '2024-08-07 04:56:07', NULL),
+(35, 18, 2, NULL, 1, '2024-08-07 04:56:31', '2024-08-07 04:56:39', '2024-08-07 04:56:39'),
+(36, 18, 2, NULL, 1, '2024-08-07 04:56:47', '2024-08-07 04:56:47', NULL),
+(37, 18, 2, NULL, 1, '2024-08-07 04:56:52', '2024-08-07 04:56:58', '2024-08-07 04:56:58'),
+(38, 18, 2, NULL, 1, '2024-08-07 04:57:10', '2024-08-07 04:57:10', NULL),
+(39, 18, 2, NULL, 1, '2024-08-07 04:57:16', '2024-08-07 04:57:16', NULL),
+(40, 18, 2, NULL, 1, '2024-08-07 04:57:23', '2024-08-07 04:57:31', '2024-08-07 04:57:31'),
+(41, 18, 2, NULL, 1, '2024-08-07 04:57:42', '2024-08-07 04:57:42', NULL),
+(42, 22, 2, NULL, 1, '2024-08-07 05:02:35', '2024-08-07 05:05:39', '2024-08-07 05:05:39'),
+(43, 22, 2, NULL, 1, '2024-08-07 05:06:42', '2024-08-07 08:56:14', '2024-08-07 08:56:14'),
+(44, 22, 2, NULL, 1, '2024-08-07 05:06:54', '2024-08-07 05:06:54', NULL),
+(45, 9, 2, NULL, 1, '2024-08-07 08:01:52', '2024-08-07 08:01:52', NULL),
+(46, 9, 2, NULL, 1, '2024-08-07 08:05:03', '2024-08-07 08:05:03', NULL),
+(47, 9, 2, NULL, 1, '2024-08-07 08:05:20', '2024-08-07 08:05:20', NULL),
+(48, 9, 2, NULL, 1, '2024-08-07 08:05:29', '2024-08-07 08:05:29', NULL),
+(49, 9, 2, NULL, 1, '2024-08-07 08:05:48', '2024-08-07 08:05:48', NULL),
+(50, 18, 2, NULL, 1, '2024-08-07 08:11:53', '2024-08-07 08:11:53', NULL),
+(51, 18, 2, NULL, 1, '2024-08-07 08:15:37', '2024-08-07 08:15:37', NULL),
+(52, 18, 2, NULL, 1, '2024-08-07 08:19:15', '2024-08-07 08:19:15', NULL),
+(53, 18, 2, NULL, 1, '2024-08-07 08:19:51', '2024-08-07 08:19:51', NULL),
+(54, 18, 2, NULL, 1, '2024-08-07 08:23:45', '2024-08-07 08:23:45', NULL),
+(55, 18, 2, NULL, 1, '2024-08-07 08:24:31', '2024-08-07 08:24:31', NULL),
+(56, 9, 2, NULL, 1, '2024-08-07 08:25:20', '2024-08-07 08:56:04', '2024-08-07 08:56:04'),
+(57, 9, 2, NULL, 1, '2024-08-07 08:31:41', '2024-08-07 08:56:07', '2024-08-07 08:56:07'),
+(58, 9, 2, NULL, 1, '2024-08-07 08:34:07', '2024-08-07 08:56:10', '2024-08-07 08:56:10'),
+(59, 9, 2, NULL, 1, '2024-08-07 08:34:25', '2024-08-07 08:56:00', '2024-08-07 08:56:00'),
+(60, 18, 2, NULL, 1, '2024-08-07 08:34:50', '2024-08-07 08:34:50', NULL),
+(61, 18, 2, NULL, 1, '2024-08-07 08:57:06', '2024-08-07 08:57:06', NULL),
+(62, 18, 2, NULL, 1, '2024-08-07 09:00:04', '2024-08-07 09:00:04', NULL),
+(63, 18, 2, NULL, 1, '2024-08-07 09:00:32', '2024-08-07 09:00:32', NULL),
+(64, 18, 2, NULL, 1, '2024-08-07 09:01:43', '2024-08-07 09:01:43', NULL),
+(65, 18, 2, NULL, 1, '2024-08-07 09:03:24', '2024-08-07 09:03:24', NULL),
+(66, 18, 2, NULL, 1, '2024-08-07 09:04:10', '2024-08-07 09:04:10', NULL),
+(67, 18, 2, NULL, 1, '2024-08-07 09:04:19', '2024-08-07 09:04:19', NULL),
+(68, 9, 2, NULL, 1, '2024-08-07 10:35:25', '2024-08-07 10:35:25', NULL),
+(69, 9, 2, NULL, 1, '2024-08-08 03:40:46', '2024-08-08 03:43:00', '2024-08-08 03:43:00'),
+(70, 9, 2, NULL, 1, '2024-08-08 03:41:20', '2024-08-08 03:42:57', '2024-08-08 03:42:57'),
+(71, 18, 2, NULL, 1, '2024-08-08 03:42:43', '2024-08-08 03:42:51', '2024-08-08 03:42:51');
+
 -- --------------------------------------------------------
 
 --
@@ -68,7 +147,7 @@ CREATE TABLE `blogs` (
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `show_homePage` tinyint(1) NOT NULL DEFAULT '0',
+  `show_homePage` varchar(266) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `view` int(11) NOT NULL DEFAULT '0',
   `description` text COLLATE utf8mb4_unicode_ci,
   `keyword_meta` text COLLATE utf8mb4_unicode_ci,
@@ -83,11 +162,13 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `title`, `image`, `category_id`, `url`, `show_homePage`, `view`, `description`, `keyword_meta`, `title_seo`, `description_seo`, `created_at`, `updated_at`) VALUES
-(1, 'رطططرر', NULL, '1', 'bryryry', 0, 0, '<p>رییر</p>', NULL, 'ریطیربذب', 'ذب', '2024-03-03 09:30:03', '2024-03-03 09:30:03'),
-(2, 'ferffv', NULL, NULL, 'vrbythbth', 0, 0, '<p>بثبث</p>', NULL, 'بثب', 'بثصثصب', '2024-03-04 06:33:41', '2024-03-04 06:33:41'),
-(3, 'ssبقثبث', NULL, NULL, 'cdsmyrgan', 0, 0, '<p>بثقب</p>', NULL, 'بثب', 'بثب', '2024-03-04 06:34:02', '2024-04-23 02:31:59'),
-(4, 'dcd', NULL, NULL, 'carde', 0, 0, '<p>vdvd</p>', NULL, 'vddvdv', 'dvdv', '2024-04-23 17:56:52', '2024-04-23 17:56:52'),
-(5, 'dvss', NULL, NULL, 'vssd', 0, 0, '<p>dv</p>', NULL, 'vsvd', 'vsvs', '2024-04-23 17:57:56', '2024-04-23 18:46:53');
+(1, 'بن مژه طبیعی', '9cacb80da3c1821a5aa8e95490954aa3.jpg', '3', 'bryryry', 'info', 6, '<p>رییر</p>', NULL, 'ریطیربذب', 'ذب', '2024-03-03 09:30:03', '2024-07-25 13:08:37'),
+(2, 'چیدمان', 'a09e11be97454602892e4ec8564ef701.jpg', '1', 'vrbythbth', 'purple', 2, '<p>بثبث</p>', NULL, 'بثب', 'بثصثصب', '2024-03-04 06:33:41', '2024-07-25 14:26:42'),
+(3, 'رژ لب', '343578655d4722215e2b772bd65227cf.jpg', '2', 'cdsmyrgan', 'success', 8, '<p>بثقب</p>', NULL, 'بثب', 'بثب', '2024-03-04 06:34:02', '2024-07-29 16:14:14'),
+(4, 'رژ لب', '5feeb1a6bd5790b61be1ec64edff9f17.jpg', '3', 'carde', 'danger', 3, '<p>vdvd</p>', NULL, 'vddvdv', 'dvdv', '2024-04-23 17:56:52', '2024-07-27 07:42:34'),
+(5, 'میکرو', '85631940c4190bedde5d1a64720061cf.jpg', '3', 'vssd', 'info', 0, '<p>dv</p>', NULL, 'vsvd', 'vsvs', '2024-04-23 17:57:56', '2024-07-25 12:40:31'),
+(6, 'عینک پارسیا', 'e8eff84f6cfa47a1fd65999fcc9360bf.jpg', '3', 'zibaeef', 'purple', 1, '<p>fbbf</p>', NULL, 'bfbf', 'bfff', '2024-07-18 09:05:55', '2024-07-27 13:15:39'),
+(7, 'نان محلی', 'abfb3e1259e856c8deeefd56bd13c777.jpg', '3', 'orange', 'orange', 0, NULL, NULL, 'dcdcd', 'dcdcd', '2024-07-25 12:39:33', '2024-07-25 12:39:33');
 
 -- --------------------------------------------------------
 
@@ -114,9 +195,9 @@ CREATE TABLE `blog_categories` (
 --
 
 INSERT INTO `blog_categories` (`id`, `title`, `image`, `url`, `status`, `icon`, `description`, `title_seo`, `description_seo`, `created_at`, `updated_at`) VALUES
-(1, 'ساندویچ ژامبون تنوریب', NULL, NULL, 0, NULL, '<p>ریری</p>', 'رطزر', 'طرط', '2024-03-03 09:29:30', '2024-03-04 06:40:45'),
-(2, 'ربی', NULL, 'sm-sma', 0, NULL, '<p>ریر</p>', 'رب', 'ری', '2024-03-04 06:40:52', '2024-04-23 01:59:23'),
-(3, 'cfeded', NULL, 'ddf', 0, NULL, '<p>ddfd</p>', 'vvd', 'vddv', '2024-04-23 18:08:53', '2024-04-23 18:12:16');
+(1, 'بادکنک آرایی', '47de7ab57bfaf7249892f1590008147a.jpg', 'badknk', 0, NULL, '<p>ریری</p>', 'رطزر', 'طرط', '2024-03-03 09:29:30', '2024-07-18 09:14:02'),
+(2, 'ماساژ', '86bb00de6ea0d86a8ad23a4a98d083c3.jpg', 'sm-sma', 0, NULL, '<p>ریر</p>', 'رب', 'ری', '2024-03-04 06:40:52', '2024-07-18 09:13:41'),
+(3, 'زیبایی', '68349dd89af80cca4a42e702654399f5.jpg', 'dzibaee', 0, NULL, '<p>ddfd</p>', 'vvd', 'vddv', '2024-04-23 18:08:53', '2024-07-18 09:44:50');
 
 -- --------------------------------------------------------
 
@@ -149,10 +230,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `title_en`, `url`, `parent_id`, `color`, `sortlist`, `sort`, `cover`, `status`, `description`, `keywords`, `title_seo`, `description_seo`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'مراسم و میزبانی', NULL, 'ceremony', NULL, NULL, 1, 1, NULL, 0, '<p>vdfv</p>', NULL, 'vvvvvv', 'vdfvddvv', '2024-03-03 09:00:22', '2024-04-29 05:41:45', NULL),
-(2, 'مراقبت و بهداشت', NULL, 'hygiene', NULL, NULL, 1, 1, NULL, 1, '<p>زسز</p>', NULL, 'فتغات', 'زسسزس', '2024-03-03 09:27:47', '2024-04-29 05:42:02', NULL),
-(3, 'آرایش میز ناهار خوری', NULL, 'dining-table', 1, NULL, 1, 1, NULL, 1, '<p>آرایش میز ناهار خوری</p>', NULL, 'آرایش میز ناهار خوری', 'آرایش میز ناهار خوری', '2024-04-29 05:43:05', '2024-04-29 05:43:20', NULL),
-(4, 'بادکنک آرایی', NULL, 'ballon', 1, NULL, 1, 1, NULL, 1, '<p>بادکنک آراییبادکنک آراییبادکنک آرایی</p>', NULL, 'بادکنک آرایی', 'بادکنک آرایی', '2024-04-29 07:28:07', '2024-04-29 07:28:29', NULL);
+(1, 'مراسم و میزبانی', 'fas fa-dancer', 'ceremony', NULL, 'orange', 1, 1, '3b333cd09415956c04c0fe07a33400b9.png', 1, '<h2><br />\r\n<strong><span style=\"color:#f4b19f\">تنور گازی خانگی: سرمایه&zwnj;گذاری هوشمند در آشپزی خانگی</span></strong></h2>\r\n\r\n<p>آشپزی در خانه همواره به عنوان یکی از مهمترین فعالیت&zwnj;های روزانه خانواده&zwnj;ها محسوب می&zwnj;شود. یکی از ابزارهای اساسی در آشپزی،<strong> تنور گازی خانگی</strong> است. تاکنون، استفاده از تنورهای گازی خانگی محدود به صنعت رستوران&zwnj;ها و فضاهای تجاری بود، اما امروزه این دستگاه&zwnj;ها به شکلی هوشمندانه و قابل تحمل برای استفاده در خانه طراحی شده&zwnj;اند.</p>\r\n\r\n<h2><span style=\"color:#f4b19f\"><strong>راهنمای خرید تنور گازی خانگی</strong></span></h2>\r\n\r\n<p>خرید تنور گازی&nbsp; اقتصادی <strong>خانگی</strong> می&zwnj;تواند به عنوان یک سرمایه&zwnj;گذاری هوشمند در آشپزی خانگی در نظر گرفته شود. برخی از مشتریان در انتخاب برند تنور گازی خانگی به دنبال برند معتبری هستند. تنور گازی با طراحی زیبای مختلفی در بازار وجود دارند که هر یک ویژگی&zwnj;ها و قابلیت&zwnj;های منحصر به فردی دارند.</p>\r\n\r\n<h2><span style=\"color:#f4b19f\">تنور گازی خانگی:&nbsp; عملکرد بزرگ برای خلق غذاهای خوشمزه در منزل</span></h2>\r\n\r\n<p>آیا به دنبال راهی آسان و کارآمد برای پخت و پز غذاهای خوشمزه در منزل خود هستید؟<a href=\"https://kabinmobtaker.com/cat/13\"><strong> تنور گازی خانگی</strong></a> به عنوان یک وسیله بسیار عملی و کاربردی می&zwnj;تواند به شما در زمینه&nbsp; پخت و پز غذاهای جدید کمک بسیاری کند. با استفاده از <strong>تنور گازی خانگی</strong>، شما قادر خواهید بود غذاهای با طراوت و اصالت خود را در منزل تهیه کنید ودر کنار خانواده&nbsp; لذت ببرید.</p>', NULL, 'vvvvvv', 'vdfvddvv', '2024-03-03 09:00:22', '2024-08-06 09:44:33', NULL),
+(2, 'حرکات موزون', 'fas fa-dancer', 'hygiene', NULL, 'purple', 1, 1, '0', 1, '<p>زسز</p>', NULL, 'فتغات', 'زسسزس', '2024-03-03 09:27:47', '2024-08-06 09:45:48', NULL),
+(3, 'آرایش میز ناهار خوری', NULL, 'dining-table', NULL, 'danger', 1, 1, NULL, 1, '<p>آرایش میز ناهار خوری</p>', NULL, 'آرایش میز ناهار خوری', 'آرایش میز ناهار خوری', '2024-04-29 05:43:05', '2024-08-06 04:48:47', NULL),
+(4, 'بادکنک آرایی', NULL, 'ballon', NULL, 'info', 1, 1, NULL, 1, '<p>بادکنک آراییبادکنک آراییبادکنک آرایی</p>', NULL, 'بادکنک آرایی', 'بادکنک آرایی', '2024-04-29 07:28:07', '2024-08-06 04:49:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -187,7 +268,8 @@ CREATE TABLE `contents` (
 --
 
 INSERT INTO `contents` (`id`, `title`, `image`, `image_convert`, `url`, `status`, `view`, `content_type`, `sort`, `link`, `description`, `parent_id`, `keywords`, `lead`, `title_seo`, `description_seo`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'ذبلذل', 'd99d8b5dca7e8bb26377ff298f13d1c4.png', 'ذب', 'banner/1', 0, '0', 2, 0, NULL, '<p>ذبللبذ</p>', NULL, NULL, NULL, NULL, NULL, '2024-03-04 06:44:30', '2024-03-04 06:44:39', NULL);
+(1, 'ذبلذل', '0dc368da41fc41204c2388abde3923d9.png', 'ذب', 'banner/1', 0, '0', 2, 0, NULL, '<p>ذبللبذ</p>', NULL, NULL, NULL, NULL, NULL, '2024-03-04 06:44:30', '2024-06-09 11:06:57', NULL),
+(2, 'cfv', '854923f670d5040cc2d4ccff4fbfad2d0000.jpg', NULL, NULL, 0, '0', 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-07-29 08:46:44', '2024-07-29 08:48:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -291,7 +373,11 @@ INSERT INTO `logs` (`action`, `data`, `user_id`, `related`, `created_at`, `updat
 ('http://myshop:8888/admin/slider/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"M6x9Bnrp3arErkakVhmkK2AQRGNs2V6FKSOVLFf0\";s:5:\"title\";s:10:\"ذبلذل\";s:13:\"image_convert\";s:4:\"ذب\";s:12:\"content_type\";s:1:\"2\";s:4:\"link\";N;s:11:\"description\";s:19:\"<p>ذبللبذ</p>\";s:5:\"image\";s:36:\"d99d8b5dca7e8bb26377ff298f13d1c4.png\";}}', 1, '1', '2024-03-04 06:44:39', '2024-03-04 06:44:39', NULL),
 ('http://myshop:8888/admin/user/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"M6x9Bnrp3arErkakVhmkK2AQRGNs2V6FKSOVLFf0\";s:4:\"name\";s:10:\"مدیرز\";s:6:\"family\";N;s:5:\"email\";s:13:\"info@site.com\";s:6:\"mobile\";N;s:6:\"status\";s:1:\"1\";s:5:\"group\";a:1:{i:0;s:1:\"1\";}}}', 1, '1', '2024-03-04 07:12:04', '2024-03-04 07:12:04', NULL),
 ('http://myshop:8888/admin/user/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"M6x9Bnrp3arErkakVhmkK2AQRGNs2V6FKSOVLFf0\";s:4:\"name\";s:14:\"مدیرزبی\";s:6:\"family\";N;s:5:\"email\";s:13:\"info@site.com\";s:6:\"mobile\";N;s:6:\"status\";s:1:\"1\";s:5:\"group\";a:1:{i:0;s:1:\"1\";}}}', 1, '1', '2024-03-04 07:15:48', '2024-03-04 07:15:48', NULL),
-('http://myshop:8888/admin/user/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"S2050SXyPS3uK43htKahbzUBgHKu6bk1TANj7t6a\";s:4:\"name\";s:19:\"مدیرزبیfffff\";s:6:\"family\";N;s:5:\"email\";s:13:\"info@site.com\";s:6:\"mobile\";N;s:6:\"status\";s:1:\"1\";s:5:\"group\";a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}}}', 1, '1', '2024-05-08 03:25:13', '2024-05-08 03:25:13', NULL);
+('http://myshop:8888/admin/user/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"S2050SXyPS3uK43htKahbzUBgHKu6bk1TANj7t6a\";s:4:\"name\";s:19:\"مدیرزبیfffff\";s:6:\"family\";N;s:5:\"email\";s:13:\"info@site.com\";s:6:\"mobile\";N;s:6:\"status\";s:1:\"1\";s:5:\"group\";a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}}}', 1, '1', '2024-05-08 03:25:13', '2024-05-08 03:25:13', NULL),
+('http://myshop:8888/admin/slider/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"yCtcdQ7BCwAgCiFfmCxJBMEkDyuEzmU6zsxavZnq\";s:5:\"title\";s:10:\"ذبلذل\";s:13:\"image_convert\";s:4:\"ذب\";s:12:\"content_type\";s:1:\"2\";s:4:\"link\";N;s:11:\"description\";s:19:\"<p>ذبللبذ</p>\";s:5:\"image\";s:36:\"0dc368da41fc41204c2388abde3923d9.png\";}}', 1, '1', '2024-06-09 11:06:57', '2024-06-09 11:06:57', NULL),
+('http://myshop:8888/admin/slider/edit/1', 'a:1:{i:0;a:7:{s:6:\"_token\";s:40:\"yCtcdQ7BCwAgCiFfmCxJBMEkDyuEzmU6zsxavZnq\";s:5:\"title\";s:10:\"ذبلذل\";s:13:\"image_convert\";s:4:\"ذب\";s:12:\"content_type\";s:1:\"2\";s:4:\"link\";N;s:11:\"description\";s:19:\"<p>ذبللبذ</p>\";s:5:\"image\";s:36:\"0dc368da41fc41204c2388abde3923d9.png\";}}', 1, '1', '2024-06-09 11:10:31', '2024-06-09 11:10:31', NULL),
+('http://myshop:8888/admin/uploader/add', 'a:1:{i:0;a:4:{s:6:\"_token\";s:40:\"KL0yLwIjblJyhXY8RuNpEHaS7kSs7O7h6WaILdft\";s:5:\"title\";s:5:\"dfvfd\";s:5:\"image\";s:40:\"854923f670d5040cc2d4ccff4fbfad2d0000.jpg\";s:12:\"content_type\";s:1:\"4\";}}', 1, '2', '2024-07-29 08:46:44', '2024-07-29 08:46:44', NULL),
+('http://myshop:8888/admin/uploader/edit/2', 'a:1:{i:0;a:3:{s:6:\"_token\";s:40:\"KL0yLwIjblJyhXY8RuNpEHaS7kSs7O7h6WaILdft\";s:5:\"title\";s:3:\"cfv\";s:5:\"image\";s:40:\"854923f670d5040cc2d4ccff4fbfad2d0000.jpg\";}}', 1, '2', '2024-07-29 08:48:35', '2024-07-29 08:48:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -338,7 +424,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (171, '2023_11_19_154812_create_roles_table', 1),
 (172, '2023_11_19_155009_create_role_user_table', 1),
 (173, '2024_01_23_073801_create_blog_categories_table', 1),
-(174, '2024_01_23_073812_create_blog_table', 1);
+(174, '2024_01_23_073812_create_blog_table', 1),
+(176, '2024_06_11_081728_create_settings_table', 2),
+(177, '2024_07_03_042639_create_product_video_table', 3),
+(178, '2024_07_27_145814_create_socila_table', 4),
+(179, '2024_07_28_100647_create_redirect_table', 5),
+(180, '2024_07_28_100647_create_redirects_table', 6);
 
 -- --------------------------------------------------------
 
@@ -481,7 +572,12 @@ INSERT INTO `products` (`id`, `title`, `title_en`, `url`, `status`, `count`, `ho
 (13, 'عینک پارسیا', NULL, 'dataccc', 1, NULL, '<p>عینک پارسیاعینک پارسیاعینک پارسیاعینک پارسیا</p>', NULL, 0, 0, NULL, '<p>عینک پارسیاعینک پارسیا</p>', '122000', '0', NULL, NULL, NULL, 'عینک پارسیاعینک پارسیا', 'عینک پارسیاعینک پارسیا', '2024-04-30 02:36:23', '2024-04-30 02:36:23', NULL),
 (16, 'آرایش میز پذیرایی', NULL, 'آرایش', 0, NULL, '<p>آرایش میز پذیرایی</p>', NULL, 0, 0, NULL, '<p>آرایش میز پذیرایی</p>', '0', '0', NULL, NULL, NULL, '220000', 'آرایش میز پذیرایی', '2024-04-30 04:19:34', '2024-04-30 04:19:34', NULL),
 (18, 'گل آرایی برجسته', NULL, 'dddddd', 1, NULL, '<p>vdf</p>', NULL, 0, 0, NULL, '<p>vddf</p>', '0', '2300000', NULL, NULL, NULL, 'dvd', 'dvfd', '2024-04-30 04:25:49', '2024-05-07 08:49:23', NULL),
-(19, 'سیب زمینی تنوری', NULL, 'mosyz', 1, NULL, '<p>طرز تهیه سیب زمینی تنوری با سس لذیذ</p>', NULL, 0, 0, NULL, '<p>طرز تهیه سیب زمینی تنوری با سس لذیذ</p>', '8900000', '0', NULL, NULL, NULL, 'طرز تهیه سیب زمینی تنوری با سس لذیذ', 'طرز تهیه سیب زمینی تنوری با سس لذیذ', '2024-05-07 08:41:51', '2024-06-09 10:18:49', NULL);
+(19, 'سیب زمینی تنوری', NULL, 'mosyz', 1, NULL, '<p>طرز تهیه سیب زمینی تنوری با سس لذیذ</p>', NULL, 0, 0, NULL, '<p>طرز تهیه سیب زمینی تنوری با سس لذیذ</p>', '8900000', '8900000', NULL, NULL, NULL, 'طرز تهیه سیب زمینی تنوری با سس لذیذ', 'طرز تهیه سیب زمینی تنوری با سس لذیذ', '2024-05-07 08:41:51', '2024-07-14 16:16:29', NULL),
+(20, 'dss', NULL, 'cardss', 0, NULL, '<p>sss</p>', NULL, 0, 0, NULL, '<p>ss</p>', '0', '0', NULL, NULL, NULL, NULL, NULL, '2024-08-06 10:04:45', '2024-08-06 10:04:45', NULL),
+(21, 'dddd', NULL, 'badknkdd', 1, NULL, NULL, NULL, 0, 0, NULL, NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, '2024-08-06 10:05:18', '2024-08-06 11:41:53', NULL),
+(22, 'samira', NULL, 'cardaaaaa', 1, NULL, NULL, NULL, 0, 0, NULL, NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, '2024-08-06 12:03:38', '2024-08-06 12:37:58', NULL),
+(23, 'sssssssssss', NULL, 'badknkssssss', 1, NULL, '<p>ss</p>', NULL, 0, 0, NULL, '<p>ss</p>', '0', '0', NULL, NULL, NULL, NULL, 'sss', '2024-08-06 13:16:02', '2024-08-06 13:16:02', NULL),
+(24, 'دوره ی زیبا', NULL, 'cardaaaaas', 1, NULL, NULL, NULL, 0, 0, NULL, NULL, '122000', '0', NULL, NULL, NULL, NULL, NULL, '2024-08-07 04:59:01', '2024-08-07 04:59:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -518,7 +614,28 @@ INSERT INTO `product_category` (`product_id`, `category_id`) VALUES
 (18, 3),
 (18, 3),
 (18, 3),
-(19, 1);
+(19, 1),
+(19, 4),
+(19, 4),
+(19, 3),
+(19, 3),
+(20, 2),
+(21, 2),
+(21, 2),
+(21, 2),
+(22, 3),
+(22, 2),
+(22, 1),
+(22, 2),
+(22, 3),
+(22, 3),
+(22, 3),
+(21, 1),
+(9, 3),
+(23, 1),
+(19, 2),
+(24, 1),
+(24, 3);
 
 -- --------------------------------------------------------
 
@@ -580,6 +697,74 @@ CREATE TABLE `product_variables` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_video`
+--
+
+CREATE TABLE `product_video` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `listorder` int(11) DEFAULT '1',
+  `type` tinyint(4) DEFAULT NULL,
+  `title_seo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_seo` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_video`
+--
+
+INSERT INTO `product_video` (`id`, `title`, `image`, `product_id`, `file`, `time`, `status`, `description`, `sort`, `listorder`, `type`, `title_seo`, `description_seo`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'سیبیس', '00.jpg', 19, 'a.mp4', '55', 0, NULL, 0, NULL, NULL, 'sfsfs', 'fsf', '2024-07-13 05:36:24', '2024-07-13 05:36:24', NULL),
+(2, 'fsfsfs', NULL, 19, 'a.mp4', '55', 0, NULL, 0, NULL, NULL, 'fss', 'fs', '2024-07-13 05:37:19', '2024-07-13 05:37:19', NULL),
+(3, 'cdd', NULL, 19, NULL, NULL, 0, NULL, 0, NULL, NULL, 'dvdd', 'vddddd', '2024-07-13 05:40:27', '2024-07-13 05:40:27', NULL),
+(4, 'vfv', NULL, 19, NULL, NULL, 0, NULL, 0, NULL, NULL, 'xvxx', 'xvxc', '2024-07-13 05:41:11', '2024-07-13 05:41:11', NULL),
+(5, 'dddd', NULL, 19, 'a.mp4', NULL, 0, '<p>dddddd</p>', 0, NULL, NULL, 'dddd', 'dddd', '2024-07-13 05:42:27', '2024-07-13 05:42:27', NULL),
+(6, 'cdcd', '0000.jpg', 19, 'a.mp4', '55', 0, '<p>cdcd</p>', 0, NULL, NULL, 'cdcd', 'cddc', '2024-07-13 05:54:34', '2024-07-13 05:54:34', NULL),
+(7, 'vdfvd', '0000.jpg', 19, 'cdcd', '55', 0, '<p>cd</p>', 0, NULL, NULL, 'cd', 'cd', '2024-07-13 05:57:31', '2024-07-13 05:57:31', NULL),
+(8, 'vds', '0000.jpg', 19, 'vv', '55', 0, '<p>vv</p>', 0, NULL, NULL, 'vvv', 'vv', '2024-07-13 06:03:05', '2024-07-13 06:03:05', NULL),
+(9, 'sss', '3CC65DF4-9D3E-4C0F-A12D-0D9821296B2F.JPG', 19, NULL, '55', 0, '<p>ddd</p>', 0, NULL, NULL, 'dd', 'ddd', '2024-07-13 06:12:42', '2024-07-13 06:12:42', NULL),
+(10, 'dd', '0000.jpg', 19, 'a.mp4', NULL, 0, NULL, 0, NULL, NULL, 'dd', 'dd', '2024-07-13 06:14:27', '2024-07-13 06:14:27', NULL),
+(11, 'ddd', '0000.jpg', 19, NULL, NULL, 0, '<p>dd</p>', 0, NULL, NULL, 'dd', 'dd', '2024-07-13 06:15:21', '2024-07-13 23:00:50', '2024-07-13 23:00:50'),
+(12, 'دوره ی جدید', '0000.jpg', 19, 'fh', '90', 0, '<p>fhf</p>', 0, NULL, NULL, 'hfh', 'hf', '2024-07-13 06:51:20', '2024-07-14 17:24:35', NULL),
+(13, 'dfd', NULL, 19, 'a.mp4', '55', 0, NULL, 0, 1, NULL, 'bcc', 'cc', '2024-07-14 00:03:17', '2024-07-14 00:03:17', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `redirects`
+--
+
+CREATE TABLE `redirects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `old_address` text COLLATE utf8mb4_unicode_ci,
+  `new_address` text COLLATE utf8mb4_unicode_ci,
+  `type` int(11) DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `redirects`
+--
+
+INSERT INTO `redirects` (`id`, `old_address`, `new_address`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '/pro/3', 'tag/furnace-oven', NULL, '2024-07-28 10:56:34', '2024-07-28 11:10:56', '2024-07-28 11:10:56'),
+(2, 'efe', 'egeg', 1, '2024-07-28 11:01:51', '2024-07-28 11:10:51', '2024-07-28 11:10:51');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -594,7 +779,7 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `permission`) VALUES
-(1, 'مدیر سایت', 'a:40:{s:4:\"user\";a:13:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:5:\"group\";s:1:\"1\";s:8:\"groupAdd\";s:1:\"1\";s:9:\"groupEdit\";s:1:\"1\";s:11:\"groupDelete\";s:1:\"1\";s:7:\"address\";s:1:\"1\";s:11:\"addressEdit\";s:1:\"1\";s:13:\"addressDelete\";s:1:\"1\";s:14:\"changePassword\";s:1:\"1\";}s:5:\"users\";a:3:{s:5:\"index\";s:1:\"1\";s:6:\"export\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:8:\"products\";a:9:{s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:5:\"image\";s:1:\"1\";s:8:\"imageAdd\";s:1:\"1\";s:9:\"imageEdit\";s:1:\"1\";s:11:\"imageDelete\";s:1:\"1\";s:15:\"thumbnailDelete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:6:\"export\";s:1:\"1\";}s:11:\"allproducts\";a:3:{s:5:\"index\";s:1:\"1\";s:5:\"price\";s:1:\"1\";s:9:\"inventory\";s:1:\"1\";}s:6:\"filter\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:7:\"addMain\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"catAdd\";s:1:\"1\";s:9:\"catDelete\";s:1:\"1\";}s:14:\"product-filter\";a:3:{s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:26:\"product-specification-type\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:7:\"addMain\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"catAdd\";s:1:\"1\";s:9:\"catDelete\";s:1:\"1\";}s:27:\"product-specification-price\";a:12:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:11:\"deleteImage\";s:1:\"1\";s:14:\"thumbnailImage\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:7:\"postAdd\";s:1:\"1\";s:12:\"postAddGroup\";s:1:\"1\";s:7:\"imgsort\";s:1:\"1\";s:7:\"imgsAdd\";s:1:\"1\";}s:9:\"quiz-tags\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"quizes\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:7:\"product\";s:1:\"1\";s:9:\"questions\";s:1:\"1\";s:13:\"questionsEdit\";s:1:\"1\";s:15:\"questionsDelete\";s:1:\"1\";}s:21:\"product-specification\";a:5:{s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:5:\"order\";s:1:\"1\";s:8:\"addOrder\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"articles\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:11:\"article-cat\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:4:\"blog\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:8:\"blog-cat\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:9:\"inventory\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:17:\"inventory-receipt\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"export\";s:1:\"1\";}s:6:\"status\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:11:\"departments\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:9:\"discounts\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"brands\";a:6:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:11:\"deleteImage\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:8:\"category\";a:6:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:6:\"search\";s:1:\"1\";}s:5:\"order\";a:7:{s:5:\"index\";s:1:\"1\";s:3:\"det\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"export\";s:1:\"1\";s:6:\"factor\";s:1:\"1\";s:7:\"address\";s:1:\"1\";}s:12:\"notification\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"det\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"slider\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:13:\"mobile-slider\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"setting\";a:2:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:8:\"redirect\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"question\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:9:\"questions\";a:2:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";}s:3:\"faq\";a:2:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:10:\"properties\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"uploader\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"social\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"cropper\";a:1:{s:5:\"index\";s:1:\"1\";}s:7:\"comment\";a:3:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"tickets\";a:7:{s:5:\"index\";s:1:\"1\";s:6:\"detail\";s:1:\"1\";s:5:\"reply\";s:1:\"1\";s:6:\"create\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:12:\"ticketStatus\";s:1:\"1\";s:12:\"ticketReturn\";s:1:\"1\";}s:7:\"contact\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:4:\"tags\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:10:\"fullAccess\";i:0;}'),
+(1, 'مدیر سایت', 'a:40:{s:4:\"user\";a:13:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:5:\"group\";s:1:\"1\";s:8:\"groupAdd\";s:1:\"1\";s:9:\"groupEdit\";s:1:\"1\";s:11:\"groupDelete\";s:1:\"1\";s:7:\"address\";s:1:\"1\";s:11:\"addressEdit\";s:1:\"1\";s:13:\"addressDelete\";s:1:\"1\";s:14:\"changePassword\";s:1:\"1\";}s:5:\"users\";a:3:{s:5:\"index\";s:1:\"1\";s:6:\"export\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:8:\"products\";a:16:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:5:\"image\";s:1:\"1\";s:8:\"imageAdd\";s:1:\"1\";s:9:\"imageEdit\";s:1:\"1\";s:11:\"imageDelete\";s:1:\"1\";s:15:\"thumbnailDelete\";s:1:\"1\";s:5:\"video\";s:1:\"1\";s:8:\"videoAdd\";s:1:\"1\";s:12:\"videoAddPost\";s:1:\"1\";s:9:\"videoEdit\";s:1:\"1\";s:11:\"videoDelete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:6:\"export\";s:1:\"1\";}s:11:\"allproducts\";a:3:{s:5:\"index\";s:1:\"1\";s:5:\"price\";s:1:\"1\";s:9:\"inventory\";s:1:\"1\";}s:6:\"filter\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:7:\"addMain\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"catAdd\";s:1:\"1\";s:9:\"catDelete\";s:1:\"1\";}s:14:\"product-filter\";a:3:{s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:26:\"product-specification-type\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:7:\"addMain\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"catAdd\";s:1:\"1\";s:9:\"catDelete\";s:1:\"1\";}s:27:\"product-specification-price\";a:12:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:11:\"deleteImage\";s:1:\"1\";s:14:\"thumbnailImage\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:7:\"postAdd\";s:1:\"1\";s:12:\"postAddGroup\";s:1:\"1\";s:7:\"imgsort\";s:1:\"1\";s:7:\"imgsAdd\";s:1:\"1\";}s:9:\"quiz-tags\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"quizes\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:7:\"product\";s:1:\"1\";s:9:\"questions\";s:1:\"1\";s:13:\"questionsEdit\";s:1:\"1\";s:15:\"questionsDelete\";s:1:\"1\";}s:21:\"product-specification\";a:5:{s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:5:\"order\";s:1:\"1\";s:8:\"addOrder\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"articles\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:11:\"article-cat\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:4:\"blog\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:8:\"blog-cat\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:9:\"inventory\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:17:\"inventory-receipt\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"export\";s:1:\"1\";}s:6:\"status\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:11:\"departments\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:9:\"discounts\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"brands\";a:6:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:11:\"deleteImage\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:8:\"category\";a:6:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:6:\"search\";s:1:\"1\";}s:5:\"order\";a:7:{s:5:\"index\";s:1:\"1\";s:3:\"det\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"export\";s:1:\"1\";s:6:\"factor\";s:1:\"1\";s:7:\"address\";s:1:\"1\";}s:12:\"notification\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"det\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"slider\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:13:\"mobile-slider\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"setting\";a:2:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:8:\"redirect\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"question\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:9:\"questions\";a:2:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";}s:3:\"faq\";a:2:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:10:\"properties\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"uploader\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"social\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"cropper\";a:1:{s:5:\"index\";s:1:\"1\";}s:7:\"comment\";a:3:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"tickets\";a:7:{s:5:\"index\";s:1:\"1\";s:6:\"detail\";s:1:\"1\";s:5:\"reply\";s:1:\"1\";s:6:\"create\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:12:\"ticketStatus\";s:1:\"1\";s:12:\"ticketReturn\";s:1:\"1\";}s:7:\"contact\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:4:\"tags\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:10:\"fullAccess\";i:0;}'),
 (5, 'طزطزز', 'a:3:{s:4:\"user\";a:1:{s:14:\"changePassword\";s:1:\"1\";}s:8:\"products\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:10:\"fullAccess\";i:0;}'),
 (6, 'یسس', 'a:3:{s:4:\"user\";a:1:{s:14:\"changePassword\";s:1:\"1\";}s:8:\"products\";a:4:{s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:5:\"image\";s:1:\"1\";s:8:\"imageAdd\";s:1:\"1\";}s:10:\"fullAccess\";i:0;}'),
 (7, 'sss', 'a:40:{s:4:\"user\";a:13:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:5:\"group\";s:1:\"1\";s:8:\"groupAdd\";s:1:\"1\";s:9:\"groupEdit\";s:1:\"1\";s:11:\"groupDelete\";s:1:\"1\";s:7:\"address\";s:1:\"1\";s:11:\"addressEdit\";s:1:\"1\";s:13:\"addressDelete\";s:1:\"1\";s:14:\"changePassword\";s:1:\"1\";}s:5:\"users\";a:3:{s:5:\"index\";s:1:\"1\";s:6:\"export\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:8:\"products\";a:11:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:5:\"image\";s:1:\"1\";s:8:\"imageAdd\";s:1:\"1\";s:9:\"imageEdit\";s:1:\"1\";s:11:\"imageDelete\";s:1:\"1\";s:15:\"thumbnailDelete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:6:\"export\";s:1:\"1\";}s:11:\"allproducts\";a:3:{s:5:\"index\";s:1:\"1\";s:5:\"price\";s:1:\"1\";s:9:\"inventory\";s:1:\"1\";}s:6:\"filter\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:7:\"addMain\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"catAdd\";s:1:\"1\";s:9:\"catDelete\";s:1:\"1\";}s:14:\"product-filter\";a:3:{s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:26:\"product-specification-type\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:7:\"addMain\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"catAdd\";s:1:\"1\";s:9:\"catDelete\";s:1:\"1\";}s:27:\"product-specification-price\";a:12:{s:5:\"index\";s:1:\"1\";s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:11:\"deleteImage\";s:1:\"1\";s:14:\"thumbnailImage\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:7:\"postAdd\";s:1:\"1\";s:12:\"postAddGroup\";s:1:\"1\";s:7:\"imgsort\";s:1:\"1\";s:7:\"imgsAdd\";s:1:\"1\";}s:9:\"quiz-tags\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"quizes\";a:8:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:7:\"product\";s:1:\"1\";s:9:\"questions\";s:1:\"1\";s:13:\"questionsEdit\";s:1:\"1\";s:15:\"questionsDelete\";s:1:\"1\";}s:21:\"product-specification\";a:5:{s:4:\"list\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:5:\"order\";s:1:\"1\";s:8:\"addOrder\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"articles\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:11:\"article-cat\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:4:\"blog\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:8:\"blog-cat\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:9:\"inventory\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:17:\"inventory-receipt\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"export\";s:1:\"1\";}s:6:\"status\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:11:\"departments\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:9:\"discounts\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"brands\";a:6:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:11:\"deleteImage\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:8:\"category\";a:6:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";s:6:\"search\";s:1:\"1\";}s:5:\"order\";a:7:{s:5:\"index\";s:1:\"1\";s:3:\"det\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:6:\"export\";s:1:\"1\";s:6:\"factor\";s:1:\"1\";s:7:\"address\";s:1:\"1\";}s:12:\"notification\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"det\";s:1:\"1\";s:6:\"status\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"slider\";a:5:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";s:4:\"sort\";s:1:\"1\";}s:13:\"mobile-slider\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"setting\";a:2:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:8:\"redirect\";a:3:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"question\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:9:\"questions\";a:2:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";}s:3:\"faq\";a:2:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";}s:10:\"properties\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:8:\"uploader\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:6:\"social\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"cropper\";a:1:{s:5:\"index\";s:1:\"1\";}s:7:\"comment\";a:3:{s:5:\"index\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:7:\"tickets\";a:7:{s:5:\"index\";s:1:\"1\";s:6:\"detail\";s:1:\"1\";s:5:\"reply\";s:1:\"1\";s:6:\"create\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:12:\"ticketStatus\";s:1:\"1\";s:12:\"ticketReturn\";s:1:\"1\";}s:7:\"contact\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:4:\"tags\";a:4:{s:5:\"index\";s:1:\"1\";s:3:\"add\";s:1:\"1\";s:4:\"edit\";s:1:\"1\";s:6:\"delete\";s:1:\"1\";}s:10:\"fullAccess\";i:0;}');
@@ -636,6 +821,48 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `favicon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about` text COLLATE utf8mb4_unicode_ci,
+  `about2` text COLLATE utf8mb4_unicode_ci,
+  `aboutshort` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact` text COLLATE utf8mb4_unicode_ci,
+  `mobile` text COLLATE utf8mb4_unicode_ci,
+  `banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `description2` text COLLATE utf8mb4_unicode_ci,
+  `description3` text COLLATE utf8mb4_unicode_ci,
+  `keywords` text COLLATE utf8mb4_unicode_ci,
+  `title_seo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_seo` text COLLATE utf8mb4_unicode_ci,
+  `code` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `title`, `image`, `logo`, `favicon`, `about`, `about2`, `aboutshort`, `contact`, `mobile`, `banner`, `banner1`, `banner2`, `phone`, `email`, `description`, `description2`, `description3`, `keywords`, `title_seo`, `link`, `description_seo`, `code`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'سایت اموزش آنلاین', 'logo.png', '530logosss.svg', '4470000.jpg', '<p>This is a detailed about section.</p>', 'امروز الهام بگیرید و چیز جدیدی کشف کنید. مهارت های خود را با معتبرترین دوره های آنلاین و گواهینامه های بازاریابی، فناوری اطلاعات، برنامه نویسی و علم داده افزایش دهید.', 'تحصیلات، استعدادها و فرصت های شغلی، همه در اینجاا', 'sample@example.com', NULL, NULL, 'banner1.jpg', 'banner2.jpg', '123-456-7890', 'info@example.com', 'This is the website description.', 'This is the second description.', 'This is the third description.', 'website, example, laravel', 'Example Website', 'https://www.example.com', 'This is the SEO description.', '<script>console.log(\"Hello, World!\");</script>', '2024-07-27 07:16:18', '2024-07-29 18:11:51', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `shipment_city`
 --
 
@@ -663,6 +890,32 @@ CREATE TABLE `shipment_methods` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `socials`
+--
+
+CREATE TABLE `socials` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `socials`
+--
+
+INSERT INTO `socials` (`id`, `name`, `icon`, `address`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'instagram', 'bi bi-instagram h3 m-0', 'bi bi-instagram h3 m-0', '2024-07-27 12:28:51', '2024-07-27 12:28:51', NULL),
+(2, 'whatsapp', 'bi bi-whatsapp h3 m-0', 'https://www.whatsapp.com', '2024-07-27 12:29:25', '2024-07-27 12:29:25', NULL),
+(3, 'telegram', 'bi bi-telegram h3 m-0', 'https://www.telegram.com/', '2024-07-27 12:29:57', '2024-07-27 12:29:57', NULL),
+(4, 'facebook-f', 'bi bi-twitter h3 m-0', 'twitter', '2024-07-27 12:30:17', '2024-07-27 12:45:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -745,7 +998,9 @@ INSERT INTO `users` (`id`, `name`, `family`, `mobile`, `confirm_code`, `email`, 
 (53, 'یبییی', NULL, 'dfgvd', '301049', 'samaffne@site.com', 0, 0, 0, '$2y$10$0aA/qJav4a3LRHiKvZsoYO5GpOSfLu9qBbOXE8LY0dmIpihYy88wq', NULL, NULL, '2024-04-28 09:59:20', '2024-05-11 08:05:53', NULL),
 (54, 'fdfef', 'feff', '09122038702', NULL, 'sdadsdd@site.com', 1, 0, 0, '$2y$10$SOK9P7h3RHFZjeeVLFT1DOW1FY1x6ndkLAhR/MhHmjnVHS4YQbpVS', NULL, NULL, '2024-05-08 03:25:05', '2024-05-08 03:25:05', NULL),
 (55, 'سیسس', NULL, '09129038701', '631474', 'sxesswwwwwssss@site.com', 0, 0, 1, '$2y$10$0HvHlGVVAv85iGsTo3uZd.HlYLFckhEggu/1Mz27zWoWBVvPb0hQq', NULL, NULL, '2024-05-08 07:19:35', '2024-05-08 07:21:06', NULL),
-(56, 'xvx', NULL, '09122038701', '892197', 'ssssdddsss@site.com', 0, 0, 1, '$2y$10$NgeSNHS210MY75j9LbuSqe.xctGhG1LKdYt65o81mUj4fmGpRjDgW', NULL, NULL, '2024-05-08 09:30:42', '2024-05-08 09:30:57', NULL);
+(56, 'xvx', NULL, '09122038701', NULL, 'ssssdddsss@site.com', 0, 0, 1, '$2y$10$NgeSNHS210MY75j9LbuSqe.xctGhG1LKdYt65o81mUj4fmGpRjDgW', NULL, NULL, '2024-05-08 09:30:42', '2024-05-08 09:30:57', NULL),
+(57, 'xcvx', NULL, '09122038880', '757477', 'info@kabinmobtaker.comd', 0, 0, 1, '$2y$10$MT.8L3VpwMYbEaSYU9oaguxqWvp3SjskENb010zoljpUlM7UHyNqi', NULL, NULL, '2024-08-07 00:49:01', '2024-08-07 00:49:27', NULL),
+(59, 'instagram', NULL, '09192829663', '463202', 'a@sitess.com', 0, 0, 1, '$2y$10$5H8fghlM1EuJnIzToJlKVOG7dwYVSc8aDmu7ghw9RSPJExx8C1lA.', NULL, NULL, '2024-08-07 03:59:27', '2024-08-07 03:59:55', NULL);
 
 --
 -- Indexes for dumped tables
@@ -881,15 +1136,39 @@ ALTER TABLE `product_variables`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_video`
+--
+ALTER TABLE `product_video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `redirects`
+--
+ALTER TABLE `redirects`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `shipment_methods`
 --
 ALTER TABLE `shipment_methods`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `socials`
+--
+ALTER TABLE `socials`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -919,19 +1198,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `baskets`
 --
 ALTER TABLE `baskets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `basket_items`
 --
 ALTER TABLE `basket_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
@@ -949,7 +1228,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -979,7 +1258,7 @@ ALTER TABLE `inventory_receipt`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -1015,7 +1294,7 @@ ALTER TABLE `prices`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `product_specifications`
@@ -1036,16 +1315,40 @@ ALTER TABLE `product_variables`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `product_video`
+--
+ALTER TABLE `product_video`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `redirects`
+--
+ALTER TABLE `redirects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `shipment_methods`
 --
 ALTER TABLE `shipment_methods`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `socials`
+--
+ALTER TABLE `socials`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `taggables`
@@ -1063,9 +1366,5 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
