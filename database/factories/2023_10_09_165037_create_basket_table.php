@@ -16,7 +16,7 @@ class CreateBasketTable extends Migration
         Schema::create('baskets', function (Blueprint $table) {
             
             $table->id();
-            $table->integer('user_id'); 
+            $table->integer('user_id')->nullable();
             $table->integer('cookie_id')->nullable();
             $table->integer('address_id')->nullable();
             $table->integer('shippingmethod_id')->nullable(); 
