@@ -20,7 +20,7 @@
 			<div class="col-sm-6 col-lg-4 col-xl-3">
 						<div class="card shadow h-100">
 							<!-- Image -->
-							<img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image">
+							<!-- <img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image"> -->
 							<!-- Card body -->
 							<div class="card-body pb-0">
 								<!-- Badge and favorite -->
@@ -48,9 +48,9 @@
 									<span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>15 ویدیو</span>
 									<div class="mt-3 mt-sm-0">
 									<form method="POST" action="{{ route('site.basket.add', $course->id) }}">  
-    @csrf  
-    <button type="submit" class="btn btn-dark">سبد خرید</button>  
-</form>  
+									@csrf  
+									<button type="submit" class="btn btn-dark">سبد خرید</button>  
+								</form>  
 											</div>
 								</div>
 							</div>

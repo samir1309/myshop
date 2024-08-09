@@ -12,6 +12,7 @@ use App\Models\Basket;
 use App\Models\BasketItem;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Carbon\Carbon;  
 
 
 class ShopController extends Controller
@@ -32,7 +33,6 @@ class ShopController extends Controller
     return view('site.basket.index', compact('basket', 'basketItems', 'totalPrice')); 
 }  
 
-
      public function destroy($id, Request $request)  
      {  
          $basketItem = BasketItem::findOrFail($id);  
@@ -47,53 +47,69 @@ class ShopController extends Controller
     public function addToBasket($id, Request $request)  
 
     {  
-        // اگر کاربر لاگین نکرده باشد  
-        if (auth()->guest()) {  
-            // ایجاد سبد خرید جدید برای کاربر مهمان  
-            $basket = Basket::create([  
-                'cookie_id' => $request->cookie('user_cookie'),  
-            ]);  
-
-            // افزودن محصول به سبد خرید  
-            $basketItem = BasketItem::create([  
-                'product_id' => $id,  
-                'basket_id' => $basket->id,  
-                'quantity' => 1,  
-            ]);  
-
-            return back()->with('success', 'محصول با موفقیت به سبد خرید اضافه شد.');  
-
+           // بررسی اینکه کاربر وارد شده است یا خیر  
+    if (Auth::check()) {  
+        $userId = Auth::id();  
+    } else {  
+        $userId = null;  
+        $cookieId = session()->get('custom_data');  
+        if ($cookieId == null) {  
+           
+            $cookieId = strtotime(Carbon::now());
+         
+            session()->put('custom_data', $cookieId);  
+            session()->save();  
         }  
+    }  
 
-        // اگر کاربر لاگین کرده باشد  
-        if (auth()->user()->confirm_code == null) {  
-            return redirect()->route('panel.login')->with('error', 'لطفا ابتدا حساب کاربری خود را فعال سازی کنید.');  
-        }  
 
-        // افزودن محصول به سبد خرید  
-        $basket = Basket::where('user_id', auth()->id())->first();  
-        if (!$basket) {  
-            $basket = Basket::create([  
-                'user_id' => auth()->id(),  
-            ]);  
-        }  
-
-        $basketItem = BasketItem::create([  
-            'product_id' => $id,  
-            'basket_id' => $basket->id,  
-            'quantity' => 1,  
+    
+    // بررسی وجود سبد خرید  
+    $basket = Basket::authUser()->first();  
+    if (!$basket) {  
+        $basket = Basket::create([  
+            'user_id' => $userId,  
+            'cookie_id' => $cookieId,  
         ]);  
+    }  
+    $basketss = Basket::authUser()->count();  
+  
+    // بررسی اینکه محصول قبلاً در همین سبد خرید وجود دارد یا خیر  
+$existingItem = BasketItem::where('product_id', $id)  
+->where('basket_id', $basket->id)  
+->first();  
+
+if ($existingItem) {  
+ 
+return redirect()->back()->with('error', 'این محصول قبلاً به سبد خرید اضافه شده است.');  
+}  
+
+// افزودن محصول به سبد خرید  
+$basketItem = BasketItem::create([  
+'product_id' => $id,  
+'basket_id' => $basket->id,  
+'quantity' => 1,  
+]);  
+
+ 
         $basketItems = $basket->basketItems; 
         $totalPrice = 0;  
         foreach ($basketItems as $basketItem) {  
             $totalPrice += $basketItem->product->price * $basketItem->quantity;  
         } 
-        return back()->with('success', 'محصول با موفقیت به سبد خرید اضافه شد.');  
-
+        return \redirect()->back()->with('success', 'باموفقیت حذف شد');
        
         
     }  
 
+
+    public function getBasketCount()  
+    {  
+        $basket = Basket::authUser(); // دریافت سبد خرید کاربر احراز هویت شده  
+        $basketItemsCount = $basket->basketitems->count(); // دریافت تعداد اقلام در سبد خرید  
+    dd($basketItemsCount);
+        return response()->json(['basket_count' => $basketItemsCount]);  
+    } 
 
 
 
