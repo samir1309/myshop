@@ -107,7 +107,7 @@ $basketItem = BasketItem::create([
     {  
         $basket = Basket::authUser()->first();  // دریافت سبد خرید کاربر احراز هویت شده  
         $basketItemsCount = $basket->basketItems()->count(); // دریافت تعداد اقلام در سبد خرید  
-    dd($basketItemsCount);
+   
         return response()->json(['basket_count' => $basketItemsCount]);  
     } 
 
