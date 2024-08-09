@@ -24,6 +24,8 @@
 						@foreach($category_footer as $key=>$main)
 						<li> <a class="dropdown-item" href="{{ route('site.product.category' , $main->url ) }}">{{@$main->title}}</a></li>
 							@endforeach
+
+							<li> <a class="dropdown-item" href="{{ route('site.blog.listcat') }}">مقالات</a></li>
 						</ul>
 					</li>
 					</ul>
@@ -31,9 +33,9 @@
 			</ul>
 
 			<div class="navbar-nav position-relative overflow-visible me-3">
-				<a href="{{ route('site.basket.index') }}" class="nav-link">	<i class="fas fa-shopping-cart fs-5"  id="basket-count" ></i></a>
-				<span   id="basket-count"  class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1">  
-					<span class="visually-hidden"  id="basket-count" >اقلام</span>
+				<a href="{{ route('site.basket.index') }}" class="nav-link">	<i   id="basket-count"  class="fas fa-shopping-cart fs-5" ></i></a>
+				<span    class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"> {{ $totalCartItems }} 
+					<span class="visually-hidden"  >اقلام</span>
 				</span>
 			</div>
 

@@ -73,14 +73,14 @@ Page Banner END -->
 
 									<!-- Amount item -->
 									<td class="text-center">
-										<h5 class="text-success mb-0"> {{ $item->product->price }} تومان</h5>
+										<h5 class="text-success mb-0"> {{number_format((intval($item->product->price)))  }} تومان</h5>
 									</td>
 									<!-- Action item -->
 									<td>
 										<a href="#" class="btn btn-sm btn-success-soft px-2 me-1 mb-1 mb-md-0"><i class="far fa-fw fa-edit"></i></a>
               
 
-      
+
 
              <a href="{{ route('site.basket.destroy', $item->id) }}" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item->id }}').submit();">  
                 Remove  
@@ -132,7 +132,7 @@ Page Banner END -->
 					<ul class="list-group list-group-borderless mb-2">
 						<li class="list-group-item px-0 d-flex justify-content-between">
 							<span class="h6 fw-light mb-0">قیمت</span>
-							<span class="h6 fw-light mb-0 fw-bold">{{  $totalPrice }} تومان</span>
+							<span class="h6 fw-light mb-0 fw-bold">{{  $formattedTotalPrice }} تومان</span>
 						</li>
 						<li class="list-group-item px-0 d-flex justify-content-between">
 							<span class="h6 fw-light mb-0">کد تخفیف</span>

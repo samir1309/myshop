@@ -91,7 +91,10 @@ class User extends Authenticatable
       return $admin;
     }
 
-
+    public function basket()
+    {
+        return $this->hasOne(Basket::class);
+    }
 
 
     public function hasPermission($access)

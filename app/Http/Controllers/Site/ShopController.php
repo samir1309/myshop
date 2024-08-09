@@ -19,19 +19,45 @@ class ShopController extends Controller
 {
     
   
-     public function getBasket()  
-{  
+    public function getBasket()
+    {
+        // بازیابی سبد خرید کاربر فعلی
+        $basket = Basket::authUser()->first();
     
-    $basket = Basket::where('user_id', auth()->id())->first();  
-    $basketItems = $basket->basketItems;  
+    
+        // اگر سبد خرید وجود ندارد
+        if (!$basket) {
+            // نمایش پیام خطا
+            return view('site.basket.empty', ['message' => 'سبد خرید شما خالی است']);
+        }
+        // اگر سبد خرید وجود دارد
+        else {
+             // بازیابی آیتم‌های سبد خرید
+        $basketItems = $basket->basketItems;
 
-    $totalPrice = 0;  
-    foreach ($basketItems as $basketItem) {  
-        $totalPrice += $basketItem->product->price * $basketItem->quantity;  
-    }  
+        $totalItems = 0;
+        
+        foreach ($basketItems as $basketItem) {
+            $totalItems += $basketItem->quantity;
+        }
 
-    return view('site.basket.index', compact('basket', 'basketItems', 'totalPrice')); 
-}  
+      
+        
+        // محاسبه مبلغ کل سبد خرید
+        $totalPrice = $basketItems->sum(function ($item) {
+            return $item->product->price * $item->quantity;
+        });
+
+        $formattedTotalPrice = number_format((intval($totalPrice)));
+        
+   
+       
+
+        }
+        // نمایش صفحه سبد خرید با اطلاعات مربوطه
+        return view('site.basket.index', compact('basket', 'basketItems', 'formattedTotalPrice'));
+        
+    }
 
      public function destroy($id, Request $request)  
      {  
@@ -66,14 +92,14 @@ class ShopController extends Controller
     
     // بررسی وجود سبد خرید  
     $basket = Basket::authUser()->first();  
+
     if (!$basket) {  
         $basket = Basket::create([  
             'user_id' => $userId,  
             'cookie_id' => $cookieId,  
         ]);  
     }  
-    $basketss = Basket::authUser()->count();  
-  
+
     // بررسی اینکه محصول قبلاً در همین سبد خرید وجود دارد یا خیر  
 $existingItem = BasketItem::where('product_id', $id)  
 ->where('basket_id', $basket->id)  
@@ -90,28 +116,28 @@ $basketItem = BasketItem::create([
 'basket_id' => $basket->id,  
 'quantity' => 1,  
 ]);  
-
  
-        $basketItems = $basket->basketItems; 
+        $basketItems = $basket->basketItems(); 
         $totalPrice = 0;  
         foreach ($basketItems as $basketItem) {  
             $totalPrice += $basketItem->product->price * $basketItem->quantity;  
         } 
+      
         return \redirect()->back()->with('success', 'باموفقیت حذف شد');
        
         
     }  
 
 
-    public function getBasketCount()  
-    {  
-        $basket = Basket::authUser()->first();  // دریافت سبد خرید کاربر احراز هویت شده  
-        $basketItemsCount = $basket->basketItems()->count(); // دریافت تعداد اقلام در سبد خرید  
-  
-        return response()->json(['basket_count' => $basketItemsCount]);  
-    } 
+    
+public function getBasketCount()  
+{  
+    $basketCount = \App\Models\Basket::where('user_id', auth()->id())->count();  
+    return response()->json(['basketCount' => $basketCount]);  
+}
+public function getBasketEmpty()  
+{  
+    return view('site.basket.empty');
 
-
-
-
+}
 }

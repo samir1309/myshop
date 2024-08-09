@@ -90,6 +90,22 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-	
+	<script>
+
+document.addEventListener('DOMContentLoaded', () => {  
+    const basketCountElement = document.getElementById('basket-count');  
+    if (basketCountElement) {  
+        // فراخوانی API یا هر روش دیگر برای گرفتن تعداد سبد خرید  
+        fetch('/basket-count')  
+            .then(response => response.json())  
+            .then(data => {  
+                basketCountElement.textContent = data.count;  
+            })  
+            .catch(error => {  
+                console.error('Error fetching basket count:', error);  
+            });  
+    }  
+});  
+	</script>
 
 </head>

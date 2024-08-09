@@ -5,6 +5,7 @@ use App\Library\SliderBanner;
 // use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Basket;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Social;
@@ -26,6 +27,9 @@ $seg = \request()->segments();
 // $brands_footer = Cache::remember('index.brands_footer', 20, function() {
 // return Brand::orderby('id', 'DESC')->whereFooter('1')->take(10)->select(['id','title'])->get();
 // });
+
+
+
 
 $head_sli = Content::Slider()->where('status','1')->get();
 
