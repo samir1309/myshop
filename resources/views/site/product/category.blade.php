@@ -2,62 +2,82 @@
 @section('content')
 
 <section>
+
+
+<!-- =======================
+Page Banner START -->
+<section class="bg-blue align-items-center d-flex" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<!-- Title -->
+				<h1 class="text-white fs-2"> انتخاب دسته بندی  {{$category->title}}  </h1>
+				<!-- Breadcrumb -->
+				<div class="d-flex justify-content-center">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+							<li class="breadcrumb-item"><a href="#">صفحه اصلی</a></li>
+							<li class="breadcrumb-item active" aria-current="page">لیست نسخه 1</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Page Banner END -->
+
+
+
 	<div class="container">
 		<!-- Title -->
-		<div class="row mb-1  mt-4 py-5">
+		<div class="row mb-1  mt-4 py-3">
 			
-			<div class="col-lg-8 mx-auto text-center">
-				<h2 class="fs-3">انتخاب دسته بندی  {{$category->title}} </h2>
-				<p class="mb-0">با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-			</div>
+			
 		</div>
 
 		<div class="row g-4">
 			<!-- Item -->
             @foreach($courses as $course)
-
-		
-			<div class="col-sm-6 col-lg-4 col-xl-3">
-						<div class="card shadow h-100">
-							<!-- Image -->
-							<!-- <img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image"> -->
-							<!-- Card body -->
-							<div class="card-body pb-0">
-								<!-- Badge and favorite -->
-								<div class="d-flex justify-content-between mb-2">
-									<a href="#" class="badge bg-purple bg-opacity-10 text-purple">همه سطح</a>
-									<a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
-								</div>
-								<!-- Title -->
-								<h5 class="card-title fw-normal"><a href="#"> {{ $course->title }} </a></h5>
-								<!-- Rating star -->
-								<ul class="list-inline mb-0">
-									<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-									<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-									<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-									<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-									<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-									<li class="list-inline-item ms-2 h6 fw-light mb-0">4.0/5.0</li>
-								</ul>
-							</div>
-							<!-- Card footer -->
-							<div class="card-footer pt-0 pb-3">
-								<hr>
-								<div class="d-flex justify-content-between">
-									<span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>12دقیقه</span>
-									<span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>15 ویدیو</span>
-									<div class="mt-3 mt-sm-0">
-									<form method="POST" action="{{ route('site.basket.add', $course->id) }}">  
-									@csrf  
-									<button type="submit" class="btn btn-dark">سبد خرید</button>  
-								</form>  
-											</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				
-            @endforeach
+	<div class="col-md-6 col-lg-4 col-xxl-3">  
+        <div class="card p-2 shadow h-100">  
+            <div class="rounded-top overflow-hidden">  
+				<a href="{{ route('site.product.details', $course->url) }}">
+                <div class="card-overlay-hover">  
+                    <!-- Image -->  
+                    <img src="{{ asset('assets/uploads/content/pro/big/'. $course->image )}}" class="card-img-top" alt="course image">  
+                </div>  
+                <!-- Hover element -->  
+                <!-- <div class="card-img-overlay">  
+                    <div class="card-element-hover d-flex justify-content-end">  
+                        <a href="" class="icon-md bg-white rounded-circle">  
+                            <i class="fas fa-shopping-cart text-danger"></i>  
+                        </a>  
+                    </div>  
+                </div>   -->
+            </div>  
+
+            <!-- Card body -->  
+            <div class="card-body px-2">  
+                <h5 class="card-title fw-normal"><a href="{{ route('site.product.details', $course->url) }}"> {{$course->title}}</a></h5>  
+                <!-- Badge and Price -->  
+                <div class="d-flex justify-content-between align-items-center">  
+                    @if ($course->categories)  
+                        <a href="#" class="badge bg-info bg-opacity-10 text-info"><i class="fas fa-circle small fw-bold me-2"></i>  
+                 
+                        </a>  
+                    @endif  
+                    <!-- Price -->  
+                    <h3 class="text-success mb-0 fs-5">{{ number_format(intval($course->price)) }} تومان</h3>  
+                </div>  
+            </div>  
+</a>
+        </div>  
+    </div>  
+			
+					@endforeach
 
 
 			<div class="description">

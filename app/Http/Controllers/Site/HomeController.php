@@ -13,13 +13,25 @@ use App\Models\Product;
 use Carbon\Carbon;
 class HomeController extends Controller
 {
-    public function getIndex()
+    public function getIsndex()
     
     {
         $category = Category :: orderBy('id' , 'DESC')-> whereNull('parent_id' )->get();
-        $category = Category ::  whereNull('parent_id' )->get();
-        return view('site.index', compact('category'));
+        $categor= Category ::  whereNull('parent_id' )->first();
+        $lastproduct = $categor->products;
+   
+
+        $lastproducts = Product::with('category')->get();  
+        $posts = $lastproducts->category->get();  
+
+        return view('site.index', compact('category' , 'lastproducts' , 'posts'));
     }
+    public function getIndex()  
+{  
+    $categories = Category::whereNull('parent_id')->get();  
+    $products = Product::with('categories')->get(); 
+    return view('site.index', compact('categories', 'products'));  
+}
     public function getAbout()
     {
       return view('site.about');
@@ -125,7 +137,9 @@ $totalTime = ProductVideo::where('product_id', $course->id)
     {
        
         $category = Category::where('url', $url)->first();
+    
         $courses = $category->products;
+      
       return view('site.product.category', compact( 'category','courses'));
 
 

@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('title_en')->nullable();
+            $table->string('image')->nullable();
             $table->string('url')->nullable();
             $table->boolean('status')->default(0); 
             $table->string('count')->nullable();

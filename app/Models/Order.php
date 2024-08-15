@@ -23,6 +23,18 @@ class Order extends Model
               return $query->where('cookie_id', @$_COOKIE['cookie_id']);
           }
       }
+
+      	public function items()  
+	{  
+	    return $this->hasMany(OrdersItem::class);  
+	}  
+
+   	public function history()  
+   	{  
+   	    return $this->hasMany(OrderHistory::class);  
+  	}  
+    
+
     }
 
 

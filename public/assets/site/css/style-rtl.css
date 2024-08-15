@@ -426,7 +426,9 @@ pre code {
   color: inherit;
   word-break: normal;
 }
-
+fa-user-graduate {
+  font-size: 2rem !important;
+}
 code {
   font-size: 0.875em;
   color: var(--bs-code-color);

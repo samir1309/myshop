@@ -101,7 +101,7 @@ Page content START -->
 								<!-- Title -->
 								<div class="d-flex justify-content-between mb-2">
 									<h5 class="card-title mb-0 fw-normal">
-                                        <a href="{{ route('site.product.details', $product->id) }}"> {{ $product->title}}</a>
+                                        <a href="{{ route('site.product.details', $product->url) }}"> {{ $product->title}}</a>
                                     </h5>
 									<!-- Wishlist icon -->
 									<a href="#"><i class="fas fa-heart text-danger"></i></a>

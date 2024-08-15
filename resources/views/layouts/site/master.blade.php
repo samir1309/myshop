@@ -3,6 +3,7 @@
 <html lang="fa" dir="rtl">
 @include('layouts.site.blocks.head')
 <body>
+@include('sweetalert::alert')
 @include('layouts.site.blocks.menu')
 @yield('content')  
 @include('layouts.site.blocks.footer')

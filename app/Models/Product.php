@@ -13,9 +13,9 @@ class Product extends Model
     use Sluggable;
     protected $table = 'products';
     protected $fillable = [
-        'title', 'description', 'status', 'keyword','description_seo',
+        'title', 'description', 'status', 'keyword','description_seo', 'image' ,
         'url', 'title_seo','sort','how_to_use','ingredients','like_count','video_link','title_en','price','old_price','stocks',
-      'lead','video_link'
+      'lead'
 
     ];
 
@@ -88,6 +88,8 @@ class Product extends Model
         return $this->belongsToMany('App\Models\Category','product_category')->whereDoesntHave('childs')->orderBy('id','desc');
     }
 
+
+    
     public function baskets()  
     {  
         return $this->belongsToMany('App\Models\Basket', 'basket_items');  

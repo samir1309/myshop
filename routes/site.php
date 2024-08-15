@@ -17,7 +17,7 @@ Route::get('/checkout', 'Site\ShopController@getBasket')->name('site.basket.inde
 Route::post('/baskett/{id}', 'Site\ShopController@addToBasket')->name('site.basket.add');
 Route::delete('/basket/{id}', 'Site\ShopController@destroy')->name('site.basket.destroy');
 Route::get('/basket-count', 'Site\ShopController@getBasketCount')->name('site.basket.count');
-// Route::get('/empty', 'Site\ShopController@getBasketEmpty')->name('site.basket.count');
+
 
 
 

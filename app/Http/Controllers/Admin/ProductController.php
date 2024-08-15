@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Price;
 use NumberFormatter;
 use App\Models\Category;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductVideoRequest;
 use App\Models\ProductVideo;
 use App\Models\ProductCategory;
@@ -34,43 +35,41 @@ class ProductController extends Controller
     public function getAddProduct()
     {
         $category = Category::select(['id','title'])->get();
+        
         return View('admin.products.add')
             ->with('category', $category);
     }
-    public function getEditProduct($id)
-    {
-        $data = Product::find($id);
-        $category = Category::all()->toArray();
-        if (!empty($category)) {
-            MakeTree::getData($category);
-            $category = MakeTree::GenerateArray(array('get'));
-        }
-        $productCategories = ProductCategory::where('product_id', $id)->get();
-       
-
-        return View('admin.products.edit')
-
-           ->with('data', $data)
-            ->with('parent_id', $category)
-            ->with('category', $category)
-            ->with('productCategories', $productCategories);
-
-       
-    }
+    public function getEditProduct($id)  
+    {  
+        $data = Product::find($id);  
+        $allCategories = Category::all();  
+    
+        // Get the selected category IDs for this product  
+        $selectedCategoryIds = $data->categories()->pluck('category_id')->toArray();  
+    
+        return view('admin.products.edit', [  
+            'data' => $data,  
+            'category' => $allCategories,  
+            'selectedCategoryIds' => $selectedCategoryIds  
+        ]);  
+    } 
 
     public function postAddProduct(ProductRequest $request)
     {
-
         $input = $request->all();
+     
         $input['status'] = $request->has('status');
-        //   $check = Product::where('title_seo', $input['title_seo'])->first();
-        // if ($check){
-        //     return Redirect::back()->with('error' , 'عنوان سئو تکراری است');
-        // }
-        // $check2 = Product::where('description_seo', $input['description_seo'])->first();
-        // if ($check2){
-        //     return Redirect::back()->with('error' , 'توضیحات سئو تکراری است');
-        // }
+
+        if ($request->hasFile('image')) {
+            $path = "assets/uploads/content/pro/";
+            $section = 'product' ; 
+            $resize = true ;
+            $uploader = new UploadsImg();
+            $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize  ,  $section  );
+                $input['image'] = $fileName;
+        }
+
+
         if(@$request['price'] !== null){
 
                 $input['price']=@$request['price'];
@@ -81,24 +80,30 @@ class ProductController extends Controller
             $input['price']=@$request['old_price'];
             $input['old_price']=0;
         }
-      
+        $input['video_link'] = $request->video_link; 
+       
+        $input->categories()->detach();
+        $input->assignCategory($request['category_id']);
 
 
         $product = Product::create($input);
+  
     
-        if ($request->has('category_id')) {
-            $product->assignCategory($request['category_id']);
-        }
-        $product->update($input);
+        // if ($request->has('category_id')) {
+        //     $product->assignCategory($request['category_id']);
+        // }
+        // $product->update($input);
         return redirect()->route('admin.products.index');
 
 
     }
  
-    public function postEditdProduct(ProductRequest $request)
+    public function sitdProduct(ProductRequest $request , $id )
     {
 
         $input = $request->all();
+     
+
         $input['status'] = $request->has('status');
         //   $check = Product::where('title_seo', $input['title_seo'])->first();
         // if ($check){
@@ -108,6 +113,26 @@ class ProductController extends Controller
         // if ($check2){
         //     return Redirect::back()->with('error' , 'توضیحات سئو تکراری است');
         // }
+
+        $content = Product::findOrFail($id);
+        dd($content);
+
+        
+    if ($request->hasFile('image')) {
+        $path = "assets/uploads/content/pro/";
+        File::delete($path . '/big/' . $content->image);
+        File::delete($path . '/medium/' . $content->image);
+        File::delete($path . '/small/' . $content->image);
+        $section = 'product' ; 
+        $resize = true ;
+        $uploader = new UploadsImg();
+        $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
+            $input['image'] = $fileName;
+    }
+    else {
+        $input['image'] = $content->image;
+    }
+
         if(@$request['price'] !== null){
 
                 $input['price']=@$request['price'];
@@ -137,15 +162,31 @@ class ProductController extends Controller
     public function postEditProduct(ProductRequest $request, $id)
     {
         // یافتن محصول بر اساس شناسه
+        $input = $request->all();
         $product = Product::findOrFail($id);
-     
+        if ($request->hasFile('image')) {
+            $path = "assets/uploads/content/pro/";
+            File::delete($path . '/big/' . $product->image);
+            File::delete($path . '/medium/' . $product->image);
+            File::delete($path . '/small/' . $product->image);
+            $section = 'product' ; 
+            $resize = true ;
+            $uploader = new UploadsImg();
+            $fileName = $uploader->uploadPic( $request , $request->file('image'), $path  ,  $resize ,  $section  );
+                $input['image'] = $fileName;
+        }
+        else {
+            $input['image'] = $product->image;
+        }
 
+        $product->update($input);
         // بروزرسانی اطلاعات محصول
         $product->title = $request->title;
         $product->url = $request->url;
         $product->old_price = $request->old_price;
         $product->price = $request->price;
         $product->title_seo = $request->title_seo;
+        $product->video_link  = $request->video_link ;
         $product->description_seo = $request->description_seo;
         $product->status = $request->status;
         $product->how_to_use = $request->how_to_use;
@@ -153,12 +194,19 @@ class ProductController extends Controller
         $product->save();
 
         // بروزرسانی دسته‌های محصول
-        $categoryIds = $request->category_id;
+        // $categoryIds = $request->category_id;
         // // حذف دسته‌های قبلی محصول
-        if ($request->has('category_id')) {
-            $product->assignCategory($request['category_id']);
-        }
-      
+        // if ($request->has('category_id')) {
+        //     $product->assignCategory($request['category_id']);
+//         // }
+//       // بروزرسانی دسته‌های محصول  
+// $categoryIds = $request->category_id;  
+// $product->category()->sync($categoryIds);
+
+$product->categories()->detach();
+        $product->assignCategory($request['category_id']);
+
+
 
         return redirect()->route('admin.products.index');
     }

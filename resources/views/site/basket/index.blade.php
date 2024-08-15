@@ -2,6 +2,7 @@
 @section('content')
 <!-- =======================
 Page Banner START -->
+	@if ($basket->basketItems->count() > 0 )  {
 <section class="py-0">
 	<div class="container">
 		<div class="row">
@@ -47,12 +48,11 @@ Page Banner END -->
 					<div class="table-responsive border-0 rounded-3">
 						<!-- Table START -->
 						<table class="table align-middle p-4 mb-0">
-                        @if($basket && $basket->basketItems->count() > 0)  
 
 							<!-- Table head -->
 							<!-- Table body START -->
 							<tbody class="border-top-0">
-                            @foreach($basket->basketItems as $item)  
+                            @foreach($basketItems as $item)  
 
 								<tr>
 									<!-- Course item -->
@@ -60,7 +60,7 @@ Page Banner END -->
 										<div class="d-lg-flex align-items-center">
 											<!-- Image -->
 											<div class="w-100px w-md-80px mb-2 mb-md-0">
-												<img src="assets/images/courses/4by3/08.jpg" class="rounded" alt="">
+												<img src="{{ asset('assets/uploads/content/pro/medium/'. $item->product->image )}}" class="rounded" alt="">
 											</div>
 											<!-- Title -->
 											<h6 class="mb-0 ms-lg-3 mt-2 mt-lg-0">	
@@ -73,7 +73,7 @@ Page Banner END -->
 
 									<!-- Amount item -->
 									<td class="text-center">
-										<h5 class="text-success mb-0"> {{number_format((intval($item->product->price)))  }} تومان</h5>
+										<h5 class="text-success mb-0"> {{ number_format(intval($item->product->price)) }} تومان</h5>
 									</td>
 									<!-- Action item -->
 									<td>
@@ -84,11 +84,11 @@ Page Banner END -->
 
              <a href="{{ route('site.basket.destroy', $item->id) }}" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item->id }}').submit();">  
                 Remove  
-            </a>  
-            <form id="delete-form-{{ $item->id }}" action="{{ route('site.basket.destroy', $item->id) }}" method="POST" style="display: none;">  
-                @csrf  
-                @method('DELETE')  
-            </form>  
+          	  </a>  
+				<form id="delete-form-{{ $item->id }}" action="{{ route('site.basket.destroy', $item->id) }}" method="POST" style="display: none;">  
+					@csrf  
+					@method('DELETE')  
+				</form>  
 
 
                                     </td>
@@ -99,24 +99,10 @@ Page Banner END -->
 
                         
 						</table>
-                        @else  
-                    <p>سبد خرید شما خالی است.</p>  
-                @endif  
+                   
 					</div>
 
-					<!-- Coupon input and button -->
-					<div class="row g-3 mt-2">
-						<div class="col-md-6">
-							<div class="input-group">
-								<input class="form-control form-control " placeholder="">
-								<button type="button" class="btn btn-primary">کد تخفیف</button>
-							</div>
-						</div>
-						<!-- Update button -->
-						<div class="col-md-6 text-md-end">
-							<button class="btn btn-primary mb-0" disabled>اعمال</button>
-						</div>
-					</div>	
+				
 				</div>
 			</div>
 			<!-- Main content END -->
@@ -132,7 +118,7 @@ Page Banner END -->
 					<ul class="list-group list-group-borderless mb-2">
 						<li class="list-group-item px-0 d-flex justify-content-between">
 							<span class="h6 fw-light mb-0">قیمت</span>
-							<span class="h6 fw-light mb-0 fw-bold">{{  $formattedTotalPrice }} تومان</span>
+							<span class="h6 fw-light mb-0 fw-bold">{{ number_format(intval(@$total)) }} تومان</span>
 						</li>
 						<li class="list-group-item px-0 d-flex justify-content-between">
 							<span class="h6 fw-light mb-0">کد تخفیف</span>
@@ -159,6 +145,13 @@ Page Banner END -->
 		</div><!-- Row END -->
 	</div>
 </section>
+@else {
+
+	@include('site.basket.empty')
+}
+
+}
+@endif
 <!-- =======================
 Page content END -->
 @stop

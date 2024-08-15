@@ -78,6 +78,24 @@ class UploadsImg
         }
 
     }
+    elseif  ($section === 'product') {
+            
+        if ( str_contains($routeName ,'admin.products.') ) {
+            $smallx = 70 ;
+            $smally = 50 ;
+
+            $mediumx = 300 ;
+            $mediumy = 200 ;
+
+            $bigx = 600 ;
+            $bigy =400;
+            return  $this->uploadImg($path,  $file ,  $resize , $smallx , $smally , $mediumx ,$mediumy , $bigx , $bigy );
+
+        }
+        
+
+    }
+
         return false; 
     }
 

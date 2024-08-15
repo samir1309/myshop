@@ -38,25 +38,36 @@
 										<input id="url" name="url" type="text" class="form-control"
 											value="@if(isset($data->url)){{$data->url}}@endif">
 									</div>
+									<div class="col-lg-6 form-group">
+										<label for="video_link" class="col-form-label">لینک ویدیو</label>
+										<input id="video_link" name="video_link" type="text" class="form-control"
+											value="@if(isset($data->video_link)){{$data->video_link}}@endif">
+									</div>
 
+									<div class="col-lg-6 form-group">
+		<label class="col-form-label"> تصویر(حداکثر حجم ۴۰ کیلو بایت ) </label>
+		<input class="form-control" type="file" name="image" accept=".jpg, .png ,.JPEG ">
+		@if(isset($data->image))
+            <img src="{{ @$data -> showImage}}" class="w-50">
+        @endif
+	</div> 
                                     	<!-- Choice item -->
 									<div class="col-lg-6">
                                     <label class="form-label">دسته</label>
 										
 
-										<select class="form-select js-choice z-index-9 border-0 bg-light" name="category_id"
-										 value="@if(isset($data->category_id)) {{$data->category_id}} @endif" aria-label="form-select-sm" >
-                                        <option value="">انتخاب دسته: </option>
-										
-										@foreach($category as $row)
 
-											<option value="{{ $row['id'] }}">
-										
-											{{ $row['title'] }}
-											</option>
-											@endforeach
-                                    
-										</select>
+<div class="col-lg-6">  
+    <label class="form-label">دسته</label>  
+    <select class="form-select js-choice z-index-9 border-0 bg-light" name="category_id[]" multiple>  
+        <option value="">انتخاب دسته: </option>  
+        @foreach($category as $category)  
+            <option value="{{ $category->id }}" @if(isset($data->id) && $data->categories->contains($category->id)) selected @endif>  
+                {{ $category->title }}  
+            </option>  
+        @endforeach  
+    </select>  
+</div>
 
 
 

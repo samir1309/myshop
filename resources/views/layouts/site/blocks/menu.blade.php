@@ -31,21 +31,52 @@
 					</ul>
 				</li>
 			</ul>
-
-			<div class="navbar-nav position-relative overflow-visible me-3">
-				<a href="{{ route('site.basket.index') }}" class="nav-link">	<i   id="basket-count"  class="fas fa-shopping-cart fs-5" ></i></a>
-				<span    class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"> {{ $totalCartItems }} 
-					<span class="visually-hidden"  >اقلام</span>
-				</span>
+				<div class="navbar-collapse collapse" id="navbarCollapse">
+				<!-- Nav Search START -->
+				<div class="col-xl-8">
+					<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+						<div class="nav-item w-100">
+							<form class="rounded position-relative">
+								<input class="form-control pe-5 bg-secondary bg-opacity-10 border-0" type="search" placeholder="جستجو..." aria-label="Search">
+								<button class="btn btn-link bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
+									type="submit"><i class="fas fa-search fs-6 text-primary"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-
 		
+			@if(!\Auth::check())
+			<!-- Signout button  -->
+			<div class="navbar-nav d-none d-lg-inline-block">
+			<a href="{{route ('panel.login')}}">
+
+				<button class="btn btn-sm btn-dark mb-0"><i class="fas fa-sign-in-alt me-2"></i>ورود</button>
+			</a>
 			</div>
-			<!-- Main navbar END -->
+			@else
+		<div class=" me-3">
+			<div class="" style="position: relative;">
 
-			<!-- Profile START -->
+				<a href="{{route ('panel.dashboard')}}" class="btn btn-light btn-round mb-0">
+								<i class="fas fa-user pt-2"></i>
+				</a>
+							</div>
+			</div>
+							<div class="" style="position: relative;">
+							<a class="btn btn-light btn-round mb-0"
+							href="{{ route('site.basket.index')}}" role="button" >
+								<i class="bi bi-cart2 fs-4"></i>
+							</a>
+							<span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark mt-xl-2 ms-n1">{{ @$totalCartItems}}
+								<span class="visually-hidden">اقلام</span></div>
+							</span>
+							@endif
+</div>
 
-			<!-- Profile START -->
+
+			
+
 		</div>
 	</nav>
 	<!-- Logo Nav END -->
